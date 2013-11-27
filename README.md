@@ -1,4 +1,6 @@
 AirCloneDroid
 =============
 
-A clone of AirDroid
+A clone of AirDroid, it's implement a PAW Server.
+
+
