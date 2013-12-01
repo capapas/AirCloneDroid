@@ -32,7 +32,7 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 
 ###2.1 Besoins fonctionnels
 
-L’intérêt de l’application réside dans sa capacité à fournir un contrôle simple et précis de certaines fonctionnalités. Ces fonctionnalités seront mises la catégorie « Must Have ». Les fonctionnalités ayant un peu d’intérêt ou qui sont plutôt cosmétiques seront mises dans la catégorie « Nice to have ». 
+L’intérêt de l’application réside dans sa capacité à fournir un contrôle simple et précis de certaines fonctionnalités. Ces fonctionnalités seront mises dans la catégorie « Must Have ». Les fonctionnalités ayant peu d’intérêt ou qui sont plutôt cosmétiques seront mises dans la catégorie « Nice to have ». 
 
 ####Must Have
 
