@@ -35,7 +35,7 @@ L’intérêt de l’application réside dans sa capacité à fournir un contrô
 
 **Gestion des Contacts** : la liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact. Elle doit également permettre l'ajout et la suppression de contact.
 
-**Gestion des applications** : l’application doit permettre le lancement, l’arrêt, l’installation, et la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
+**Gestion des applications** : l’application doit permettre l’arrêt, l’installation, et la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
 
 **Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent être accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, la suppression d'un fichier, et l’ajout d’un fichier, doivent être possible.
 
