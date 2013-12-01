@@ -39,6 +39,13 @@ Cette partie listera les fonctions (ou opérations, ou encore transformations) q
 
 Cette partie listera les spécifications non fonctionnelles qui sont toutes les spécifications qui n'expriment pas une fonction du logiciel (contraintes de performance, système d'exploitation cible...).
 
+Les fonctionnalités devront être réactives dans la majorité des cas. Certaines comme la WebCam par exemple pourront avoir une marge un peu plus large quant à la réactivité. L'application devra être disponible sous forme d'application (.APK) installable sur un **Smartphone** ou une **tablette** ayant comme système d'exploitation **Android**. La version minimale d'Android supportée par notre application n'a pas encore été définie, mais nous essayerons d'aller jusqu'à la version la plus ancienne possible par rapport aux fonctionnalités proposées.
+L'application devra également être sécurisée avec des mots de passes cryptés.
+
+Une bonne ergonomie sera également très souhaitable afin d'améliorer et de faciliter l'expérience utilisateur.
+
+Le lancement de l'interface se faisant sur un navigateur web à travers le PC, nous essayeront de suivre le maximum de normes du W3C et de la rendre compatible avec la majorité des navigateurs les plus utilisés.
+
 ##3. Contraintes
 
 ###3.1 Coûts
