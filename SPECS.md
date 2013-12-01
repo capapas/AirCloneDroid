@@ -1,15 +1,19 @@
 #Spécifications
 
+
 ##1. Présentation du projet
+
 
 ###1.1 Contexte
 
 Ce projet s'inscrit dans un cadre scolaire, plus précisément comme projet de fin d'études, en vu de l'obtention du diplôme d'architecte logiciel en BAC+5. Un panel de projets proposés par différentes entreprises aux étudiants entraîne un choix par ces derniers d'un des projets. La réalisation d'une application proposée par des entreprises permet de simuler la mise en situation réelle, avec un projet devant être fonctionnel et en production à la fin de l'année.
 Notre projet est une idée personnelle (et non un sujet d'entreprise). C'est une interface entre le PC et un Smartphone/une tablette permettant d'interagir avec ces derniers, directement depuis votre ordinateur. Ce projet a été validé par M. Sananes, qui jouera le rôle de l'entreprise dans la validation du **cahier des charges** et le suivi de projet.
 
+
 ###1.2 Objectifs
 
 Ce projet a pour objectif de nous mettre en situation réelle, en prenant rendez-vous avec une entreprise, pour établir le cahier des charges, voir les enjeux économiques, etc. Il nous habitue également à employer des bonnes méthodes de gestion de projet. L'objectif est que le projet soit terminé et mis en production avant la fin de la démonstration à l'école.
+
 
 ###1.3 Description de l'existant
 
@@ -24,6 +28,7 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 
 
 ##2. Expression des besoins
+
 
 ###2.1 Besoins fonctionnels
 
@@ -40,6 +45,7 @@ L’intérêt de l’application réside dans sa capacité à fournir un contrô
 **Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent être accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, la suppression d'un fichier, et l’ajout d’un fichier, doivent être possible.
 
 **Lecture de fichier vidéo et image** : L'application devra permettre la lecture de fichiers vidéos, et images.
+
 
 ####Nice To Have
 
@@ -67,7 +73,10 @@ Une bonne ergonomie sera également très souhaitable afin d'améliorer et de fa
 
 Le lancement de l'interface se faisant sur un navigateur web à travers le PC, nous essayeront de suivre le maximum de normes du W3C et de la rendre compatible avec la majorité des navigateurs les plus utilisés.
 
+
+
 ##3. Contraintes
+
 
 ###3.1 Coûts
 
@@ -88,29 +97,34 @@ Concernant les infrastructures logicielles, matérielles et humaines, nous allon
 
 ####Infrastructure logicielle :
 
-- Eclipse/Intellij (IDE)
+- Eclipse/Intellij (IDE) :
 Ce sont des environnements de développement intégrés très souples et très puissants permettant de développer un grand nombre d'applications différentes.
 
-- Serveur WEB mobile (PAW Server)
+- Serveur WEB mobile (PAW Server) :
 PAW Server sera au coeur de notre application. C'est un serveur WEB qui est lancé sur le smartphone/tablette, et qui a un certain nombre de classes et de fonctions. C'est le serveur qui sera utilisé pour notre application.
 
-- JAVA / BeanShell
+- JAVA / BeanShell :
 Nous utiliserons principalement le langage JAVA, étant donné que nous développerons sur Android.
 BeanShell est un interpréteur Java disponible en standard (au moins dans l'installation de Java6 sous Debian). L'idée de BeanShell est de fournir un interpréteur Java pouvant être embarqué dans une application pour la rendre scriptable.
-
 Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autonome: bsh. Tout comme un shell Unix vous permet d'exécuter des tâches en invoquant des commandes Unix, le shell BeanShell vous permet d'exécuter des instructions écrites en Java. Cet outil se révèle donc bien pratique pour expérimenter du code Java. Ou à fortiori pour se familiariser avec ce langage.
 
 ####Versioning et Documentation etc.
 
-- Github: Nous avons choisi d'héberger notre code sur GitHub car en plus d'utiliser un des meilleurs gestionnaires de version du marché (GIT), il propose aussi la meilleure interface du marché pour GIT. Il intègre par exemple un Wiki, un bugtracker, une gestion fine de l'équipe, etc.
+- Github :
+Nous avons choisi d'héberger notre code sur GitHub car en plus d'utiliser un des meilleurs gestionnaires de version du marché (GIT), il propose aussi la meilleure interface du marché pour GIT. Il intègre par exemple un Wiki, un bugtracker, une gestion fine de l'équipe, etc.
 
-- Format MarkDown: Pour tout les documents du projet nous avons choisi d'utiliser le format MarkDown, il s'agit d'un langage de balisage léger qui permet de mettre en forme facilement son texte sans rentrer dans une mise en forme complexe. Un des autres avantages est de pouvoir placer ce texte dans le repository et que tout le monde puisse le voir mis en forme directement sur GitHub, mais aussi générer avec ce fichier un PDF avec une mise en forme plus ou moins complexe.  
+- Format MarkDown :
+Pour tout les documents du projet nous avons choisi d'utiliser le format MarkDown, il s'agit d'un langage de balisage léger qui permet de mettre en forme facilement son texte sans rentrer dans une mise en forme complexe. Un des autres avantages est de pouvoir placer ce texte dans le repository et que tout le monde puisse le voir mis en forme directement sur GitHub, mais aussi générer avec ce fichier un PDF avec une mise en forme plus ou moins complexe.  
 
-- Skype / Mail: Ces outils nous servirons à communiquer ensemble pour les réunions.
+- Skype / Mail :
+Ces outils nous servirons à communiquer ensemble pour les réunions.
 
-- Google Drive: Cet outil nous servira pour tous les documents que nous ne pourrons pas écrire en Markdown (feuilles Excel, etc)
+- Google Drive :
+Cet outil nous servira pour tous les documents que nous ne pourrons pas écrire en Markdown (feuilles Excel, etc)
 
-- Trello: Pour gérer toutes les tâches de notre projet nous allons utiliser cette application. Elle se base en grande partie sur la philosophie agile. Chaque tâche est présentée sous forme d'un post-it qui peut être placer dans trois colonnes (A faire/ en cours / terminé). Des post-it peuvent être rajoutés. Il a beaucoup de similitudes avec JIRA.
+- Trello :
+Pour gérer toutes les tâches de notre projet nous allons utiliser cette application. Elle se base en grande partie sur la philosophie agile. Chaque tâche est présentée sous forme d'un post-it qui peut être placer dans trois colonnes (A faire/ en cours / terminé). Des post-it peuvent être rajoutés. Il a beaucoup de similitudes avec JIRA.
+
 
 ###3.2 Délais
 
@@ -139,15 +153,20 @@ Leurs niveaux de difficulté : si une tâche est difficile il vaut mieux soit re
 
 Comme le préconise Scrums, le chef de projet (scrum master) changera par cycle de deux semaines. De même en théorie n'ayant pas de réel client physique, ce sera un membre de l'equipe qui s'en chargera. Le client lui aussi changera toutes les deux semaines. Le fait de changer de chef de projet permet aux membres du projet d'être plus au courant de ce qui se passe dans le projet.
 
+
+
 ##4. Déroulement du projet
+
 
 ###4.1 Planication
 
 CF. GANTT
 
+
 ###4.2 Plan d'assurance qualité
 
 Une des règles fondamentales d'un projet agile est la réactivité et la livraison de code de qualité. C'est pour cela que nous essayerons d'utiliser des normes de codage. Nous écrirons aussi un maximum de tests unitaires afin de valider la non-régréssion dans le code et les fonctionnalités. Le fait d'utiliser une méthode agile suppose aussi que nous aurons plus de facilité à piloter finement notre projet par exemple rajouter une fonctionnalité qui n'etait pas prevu à la base ou choisir d'allouer plus de temps à une tâche.
+
 
 ###4.3 Documentation
 
