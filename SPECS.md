@@ -63,13 +63,24 @@ Concernant les infrastructures logicielles, matérielles et humaines, nous allon
 ####Infrastructure matérielle :
 
 - Ordinateur/Ordinateur Portable
-- SmartPhone/Tablette
+- SmartPhone/Tablette **sous Android**
 
 ####Infrastructure logicielle :
 
 - Eclipse/Intellij (IDE)
+Ce sont des environnement de développement intégrés très souples et très puissants permettant de développer un grand nombre d'applications différentes.
+
 - Server WEB mobile (PAW Server)
+PAW Server sera au coeur de notre application. C'est un serveur WEB qui est lancé sur le smartphone/tablette, et qui a un certain nombre de classes et de fonctions. C'est le serveur qui sera utilisé pour notre application.
+
 - Junit ou autre ?
+
+
+- JAVA / BeanShell
+Nous utiliserons principalement le langage JAVA, étant donné que nous développons sous Android.
+BeanShell est un interpréteur Java disponible en standard (au moins dans l'installation de Java6 sous Debian). L'idée de BeanShell est de fournir un interpréteur Java pouvant être embarqué dans une application pour la rendre scriptable.
+
+Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autonome: bsh. Tout comme un shell Unix vous permet d'exécuter des tâches en invoquant des commandes Unix, le shell BeanShell vous permet d'exécuter des instructions écrites en Java. Cet outil se révèle donc bien pratique pour expérimenter du code Java. Ou à fortiori pour se familiariser avec ce langage. 
 
 ####Versioning et Documentation etc.
 
