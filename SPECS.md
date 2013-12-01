@@ -118,7 +118,7 @@ Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autono
 
 ###3.2 Délais
 
-Ce projet étant un projet se réalisant dans le cadre de l’obtention du diplôme de fin d’année, la date butoir fixée le **1er juin 2014**.
+Ce projet étant un projet se réalisant dans le cadre de l’obtention du diplôme de fin d’année, ce projet devra, bien évidemment, être terminée avant la fin de l'année scolaire.
 
 Le cahier des charges, le diagramme de Gantt et la justification du modèle de gestion de projet retenu doivent être livrés le **2 Décembre 2013**.
 
