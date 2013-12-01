@@ -122,7 +122,7 @@ Ce projet étant un projet se réalisant dans le cadre de l’obtention du dipl�
 
 Le cahier des charges, le diagramme de Gantt et la justification du modèle de gestion de projet retenu doivent être livrés le **2 Décembre 2013**.
 
-La justification de l’architecture logicielle retenue, les documents de structuration, le story-board et les premières vues devront être livrés le **1er Avril 2013**.
+La justification de l’architecture logicielle retenue, les documents de structuration, le story-board et les premières vues devront être livrés le **1er Avril 2014**.
 
 Le **5 mai 2014**, l’application devra être terminée à 85% et une démonstration sera effetuée.
 
