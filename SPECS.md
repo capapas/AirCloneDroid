@@ -31,7 +31,7 @@ L’intérêt de l’application réside dans sa capacité à fournir un contrô
 
 ####Must Have
 
-**Gestion des SMS** : l’application doit permettre l’envoi de SMS aux contacts enregistrés dans le téléphone et des numéros non-enregistrés dans le téléphone. Elle doit aussi permettre la lecture et la suppression des SMS enregistrés sur le téléphone.
+**Gestion des SMS** : l’application doit permettre l’envoi de SMS aux contacts enregistrés dans le téléphone et des numéros non-enregistrés dans le téléphone. Elle doit aussi permettre la lecture et la suppression des SMS enregistrés sur le téléphone. Une notification doit également apparaître à l'écran lors de la réception d'un SMS.
 
 **Gestion des Contacts** : la liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact. Elle doit également permettre l'ajout et la suppression de contact.
 
