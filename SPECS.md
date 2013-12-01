@@ -34,7 +34,7 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 
 L’intérêt de l’application réside dans sa capacité à fournir un contrôle simple et précis de certaines fonctionnalités. Ces fonctionnalités seront mises la catégorie « Must Have ». Les fonctionnalités ayant un peu d’intérêt ou qui sont plutôt cosmétiques seront mises dans la catégorie « Nice to have ». 
 
-**Must Have**
+####Must Have
 
 **Gestion des SMS** : l’application doit permettre l’envoi de SMS aux contacts enregistrés dans le téléphone et des numéros non-enregistrés dans le téléphone. Elle doit aussi permettre la lecture et la suppression des SMS enregistrés sur le téléphone.
 
@@ -44,7 +44,7 @@ L’intérêt de l’application réside dans sa capacité à fournir un contrô
 
 **Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, et l’ajout d’un fichier.
 
-**Nice To Have**
+####Nice To Have
 
 **TextToSpeech** : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écris depuis l’ordinateur et le lire à haute voix. 
 
