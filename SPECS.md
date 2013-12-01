@@ -1,10 +1,5 @@
 #Spécifications
 
-##Table des matières
-**1. Présentation du projet**
-**II - Conclusion**
-
-
 ##1. Présentation du projet
 
 ###1.1 Contexte
@@ -158,5 +153,3 @@ Une des règles fondamentales d'un projet agile est la réactivité et la livrai
 Comme tout bon projet agile la documentation technique sera minimaliste mais complétée par un code clair, lisible et bien documenté.
 En ce qui concerne la documentation utilisateur, elle se doit d'être elle aussi minimaliste car un projet bien réalisé doit permettre à ceux qui l'utilise de le comprendre facilement, et de ne se servir de la documentation que pour les fonctionnalités principales et les cas particuliers. En général peu d'utilisateurs prennent la peine de la lire ou du moins en partie. Dans un projet agile il est préférable de livrer un projet plus complet au niveau fonctionnalités qu'êxtrement bien documenté.
 
-
-##Conclusion
