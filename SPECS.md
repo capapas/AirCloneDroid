@@ -34,27 +34,27 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 
 L’intérêt de l’application réside dans sa capacité à fournir un contrôle simple et précis de certaines fonctionnalités. Ces fonctionnalités seront mises la catégorie « Must Have ». Les fonctionnalités ayant un peu d’intérêt ou qui sont plutôt cosmétiques seront mises dans la catégorie « Nice to have ». 
 
-Must Have
+**Must Have**
 
-Gestion des SMS : l’application doit permettre l’envoi de SMS aux contacts enregistrés dans le téléphone et des numéros non-enregistrés dans le téléphone. Elle doit aussi permettre la lecture et la suppression des SMS enregistrés sur le téléphone.
+**Gestion des SMS** : l’application doit permettre l’envoi de SMS aux contacts enregistrés dans le téléphone et des numéros non-enregistrés dans le téléphone. Elle doit aussi permettre la lecture et la suppression des SMS enregistrés sur le téléphone.
 
-Gestion des Contacts : la liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact.
+**Gestion des Contacts** : la liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact.
 
-Gestion des applications : l’application doit permettre le lancement, l’arrêt, l’installation, la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
+**Gestion des applications** : l’application doit permettre le lancement, l’arrêt, l’installation, la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
 
-Gestion des fichiers : les fichiers enregistrés sur le téléphone doivent accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, et l’ajout d’un fichier.
+**Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, et l’ajout d’un fichier.
 
-Nice To Have
+**Nice To Have**
 
-TextToSpeech : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écris depuis l’ordinateur et le lire à haute voix. 
+**TextToSpeech** : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écris depuis l’ordinateur et le lire à haute voix. 
 
-Journal d’appel : l’application peut éventuellement permettre l’accès au journal d’appel.
+**Journal d’appel** : l’application peut éventuellement permettre l’accès au journal d’appel.
 
-Changer le fond d’écran : l’application peut éventuellement permettre la modification du fond d’écran du téléphone.
+**Changer le fond d’écran** : l’application peut éventuellement permettre la modification du fond d’écran du téléphone.
 
-Utiliser la caméra : l’application peut éventuellement permettre la prise de vidéo ou de photo à distance. 
+**Utiliser la caméra** : l’application peut éventuellement permettre la prise de vidéo ou de photo à distance. 
 
-L’envoi de mail : l’application peut éventuellement permettre l’envoi de mail.
+**L’envoi de mail** : l’application peut éventuellement permettre l’envoi de mail.
 
 
 ###2.2 Besoins non fonctionnels
