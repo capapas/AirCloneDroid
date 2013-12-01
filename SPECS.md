@@ -9,7 +9,7 @@
 
 ###1.1 Contexte
 
-Ce projet s'inscrit dans un cadre scolaire, plus précisément comme projet de fin d'études, en vu de l'obtention du diplôme d'architecte logiciel en BAC+5. Un panel de projets proposé par différentes entreprisesaux étudiants entraîne une sélection par ces derniers, ceci afin de simuler la mise en situation réelle, avec un projet fonctionnel et en production à la fin de l'année.
+Ce projet s'inscrit dans un cadre scolaire, plus précisément comme projet de fin d'études, en vu de l'obtention du diplôme d'architecte logiciel en BAC+5. Un panel de projets proposés par différentes entreprises aux étudiants entraîne une sélection par ces derniers, ceci afin de simuler la mise en situation réelle, avec un projet fonctionnel et en production à la fin de l'année.
 Notre projet est une idée personnelle d'interface PC permettant d'interagir avec votre Smartphone/tablette depuis votre ordinateur. Ce projet a été validé par M. Sananes, qui jouera le rôle de l'entreprise dans la validation du cahier des charges et le suivi de projet.
 
 ###1.2 Objectifs
@@ -18,7 +18,7 @@ Ce projet a pour objectif de nous mettre en situation réelle, en prenant rendez
 
 ###1.3 Description de l'existant
 
-Il n'y a bien entendu par d'existant, puisque c'est un projet qui part de zéro.
+Il n'y a bien entendu pas d'existant, puisque c'est un projet qui part de zéro.
 Le projet sera développé sur mobile, plus précisément sous Android. Il y aura une interaction Ordinateur/Smartphone(Tablette). Le développement se fera donc avec :
 
 - Ordinateur,
@@ -32,7 +32,7 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 
 ###2.1 Besoins fonctionnels
 
-L’intérêt de l’application réside dans sa capacité à fournir un contrôle simple et précis de certaines fonctionnalités. Ces fonctionnalités seront mises dans la catégorie « Must Have ». Les fonctionnalités ayant peu d’intérêt ou qui sont plutôt cosmétiques seront mises dans la catégorie « Nice to have ». 
+L’intérêt de l’application réside dans sa capacité à fournir un contrôle simple et précis de certaines fonctionnalités. Ces fonctionnalités seront mises dans la catégorie « Must Have ». Les fonctionnalités ayant peu d’intérêt ou que l'on peut qualifier de fonctionnalités cosmétiques, seront mises dans la catégorie « Nice to have ». 
 
 ####Must Have
 
@@ -40,13 +40,13 @@ L’intérêt de l’application réside dans sa capacité à fournir un contrô
 
 **Gestion des Contacts** : la liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact.
 
-**Gestion des applications** : l’application doit permettre le lancement, l’arrêt, l’installation, la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
+**Gestion des applications** : l’application doit permettre le lancement, l’arrêt, l’installation, et la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
 
-**Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, et l’ajout d’un fichier.
+**Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent être accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, et l’ajout d’un fichier, doivent être possible.
 
 ####Nice To Have
 
-**TextToSpeech** : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écris depuis l’ordinateur et le lire à haute voix. 
+**TextToSpeech** : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écris depuis l’ordinateur et le lire. 
 
 **Journal d’appel** : l’application peut éventuellement permettre l’accès au journal d’appel.
 
@@ -106,32 +106,32 @@ Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autono
 
 ####Versioning et Documentation etc.
 
-- Github: Nous avons choisit d'héberger notre code sur GitHub car en plus d'utiliser un des meilleurs gestionnaire de version du marché (GIT), il propose aussi la meilleure interface du marché pour GIT. Il intègre par exemple un Wiki, un bugtracker, une gestion fine de l'équipe, etc...
+- Github: Nous avons choisi d'héberger notre code sur GitHub car en plus d'utiliser un des meilleurs gestionnaires de version du marché (GIT), il propose aussi la meilleure interface du marché pour GIT. Il intègre par exemple un Wiki, un bugtracker, une gestion fine de l'équipe, etc...
 
-- Format MarkDown: Pour tout les documents du projet nous avons choisi d'utiliser le format MarkDown, il s'agit d'un langage de balisage léger qui permet de mettre en forme facilement son texte sans rentrer dans une mise en forme complexe. Un des autres avantage est de pouvoir placer ce texte dans le repository et que tout le monde puisse le voir mis en forme directement sur GitHub, mais aussi générer avec ce fichier un PDF avec une mise en forme plus ou moins complexe.  
+- Format MarkDown: Pour tout les documents du projet nous avons choisi d'utiliser le format MarkDown, il s'agit d'un langage de balisage léger qui permet de mettre en forme facilement son texte sans rentrer dans une mise en forme complexe. Un des autres avantages est de pouvoir placer ce texte dans le repository et que tout le monde puisse le voir mise en forme directement sur GitHub, mais aussi générer avec ce fichier un PDF avec une mise en forme plus ou moins complexe.  
 
 - Skype / Mail: Ces outils nous servirons à communiquer ensemble pour les réunions.
 
-- Google Drive: Cette outil nous servira pour tous les documents que nous ne pourrons pas écrire en Markdown (feuilles Excel, etc)
+- Google Drive: Cet outil nous servira pour tous les documents que nous ne pourrons pas écrire en Markdown (feuilles Excel, etc)
 
-- Trello: Pour gérer toutes les tâches de notre projet nous allons utiliser cette application. Cette application ce base en grande partie sur la philosophie agile. Chaque tâche est présenté sous forme d'un post-it qui peut etre placer dans 3 colonne (A faire/ en cours / terminé)
+- Trello: Pour gérer toutes les tâches de notre projet nous allons utiliser cette application. Cette application se base en grande partie sur la philosophie agile. Chaque tâche est présentée sous forme d'un post-it qui peut être placer dans trois colonnes (A faire/ en cours / terminé)
 
 ###3.2 Délais
 
-Ce projet étant un projet ce réalisant dans le cadre de l’obtention du diplôme de fin d’année, la date butoir fixé le 1er juin 2014.
+Ce projet étant un projet se réalisant dans le cadre de l’obtention du diplôme de fin d’année, la date butoir fixée le 1er juin 2014.
 
 Le cahier des charges, le diagramme de Gantt et la justification du modèle de gestion de projet retenu doivent être livrés le 2 Décembre 2013.
 
 La justification de l’architecture logicielle retenue, les documents de structuration, le story-board et les premières vues devront être livrés le 1er Avril 2013.
 
-Le 5 mai 2014, l’application devra être terminée à 85% et une démo sera effetuée.
+Le 5 mai 2014, l’application devra être terminée à 85% et une démonstration sera effetuée.
 
 
 ###3.3 Méthodologie de gestion de projet utilisée
 
-Sur notre projet annuel nous allons appliquer les principes fondamentaux des méthodes agiles. Car nous sommes convaincu  qu'utiliser les règles de l'agile ne peut être que bénéfique à l'avancée du projet. Nous allons nous baser sur la méthode Scrums mais malheuresement il nous sera impossible de mettre en oeuvre totalement cette méthode. Nous allons donc ci-dessous vous expliquer comment va se dérouler notre méthode de travail. 
+Sur notre projet annuel nous allons appliquer les principaux fondamentaux des méthodes agiles. Car nous sommes convaincus qu'utiliser les règles de l'agile ne peut être que bénéfique à l'avancée du projet. Nous allons nous baser sur la méthode Scrums mais malheuresement il nous sera impossible de mettre en oeuvre totalement cette méthode. Nous allons donc ci-dessous vous expliquer comment va se dérouler notre méthode de travail. 
 
-Dans un premier temps le point le plus important des méthodes agiles est la réactivé. Pour cela, dans un projet Scrum, nous aurions du avoir une réunion par jour (daily meeting) mais le temps que nous aurions du y consacrer étant trop important, nous nous dirigerons plutôt vers une à trois courtes réunions par semaine. Comme dans scrums cette réunion énoncera ce qui a été réussi et raté pendant la semaine, servira à redéfinir les tâches à effectuer pour la semaine suivante, mais aussi à identifier et aider les membres qui éprouvent des difficultées.
+Dans un premier temps le point le plus important des méthodes agiles est la réactivé. Pour cela, dans un projet Scrum, nous aurions dû avoir une réunion par jour (daily meeting) mais le temps que nous aurions dû y consacrer étant trop important, nous nous dirigerons plutôt vers une à trois courtes réunions par semaine. Comme dans scrums cette réunion énoncera ce qui a été réussi et raté pendant la semaine, servira à redéfinir les tâches à effectuer pour la semaine suivante, mais aussi à identifier et aider les membres qui éprouvent des difficultés.
 
 Comme dans Scrums nous allons classer les tâches à réaliser en utilisant deux catégories.
 Leurs utilités dans l'application
@@ -139,7 +139,7 @@ Leurs utilités dans l'application
 - **Must Have:** qui correspondent à toutes les fonctionnalités vitales pour le client
 - **Nice to Have:** toutes les fonctionnalités classées dans cette catégorie correspondent aux fonctionnalités non vitales pour que l'application puisse être utilisée par le client.
 
-Leurs niveau de difficulté : si une tâche est difficile il vaut mieux retarder son développement afin que les membres du projet se sentent plus à l'aise, ou placer le membre le plus compétent sur cette tâche. La difficulté sera calculée sur 10 en faisant la moyenne de l'estimation de la difficulté qu'aura choisie chaque membre.
+Leurs niveaux de difficulté : si une tâche est difficile il vaut mieux retarder son développement afin que les membres du projet se sentent plus à l'aise, ou placer le membre le plus compétent sur cette tâche. La difficulté sera calculée sur 10 en faisant la moyenne de l'estimation de la difficulté qu'aura choisie chaque membre.
 
 Comme le préconise Scrums, le chef de projet (scrum master) changera par cycle de deux semaines. De même en théorie n'ayant pas de réel client physique se sera un membre de l'equipe qui s'en chargera. Le client lui aussi changera toutes les deux semaines. Le fait de changer de chef de projet permet aux membres du projet d'être plus au courant de ce qui se passe dans le projet.
 
@@ -151,7 +151,7 @@ CF. GANTT
 
 ###4.2 Plan d'assurance qualité
 
-Une des règles fondamentale d'un projet agile est la réactivité et la livraison de code de qualité. C'est pour cela que nous essayerons d'utiliser des normes de codage. Nous écrirons aussi un maximum de tests unitaires afin de valider la non-régréssion dans le code et les fonctionnalités. Le fait d'utiliser une méthode agile suppose aussi que nous aurons plus de facilité à piloter finement notre projet par exemple rajouter une fonctionnalité qui n'etait pas prevu à la base ou choisir d'allouer plus de temps à une tâche.
+Une des règles fondamentales d'un projet agile est la réactivité et la livraison de code de qualité. C'est pour cela que nous essayerons d'utiliser des normes de codage. Nous écrirons aussi un maximum de tests unitaires afin de valider la non-régréssion dans le code et les fonctionnalités. Le fait d'utiliser une méthode agile suppose aussi que nous aurons plus de facilité à piloter finement notre projet par exemple rajouter une fonctionnalité qui n'etait pas prevu à la base ou choisir d'allouer plus de temps à une tâche.
 
 ###4.3 Documentation
 
