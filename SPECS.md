@@ -102,13 +102,19 @@ PAW Server sera au coeur de notre application. C'est un serveur WEB qui est lanc
 Nous utiliserons principalement le langage JAVA, étant donné que nous développons sous Android.
 BeanShell est un interpréteur Java disponible en standard (au moins dans l'installation de Java6 sous Debian). L'idée de BeanShell est de fournir un interpréteur Java pouvant être embarqué dans une application pour la rendre scriptable.
 
-Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autonome: bsh. Tout comme un shell Unix vous permet d'exécuter des tâches en invoquant des commandes Unix, le shell BeanShell vous permet d'exécuter des instructions écrites en Java. Cet outil se révèle donc bien pratique pour expérimenter du code Java. Ou à fortiori pour se familiariser avec ce langage. 
+Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autonome: bsh. Tout comme un shell Unix vous permet d'exécuter des tâches en invoquant des commandes Unix, le shell BeanShell vous permet d'exécuter des instructions écrites en Java. Cet outil se révèle donc bien pratique pour expérimenter du code Java. Ou à fortiori pour se familiariser avec ce langage.
 
 ####Versioning et Documentation etc.
 
-- Github
-- Format MarkDown
-- Skype / Gmail
+- Github: Nous avons choisit d'héberger notre code sur GitHub car en plus d'utiliser un des meilleurs gestionnaire de version du marché (GIT), il propose aussi la meilleure interface du marché pour GIT. Il intègre par exemple un Wiki, un bugtracker, une gestion fine de l'équipe, etc...
+
+- Format MarkDown: Pour tout les documents du projet nous avons choisi d'utiliser le format MarkDown, il s'agit d'un langage de balisage léger qui permet de mettre en forme facilement son texte sans rentrer dans une mise en forme complexe. Un des autres avantage est de pouvoir placer ce texte dans le repository et que tout le monde puisse le voir mis en forme directement sur GitHub, mais aussi générer avec ce fichier un PDF avec une mise en forme plus ou moins complexe.  
+
+- Skype / Mail: Ces outils nous servirons à communiquer ensemble pour les réunions.
+
+- Google Drive: Cette outil nous servira pour tous les documents que nous ne pourrons pas écrire en Markdown (feuilles Excel, etc)
+
+- Trello: Pour gérer toutes les tâches de notre projet nous allons utiliser cette application. Cette application ce base en grande partie sur la philosophie agile. Chaque tâche est présenté sous forme d'un post-it qui peut etre placer dans 3 colonne (A faire/ en cours / terminé)
 
 ###3.2 Délais
 
