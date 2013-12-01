@@ -110,21 +110,21 @@ Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autono
 
 ####Versioning et Documentation etc.
 
-- Github :
+- **Github** :
 Nous avons choisi d'héberger notre code sur GitHub car en plus d'utiliser un des meilleurs gestionnaires de version du marché (GIT), il propose aussi la meilleure interface du marché pour GIT. Il intègre par exemple un Wiki, un bugtracker, une gestion fine de l'équipe, etc.
 
-- Format MarkDown :
+- **Format MarkDown** :
 Pour tout les documents du projet nous avons choisi d'utiliser le format MarkDown, il s'agit d'un langage de balisage léger qui permet de mettre en forme facilement son texte sans rentrer dans une mise en forme complexe. Un des autres avantages est de pouvoir placer ce texte dans le repository et que tout le monde puisse le voir mis en forme directement sur GitHub, mais aussi générer avec ce fichier un PDF avec une mise en forme plus ou moins complexe.  
 
-- Skype / Mail :
+- **Skype / Mail** :
 Ces outils nous servirons à communiquer ensemble pour les réunions.
 
-- Google Drive :
+- **Google Drive** :
 Cet outil nous servira pour tous les documents que nous ne pourrons pas écrire en Markdown (feuilles Excel, etc)
 
-- Gantter: Il s'agit du service web que nous utilisont pour faire notre diagramme de Gantt, nous l'utilisont car en plus de fonctionner sur tout les systèmes d'exploitation, il permet de réaliser un export dans de nombreux formats (pdf/image/microsoft projetc, etc)
+- **Gantter**: Il s'agit du service web que nous utilisont pour faire notre diagramme de Gantt, nous l'utilisont car en plus de fonctionner sur tout les systèmes d'exploitation, il permet de réaliser un export dans de nombreux formats (pdf/image/microsoft projetc, etc)
 
-- Trello :
+- **Trello** :
 Pour gérer toutes les tâches de notre projet nous allons utiliser cette application. Elle se base en grande partie sur la philosophie agile. Chaque tâche est présentée sous forme d'un post-it qui peut être placer dans trois colonnes (A faire/ en cours / terminé). Des post-it peuvent être rajoutés. Il a beaucoup de similitudes avec JIRA.
 
 
