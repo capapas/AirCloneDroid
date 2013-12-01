@@ -26,6 +26,8 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 - Divers logiciels,
 - Réseau local.
 
+##2. Expression des besoins
+
 
 
 ##II - Conclusion
