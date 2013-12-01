@@ -43,13 +43,15 @@ L’intérêt de l’application réside dans sa capacité à fournir un contrô
 
 ####Nice To Have
 
-**TextToSpeech** : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écris depuis l’ordinateur et le lire. 
+**TextToSpeech** : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écrit depuis l’ordinateur et le lire. 
 
-**Journal d’appel** : l’application peut éventuellement permettre l’accès au journal d’appel.
+**Journal d’appel** : l’application peut éventuellement permettre l’accès au journal d’appel sous forme de tableau.
 
 **Changer le fond d’écran** : l’application peut éventuellement permettre la modification du fond d’écran du téléphone.
 
-**Utiliser la caméra** : l’application peut éventuellement permettre la prise de vidéo ou de photo à distance. 
+**Utiliser la caméra** : l’application peut éventuellement permettre la prise de vidéo ou de photo à distance.
+
+**Utiliser le microphone** : L'application peut éventuellement permettre l'enregistrement à distance.
 
 **L’envoi de mail** : l’application peut éventuellement permettre l’envoi de mail.
 
@@ -58,7 +60,7 @@ L’intérêt de l’application réside dans sa capacité à fournir un contrô
 
 Cette partie listera les spécifications non fonctionnelles qui sont toutes les spécifications qui n'expriment pas une fonction du logiciel (contraintes de performance, système d'exploitation cible...).
 
-Les fonctionnalités devront être réactives dans la majorité des cas. Certaines comme la WebCam par exemple pourront avoir une marge un peu plus large quant à la réactivité. L'application devra être disponible sous forme d'application (.APK) installable sur un **Smartphone** ou une **tablette** ayant comme système d'exploitation **Android**. La version minimale d'Android supportée par notre application n'a pas encore été définie, mais nous essayerons d'aller jusqu'à la version la plus ancienne possible par rapport aux fonctionnalités proposées.
+Les fonctionnalités devront être réactives dans la majorité des cas. Certaines comme la WebCam par exemple pourront avoir une marge un peu plus large quant à la réactivité. Le projet devra être disponible sous forme d'application (.APK) installable sur un **Smartphone** ou une **tablette** ayant comme système d'exploitation **Android**. La version minimale d'Android supportée par notre application n'a pas encore été définie, mais nous essayerons d'aller jusqu'à la version la plus ancienne possible par rapport aux fonctionnalités proposées.
 L'application devra également être sécurisée avec des mots de passes cryptés.
 
 Une bonne ergonomie sera également très souhaitable afin d'améliorer et de faciliter l'expérience utilisateur.
