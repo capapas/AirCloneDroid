@@ -4,12 +4,12 @@
 
 ###1.1 Contexte
 
-Ce projet s'inscrit dans un cadre scolaire, plus précisément comme projet de fin d'études, en vu de l'obtention du diplôme d'architecte logiciel en BAC+5. Un panel de projets proposés par différentes entreprises aux étudiants entraîne une sélection par ces derniers, ceci afin de simuler la mise en situation réelle, avec un projet fonctionnel et en production à la fin de l'année.
-Notre projet est une idée personnelle d'interface PC permettant d'interagir avec votre Smartphone/tablette depuis votre ordinateur. Ce projet a été validé par M. Sananes, qui jouera le rôle de l'entreprise dans la validation du cahier des charges et le suivi de projet.
+Ce projet s'inscrit dans un cadre scolaire, plus précisément comme projet de fin d'études, en vu de l'obtention du diplôme d'architecte logiciel en BAC+5. Un panel de projets proposés par différentes entreprises aux étudiants entraîne un choix par ces derniers d'un des projets. La réalisation d'une application proposée par des entreprises permet de simuler la mise en situation réelle, avec un projet devant être fonctionnel et en production à la fin de l'année.
+Notre projet est une idée personnelle (et non un sujet d'entreprise). C'est une interface entre le PC et un Smartphone/une tablette permettant d'interagir avec ces derniers, directement depuis votre ordinateur. Ce projet a été validé par M. Sananes, qui jouera le rôle de l'entreprise dans la validation du **cahier des charges** et le suivi de projet.
 
 ###1.2 Objectifs
 
-Ce projet a pour objectif de nous mettre en situation réelle, en prenant rendez-vous avec une entreprise, pour établir le cahier des charges, voir les enjeux économiques. Il nous habitue également à employer des bonnes méthodes de gestion de projet. L'objectif est que le projet soit terminé et mis en production avant la fin de la démonstration à l'école.
+Ce projet a pour objectif de nous mettre en situation réelle, en prenant rendez-vous avec une entreprise, pour établir le cahier des charges, voir les enjeux économiques, etc. Il nous habitue également à employer des bonnes méthodes de gestion de projet. L'objectif est que le projet soit terminé et mis en production avant la fin de la démonstration à l'école.
 
 ###1.3 Description de l'existant
 
