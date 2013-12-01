@@ -65,4 +65,18 @@ Leurs niveau de difficulté : si une tâche est difficile il vaut mieux retarder
 
 Comme le préconise Scrums, le chef de projet (scrum master) changera par cycle de deux semaines. De même en théorie n'ayant pas de réel client physique se sera un membre de l'equipe qui s'en chargera. Le client lui aussi changera toutes les deux semaines. Le fait de changer de chef de projet permet aux membres du projet d'être plus au courant de ce qui se passe dans le projet.
 
-##II - Conclusion
+##4. Déroulement du projet
+
+###4.1 Planication
+
+CF. GANTT
+
+###4.2 Plan d'assurance qualité
+
+
+
+###4.3 Documentation
+
+
+
+##Conclusion
