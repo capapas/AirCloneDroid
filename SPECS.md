@@ -50,7 +50,32 @@ Le lancement de l'interface se faisant sur un navigateur web à travers le PC, n
 
 ###3.1 Coûts
 
+Les coûts budgétaires du développements seront inexistants pour l'instant. Ayant déjà le matériel nécessaire, et les logiciels, et utilisant beaucoup de logiciels libres, le coût sera nul.
 
+Concernant les infrastructures logicielles, matérielles et humaines, nous allons détailler ce qui sera utilisé.
+
+####Infrastructure humaines :
+
+- Maxime HORCHOLLE
+- Jean-Ernsso PIERRE
+- Florim KELMENI
+
+####Infrastructure matérielle :
+
+- Ordinateur/Ordinateur Portable
+- SmartPhone/Tablette
+
+####Infrastructure logicielle :
+
+- Eclipse/Intellij (IDE)
+- Server WEB mobile (PAW Server)
+- Junit ou autre ?
+
+####Versioning et Documentation etc.
+
+- Github
+- Format MarkDown
+- Skype / Gmail
 
 ###3.2 Délais
 
