@@ -32,8 +32,30 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 
 ###2.1 Besoins fonctionnels
 
-cf. Liste des fonctionnalités AirCloneDroid
-Cette partie listera les fonctions (ou opérations, ou encore transformations) que le logiciel devra réaliser.
+L’intérêt de l’application réside dans sa capacité à fournir un contrôle simple et précis de certaines fonctionnalités. Ces fonctionnalités seront mises la catégorie « Must Have ». Les fonctionnalités ayant un peu d’intérêt ou qui sont plutôt cosmétiques seront mises dans la catégorie « Nice to have ». 
+
+Must Have
+
+Gestion des SMS : l’application doit permettre l’envoi de SMS aux contacts enregistrés dans le téléphone et des numéros non-enregistrés dans le téléphone. Elle doit aussi permettre la lecture et la suppression des SMS enregistrés sur le téléphone.
+
+Gestion des Contacts : la liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact.
+
+Gestion des applications : l’application doit permettre le lancement, l’arrêt, l’installation, la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
+
+Gestion des fichiers : les fichiers enregistrés sur le téléphone doivent accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, et l’ajout d’un fichier.
+
+Nice To Have
+
+TextToSpeech : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écris depuis l’ordinateur et le lire à haute voix. 
+
+Journal d’appel : l’application peut éventuellement permettre l’accès au journal d’appel.
+
+Changer le fond d’écran : l’application peut éventuellement permettre la modification du fond d’écran du téléphone.
+
+Utiliser la caméra : l’application peut éventuellement permettre la prise de vidéo ou de photo à distance. 
+
+L’envoi de mail : l’application peut éventuellement permettre l’envoi de mail.
+
 
 ###2.2 Besoins non fonctionnels
 
@@ -90,6 +112,13 @@ Mais BeanShell est aussi livré avec un interpréteur de commande (shell) autono
 
 ###3.2 Délais
 
+Ce projet étant un projet ce réalisant dans le cadre de l’obtention du diplôme de fin d’année, la date butoir fixé le 1er juin 2014.
+
+Le cahier des charges, le diagramme de Gantt et la justification du modèle de gestion de projet retenu doivent être livrés le 2 Décembre 2013.
+
+La justification de l’architecture logicielle retenue, les documents de structuration, le story-board et les premières vues devront être livrés le 1er Avril 2013.
+
+Le 5 mai 2014, l’application devra être terminée à 85% et une démo sera effetuée.
 
 
 ###3.3 Méthodologie de gestion de projet utilisée
