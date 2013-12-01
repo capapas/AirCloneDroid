@@ -127,7 +127,7 @@ Ce projet étant un projet se réalisant dans le cadre de l’obtention du dipl�
 
 Sur notre projet annuel nous allons appliquer les principaux fondamentaux des méthodes agiles. Car nous sommes convaincus qu'utiliser les règles de l'agile ne peut être que bénéfique à l'avancée du projet. Nous allons nous baser sur la méthode Scrums mais malheuresement il nous sera impossible de mettre en oeuvre totalement cette méthode. Nous allons donc ci-dessous vous expliquer comment va se dérouler notre méthode de travail. 
 
-Dans un premier temps le point le plus important des méthodes agiles est la réactivé. Pour cela, dans un projet Scrum, nous aurions dû avoir une réunion par jour (daily meeting) mais le temps que nous aurions dû y consacrer étant trop important, nous nous dirigerons plutôt vers une à trois courtes réunions par semaine. Comme dans scrums cette réunion énoncera ce qui a été réussi et raté pendant la semaine, servira à redéfinir les tâches à effectuer pour la semaine suivante, mais aussi à identifier et aider les membres qui éprouvent des difficultés.
+Dans un premier temps, le point le plus important des méthodes agiles est la réactivé. Pour cela, dans un projet Scrum, nous aurions dû avoir une réunion par jour (daily meeting) mais le temps que nous aurions dû y consacrer étant trop important, nous nous dirigerons plutôt vers une à trois courtes réunions par semaine. Comme dans scrums cette réunion énoncera ce qui a été réussi et raté pendant la semaine, servira à redéfinir les tâches à effectuer pour la semaine suivante, mais aussi à identifier et aider les membres qui éprouvent des difficultés.
 
 Comme dans Scrums nous allons classer les tâches à réaliser en utilisant deux catégories.
 Leurs utilités dans l'application
@@ -135,9 +135,9 @@ Leurs utilités dans l'application
 - **Must Have:** qui correspondent à toutes les fonctionnalités vitales pour le client
 - **Nice to Have:** toutes les fonctionnalités classées dans cette catégorie correspondent aux fonctionnalités non vitales pour que l'application puisse être utilisée par le client.
 
-Leurs niveaux de difficulté : si une tâche est difficile il vaut mieux retarder son développement afin que les membres du projet se sentent plus à l'aise, ou placer le membre le plus compétent sur cette tâche. La difficulté sera calculée sur 10 en faisant la moyenne de l'estimation de la difficulté qu'aura choisie chaque membre.
+Leurs niveaux de difficulté : si une tâche est difficile il vaut mieux soit retarder son développement afin que les membres du projet se sentent plus à l'aise, soit placer le membre le plus compétent sur cette tâche. La difficulté sera calculée sur 10 en faisant la moyenne de l'estimation de la difficulté qu'aura choisie chaque membre.
 
-Comme le préconise Scrums, le chef de projet (scrum master) changera par cycle de deux semaines. De même en théorie n'ayant pas de réel client physique se sera un membre de l'equipe qui s'en chargera. Le client lui aussi changera toutes les deux semaines. Le fait de changer de chef de projet permet aux membres du projet d'être plus au courant de ce qui se passe dans le projet.
+Comme le préconise Scrums, le chef de projet (scrum master) changera par cycle de deux semaines. De même en théorie n'ayant pas de réel client physique, ce sera un membre de l'equipe qui s'en chargera. Le client lui aussi changera toutes les deux semaines. Le fait de changer de chef de projet permet aux membres du projet d'être plus au courant de ce qui se passe dans le projet.
 
 ##4. Déroulement du projet
 
@@ -151,6 +151,5 @@ Une des règles fondamentales d'un projet agile est la réactivité et la livrai
 
 ###4.3 Documentation
 
-Comme tout bon projet agile la documentation technique sera minimaliste mais complétée par un code clair, lisible et bien documenté.
+Comme tout bon projet agile la documentation technique sera minimaliste (en restant conforme bien évidemment) mais complétée par un code clair, lisible et bien documenté.
 En ce qui concerne la documentation utilisateur, elle se doit d'être elle aussi minimaliste car un projet bien réalisé doit permettre à ceux qui l'utilise de le comprendre facilement, et de ne se servir de la documentation que pour les fonctionnalités principales et les cas particuliers. En général peu d'utilisateurs prennent la peine de la lire ou du moins en partie. Dans un projet agile il est préférable de livrer un projet plus complet au niveau fonctionnalités qu'êxtrement bien documenté.
-
