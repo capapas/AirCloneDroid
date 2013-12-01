@@ -26,6 +26,8 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 - Divers logiciels,
 - Réseau local.
 
+
+
 ##2. Expression des besoins
 
 ###2.1 Besoins fonctionnels
@@ -41,3 +43,23 @@ Cette partie listera les fonctions (ou opérations, ou encore transformations) q
 Cette partie listera les spécifications non fonctionnelles qui sont toutes les spécifications qui n'expriment pas une fonction du logiciel (contraintes de performance, système d'exploitation cible...).
 
 ##II - Conclusion
+
+##III- Méthodologie Utilisée
+
+Sur notre projet annuel nous allons appliquer les principes fondamentaux des méthodes agiles. Car nous sommes convaincu  qu'utiliser les règles de l'agile ne peut être que bénéfique à l'avancé du projet. Nous allons nous baser sur la méthode Scrums mais malheuresement il nous sera impossible de mettre en oeuvre totalement cette méthode. Nous allons donc ci-dessous vous expliquer comment va ce dérouler notre méthode de travail. 
+
+ Dans un premier temps le point le plus important des méthodes agiles est la réactivé pour cela dans un projet Scrum nous aurions du avoir une réunion par jour (daily meeting) mais le temps que nous aurions du y consacrer était trop grand, nous allons donc plutôt faire une à trois courtes réunions par semaine. Comme dans scrums cette réunion consistera à parler de ce qui a été réussi et raté pendant cette semaine, de redéfinir les tâches à effectuer pour la semaine suivante, mais aussi aider les membres qui éprouve des difficultées.
+
+Comme dans Scrums nous allons classer les tâches à réaliser en utilisant deux catégories.
+Leurs utilité dans l'application
+
+- **Must Have:** qui correspondent à toutes les fonctionnalités vitales pour le client
+- **Nice to Have:** toutes les fonctionnalités classé dans cette catégorie correspondent aux fonctionnalités non vitale pour que l'application puisse être utilisé par le client
+
+Leurs niveau de difficulté, si une tâches est difficile il vaut mieux retarder son développement afin que les membres du projet se sentent plus à l'aise, ou placer le membre le plus compétent sur cette tâches. La difficulté sera calculé sur 10 en faisant la moyenne de l'estimation de la difficulté qu'aura chosie chaque membres.
+
+Comme le preconise Scrums les chefs de projet (scrum master) changera par cycle de deux semaines. De même en théorie n'ayant pas de réel client physique se sera un membre de l'equipe qui s'en chargera le client lui aussi changera toutes les deux semaines. Le fait de changer de chef de projet permet aux membres du projet d'être plus au courant de ce qui se passe dans le projet.
+
+
+
+
