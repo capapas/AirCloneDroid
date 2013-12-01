@@ -116,12 +116,12 @@ CF. GANTT
 
 ###4.2 Plan d'assurance qualité
 
-Une des règles fondamentale d'un projet agile est la réactivité et la livraison de code de qualité. C'est pour cela que nous essayerons d'utiliser des normes de codage. Nous écriront aussi un maximum de tests unitaire afin de valider qu'il n'y a pas eu de régréssion dans le code. Le fait d'utiliser une méthode agile suppose aussi que nous aurons plus de facilité à piloter finement nôtre projet par exemple rajouter une fonctionnalité qui n'etait pas prevu à la base ou choisir d'allouer plus de temps à une tâches.
+Une des règles fondamentale d'un projet agile est la réactivité et la livraison de code de qualité. C'est pour cela que nous essayerons d'utiliser des normes de codage. Nous écrirons aussi un maximum de tests unitaires afin de valider la non-régréssion dans le code et les fonctionnalités. Le fait d'utiliser une méthode agile suppose aussi que nous aurons plus de facilité à piloter finement notre projet par exemple rajouter une fonctionnalité qui n'etait pas prevu à la base ou choisir d'allouer plus de temps à une tâche.
 
 ###4.3 Documentation
 
-Comme tout bon projet agile la documentation technique sera minimaliste mais complété par un code clair, lisible et bien documenté.
-En se qui concerne la documentation utilisateur, elle se doit d'être elle aussi minimaliste car un projet si il est bien fait car en général peu d'utilisateur prennent la peine de le lire. Dans un projet agile on prefère livrer un projet plus complet au niveau fonctionnalité qu'extrement bien documenté. 
+Comme tout bon projet agile la documentation technique sera minimaliste mais complétée par un code clair, lisible et bien documenté.
+En ce qui concerne la documentation utilisateur, elle se doit d'être elle aussi minimaliste car un projet bien réalisé doit permettre à ceux qui l'utilise de le comprendre facilement, et de ne se servir de la documentation que pour les fonctionnalités principales et les cas particuliers. En général peu d'utilisateurs prennent la peine de la lire ou du moins en partie. Dans un projet agile il est préférable de livrer un projet plus complet au niveau fonctionnalités qu'êxtrement bien documenté.
 
 
 ##Conclusion
