@@ -28,6 +28,16 @@ Le projet sera développé sur mobile, plus précisément sous Android. Il y aur
 
 ##2. Expression des besoins
 
+###2.1 Besoins fonctionnels
 
+cf. Liste des fonctionnalités AirCloneDroid
+
+###2.1 Besoins fonctionnels
+
+Cette partie listera les fonctions (ou opérations, ou encore transformations) que le logiciel devra réaliser.
+
+###2.2 Besoins non fonctionnels
+
+Cette partie listera les spécifications non fonctionnelles qui sont toutes les spécifications qui n'expriment pas une fonction du logiciel (contraintes de performance, système d'exploitation cible...).
 
 ##II - Conclusion
