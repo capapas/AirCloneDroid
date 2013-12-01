@@ -122,6 +122,8 @@ Ces outils nous servirons à communiquer ensemble pour les réunions.
 - Google Drive :
 Cet outil nous servira pour tous les documents que nous ne pourrons pas écrire en Markdown (feuilles Excel, etc)
 
+- Gantter: Il s'agit du service web que nous utilisont pour faire notre diagramme de Gantt, nous l'utilisont car en plus de fonctionner sur tout les systèmes d'exploitation, il permet de réaliser un export dans de nombreux formats (pdf/image/microsoft projetc, etc)
+
 - Trello :
 Pour gérer toutes les tâches de notre projet nous allons utiliser cette application. Elle se base en grande partie sur la philosophie agile. Chaque tâche est présentée sous forme d'un post-it qui peut être placer dans trois colonnes (A faire/ en cours / terminé). Des post-it peuvent être rajoutés. Il a beaucoup de similitudes avec JIRA.
 
