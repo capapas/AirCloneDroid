@@ -19,6 +19,13 @@ Ce projet a pour objectif de nous mettre en situation réelle, en prenant rendez
 ###1.3 Description de l'existant
 
 Il n'y a bien entendu par d'existant, puisque c'est un projet qui part de zéro.
-Le projet sera développé sur mobile, plus précisément sous Android. Il y aura une interaction Ordinateur/Smartphone(Tablette).
+Le projet sera développé sur mobile, plus précisément sous Android. Il y aura une interaction Ordinateur/Smartphone(Tablette). Le développement se fera donc avec :
+
+- Ordinateur,
+- Smartphone/tablette,
+- Divers logiciels,
+- Réseau local.
+
+
 
 ##II - Conclusion
