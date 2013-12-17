@@ -51,7 +51,7 @@ La fenêtre de gestion des contacts sera composé d'une barre d'outils et d'une 
 Pour supprimer un contact, nous prévoyons un process similaire à celui qui permet de supprimer des messages.  
 Pour l'ajout de contact, il faudra cliquer sur le bouton d'ajout se trouvant dans la barre d'outils, qui affichera un formulaire dans lequel on pourra rensseigner toutes les informations nécessaires.
 
-**Gestion des applications** : l’application doit permettre l’arrêt, l’installation, et la suppression des applications, mais aussi être capable de lister les applications en cours d’exécution.
+**Accès à la liste des applications** : l'acces à la liste des applications installées doit être possible, si les contraintes techniques le permettent, des actions supplémentaires, tels que la suppressions des applications.
 
 **Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent être accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, la suppression d'un fichier, et l’ajout d’un fichier, doivent être possible.  
 La fenêtre de gestions des fichiers sera semblable à un explorateur windows, mais en plus simple. Comme indiquer plus haut elle permettra l'exécution d'actions dites "classiques". Dans le cas où l'utilisateur tente de mettre un fichier déja existant au même emplacement sur le téléphone, un message s'affichera à l'écran afin de prévenir l'utilisateur, et lui demandera s'il souhaite remplacer le fichier déja existant par celui que l'on souhaite placer.
