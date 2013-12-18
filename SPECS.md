@@ -40,30 +40,35 @@ L’intérêt d'une application réside dans sa capacité à répondre aux besoi
 ####Must Have
 
 **Gestion des SMS** : l’application doit permettre l’envoi de SMS aux contacts enregistrés dans le téléphone et des numéros non-enregistrés dans le téléphone. Elle doit aussi permettre la lecture et la suppression des SMS enregistrés sur le téléphone. Une notification doit également apparaître à l'écran lors de la réception d'un SMS.  
-Cette gestion sera possible grâce à une fenêtre qui s'ouvrira lorsque l'utilisateur cliquera sur l'icône présent sur le bureau. Cette fenetre sera composé d'une barre d'outils, et d'une liste de conversations.  
-La barre d'outils de cette fenetre contiendra une barre de recherche, un bouton de suppression, et un bouton permettant l'écriture de nouveaux messages. et permettra la suppresion des conversations, ainsi que l'écriture de nouveaux SMS.  
-Pour écrire un nouveaux SMS, il suffira de cliquer sur le bouton prévu à cet effet dans la barre d'outils. La vue se scindera en deux pour avoir d'un coté la liste des conversations et de l'autre une zone de texte prévu pour l'écriture du message et un champ dans lequel on renseignera le nom du contact s'il est enregistré dans le téléphone ou un numéro de téléphone.  
+Cette gestion sera possible grâce à une fenêtre qui s'ouvrira lorsque l'utilisateur cliquera sur l'icône présente sur le bureau. Cette fenetre sera composée d'une barre d'outils, et d'une liste de conversations.  
+La barre d'outils de cette fenêtre contiendra une barre de recherche, un bouton de suppression, et un bouton permettant l'écriture de nouveaux messages. et permettra la suppresion des conversations, ainsi que l'écriture de nouveaux SMS.  
+Pour écrire un nouveau SMS, il suffira de cliquer sur le bouton prévu à cet effet dans la barre d'outils. La vue se scindera en deux pour avoir d'un coté la liste des conversations et de l'autre une zone de texte prévu pour l'écriture du message et un champ dans lequel on renseignera le nom du contact s'il est enregistré dans le téléphone ou un numéro de téléphone.  
 Pour visualiser une conversations, il faudra la sélectionner.  
-Pour supprimer une conversation, nous avons deux possiblités. Soit on clique sur le bouton de suppression, qui va modifier la vue afin d'ajouter des checkbox permetttant la sélection des conversation que l'on souhaite supprimer. Soit en faisant un clique droit sur la conversation pour faire apparaitre un menu contextuel qui contiendra un bouton supprmier.
+Pour supprimer une conversation, nous avons deux possiblités. Soit on clique sur le bouton de suppression, qui va modifier la vue afin d'ajouter des checkbox permetttant la sélection des conversations que l'on souhaite supprimer. Soit en cliquant sur un bouton supprimer à côté de la conversation.
 
-**Gestion des Contacts** : la liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact. Elle doit également permettre l'ajout et la suppression de contact.  
-La fenêtre de gestion des contacts sera composé d'une barre d'outils et d'une liste de contacts. La barre d'outils contiendra une barre de recherche, un bouton d'ajout et un bouton de suppression.  
+**Gestion des Contacts** : La liste des contacts doit être accessible depuis l’ordinateur, et fournir les informations de base, à savoir le nom et le numéro de téléphone du contact. Elle doit également permettre l'ajout et la suppression de contact.  
+La fenêtre de gestion des contacts sera composée d'une barre d'outils et d'une liste de contacts. La barre d'outils contiendra une barre de recherche, un bouton d'ajout et un bouton de suppression.  
 Pour supprimer un contact, nous prévoyons un process similaire à celui qui permet de supprimer des messages.  
 Pour l'ajout de contact, il faudra cliquer sur le bouton d'ajout se trouvant dans la barre d'outils, qui affichera un formulaire dans lequel on pourra rensseigner toutes les informations nécessaires.
+Nous pourrons également modifier un contact déjà existant, en cliquant sur un bouton "édition" présent à côté de chaque contact et y modifier les champs.
 
-**Accès à la liste des applications** : l'acces à la liste des applications installées doit être possible, si les contraintes techniques le permettent, des actions supplémentaires, tels que la suppressions des applications.
+**Accès à la liste des applications** : L'acces à la liste des applications installées doit être possible, des actions supplémentaires, tels que la suppressions des applications.
+Une barre d'outil sera présente. Elle permettra de rechercher une application parmis la liste des applications affichées. Nous pourrons bien évidemment supprimer une application, ou télécharger celle-ci sous forme d'APK.
 
-**Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent être accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, la suppression d'un fichier, et l’ajout d’un fichier, doivent être possible.  
-La fenêtre de gestions des fichiers sera semblable à un explorateur windows, mais en plus simple. Comme indiquer plus haut elle permettra l'exécution d'actions dites "classiques". Dans le cas où l'utilisateur tente de mettre un fichier déja existant au même emplacement sur le téléphone, un message s'affichera à l'écran afin de prévenir l'utilisateur, et lui demandera s'il souhaite remplacer le fichier déja existant par celui que l'on souhaite placer.
+**Gestion des fichiers** : les fichiers enregistrés sur le téléphone doivent être accessibles sur l’ordinateur, et des opérations tel que la modification du nom d’un fichier, le déplacement d’un fichier, la récupération d’un fichier, la suppression d'un fichier, et l’ajout d’un fichier, doivent être possibles.  
+La fenêtre de gestions des fichiers sera semblable à un explorateur windows, mais en plus simple. Comme indiqué plus haut elle permettra l'exécution d'actions dites "classiques". Dans le cas où l'utilisateur tente de mettre un fichier déja existant au même emplacement sur le téléphone, un message s'affichera à l'écran afin de prévenir l'utilisateur, et lui demandera s'il souhaite remplacer le fichier déja existant par celui que l'on souhaite placer.
+Nous pourrons également sélectionner plusieurs fichiers en même temps, puis les télécharger. L'appui sur le bouton de téléchargement doit permettre de créer un .ZIP ou .RAR contenant tous les fichiers et le télécharger ensuite sur l'ordinateur.
 
 **Lecture de fichier vidéo et image** : L'application devra permettre la lecture de fichiers vidéos, et images.
+Un diaporama pourra être utilisé également pour la visualisation des images.
+Les images et vidéos étant des fichiers, les mêmes traitement que la gestion des fichiers seront également possibles sur ces derniers.
 
 
 ####Nice To Have
 
 **TextToSpeech** : il s’agit d’une fonctionnalité de synthétisation de voix. L’application peut récupérer un texte écrit depuis l’ordinateur et le lire. 
 
-**Journal d’appel** : l’application peut éventuellement permettre l’accès au journal d’appel sous forme de tableau.
+**Journal d’appel** : l’application peut éventuellement permettre l’accès au journal d’appel sous forme de tableau. Les informations à afficher restent à définir, mais ça sera sous la forme d'une facture/d'un tableau de bord, avec par exemple la date d'appel, le contact appelé, les numéros appelés, la durée de l'appel si possible etc.
 
 **Changer le fond d’écran** : l’application peut éventuellement permettre la modification du fond d’écran du téléphone.
 
