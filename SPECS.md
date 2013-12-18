@@ -74,7 +74,7 @@ Les images et vidéos étant des fichiers, les mêmes traitement que la gestion 
 
 **Utiliser la caméra** : l’application peut éventuellement permettre la prise de vidéo ou de photo à distance.
 
-**Utiliser le microphone** : L'application peut éventuellement permettre l'enregistrement à distance.
+**Utiliser le microphone** : L'application peut éventuellement permettre l'enregistrement à distance. Au clic sur un bouton sur l'interface, l'enregistreur se lance sur le téléphone et enregistre tout ce qu'il y a aux alentours.
 
 **L’envoi de mail** : l’application peut éventuellement permettre l’envoi de mail.
 
@@ -88,7 +88,7 @@ L'application devra également être sécurisée avec des mots de passes crypté
 
 Une bonne ergonomie sera également très souhaitable afin d'améliorer et de faciliter l'expérience utilisateur.
 
-Le lancement de l'interface se faisant sur un navigateur web à travers le PC, nous essayeront de suivre le maximum de normes du W3C et de la rendre compatible avec la majorité des navigateurs les plus utilisés.
+Le lancement de l'interface se faisant sur un navigateur web à travers le PC, nous essayeront de suivre le maximum de normes du W3C et de la rendre compatible avec la majorité des navigateurs les plus utilisés (au moins Firefox et Chrome).
 
 
 
