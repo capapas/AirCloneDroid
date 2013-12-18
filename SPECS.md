@@ -117,8 +117,7 @@ Concernant les infrastructures logicielles, matérielles et humaines, nous allon
 - **Eclipse/Intellij (IDE)** :
 Ce sont des environnements de développement intégrés très souples et très puissants permettant de développer un grand nombre d'applications différentes.
 
-- **Serveur WEB mobile (PAW Server)** :
-PAW Server sera au coeur de notre application. C'est un serveur WEB qui est lancé sur le smartphone/tablette, et qui a un certain nombre de classes et de fonctions. C'est le serveur qui sera utilisé pour notre application.
+- **Serveur WEB mobile (PAW Server)** : PAW Server sera au coeur de notre application. C'est un serveur WEB qui est lancé sur le smartphone/tablette, et qui a un certain nombre de classes et de fonctions. C'est le serveur qui sera utilisé pour notre application. En effet c'est la solution qui nous semble la plus envisageable comme dit précédement PAW Server est en effet un serveur d'application Java, basé sur le langage BeansShell (un dérivé de Java orienté script). De base il existe une appplication sur le store Android qui implemente quelques unes des fonctionnalitées qu'il est possible d'utiliser avec PAW Server comme l'envoie de SMS, etc... Mais il est aussi possible de l'utiliser pour héberger sa propre application (c'est ce que nous ferront dans notre projet). Nous avons choisi cet outil car ils nous a semblé que c'est l'outil le plus abouti et le plus simple a utiliser pour le moment sur le marché. Grâce à sa communauté bien que restreinte mais très active et à sa documentation poussée et fournie. 
 
 - **JAVA / BeanShell** :
 Nous utiliserons principalement le langage JAVA, étant donné que nous développerons sur Android.
