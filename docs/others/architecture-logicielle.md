@@ -20,3 +20,4 @@ Nous utiliseront bien évidemment un IDE nous facilitant le développement (Ecli
 
 ##Schéma:
 Voici le schéma standard de développement de notre application
+![Cycle de développement](https://github.com/capapas/AirCloneDroid/blob/master/docs/img/archi-logi.png)
