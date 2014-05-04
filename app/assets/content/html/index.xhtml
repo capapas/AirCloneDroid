@@ -3,30 +3,32 @@
 <title>It works!</title>
 </head>
 <body>
-<h1>It works!</h1>
-This is the default web page for this server.<br/>
-The web server is running but no content has been added, yet.
-<hr/>
-<h3>System Information</h3>
-<bsh>
-import de.fun2code.android.pawserver.util.Utils;
+	<h1>It works!</h1>
+	This is the default web page for this server.
+	<br /> The web server is running but no content has been added, yet.
+	<hr />
+	<h3>System Information</h3>
+	<bsh> import de.fun2code.android.pawserver.util.Utils; service =
+	server.props.get("serviceContext"); url =
+	service.getPawServer().server.protocol + "://" +
+	Utils.getLocalIpAddress() + ":" + service.getPawServer().serverPort; </bsh>
 
-service = server.props.get("serviceContext");
-url = service.getPawServer().server.protocol + "://" + Utils.getLocalIpAddress() + ":" + service.getPawServer().serverPort;
-</bsh>
-
-URL: <b><tt><bsh>$$.print(url)</bsh></tt></b><br/>
-PAW Version: <b><tt><bsh>$$.print(service.getPawServer().getServerProperty("version"))</bsh></tt></b><br/>
-<p>
-<bsh>
-String[] opts = { "BOARD", "BRAND", "DISPLAY", "MODEL", "PRODUCT",
-                  "TIME", "TYPE", "USER", "VERSION.INCREMENTAL",
-                  "VERSION.RELEASE", "VERSION.SDK"};
-
-for(o : opts) {
-	print(o + ": <b><tt>" + eval("android.os.Build." + o) + "</tt></b><br/>");
-}
-</bsh>
-</p>
+	URL:
+	<b><tt>
+			<bsh>$$.print(url)</bsh>
+		</tt></b>
+	<br /> PAW Version:
+	<b><tt>
+			<bsh>$$.print(service.getPawServer().getServerProperty("version"))</bsh>
+		</tt></b>
+	<br />
+	<p>
+		<bsh> String[] opts = { "BOARD", "BRAND", "DISPLAY", "MODEL",
+		"PRODUCT", "TIME", "TYPE", "USER", "VERSION.INCREMENTAL",
+		"VERSION.RELEASE", "VERSION.SDK"}; for(o : opts) { print(o + ": <b><tt>"
+				+ eval("android.os.Build." + o) + "</tt></b>
+		<br />
+		"); } </bsh>
+	</p>
 </body>
 </html>
