@@ -1,9 +1,5 @@
 package de.fun2code.android.buildownpawserver;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -14,6 +10,10 @@ import de.fun2code.android.pawserver.PawServerActivity;
 import de.fun2code.android.pawserver.PawServerService;
 import de.fun2code.android.pawserver.listener.ServiceListener;
 import de.fun2code.android.pawserver.util.Utils;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * Sample "Build your own PAW server" Activity.
@@ -36,10 +36,12 @@ public class BuildOwnPawServerActivity extends PawServerActivity implements Serv
 		 * Defines the installation directory.
 		 */
 		// Use /data/data/... directory
-		INSTALL_DIR = getFilesDir().getAbsolutePath() + "/www";
-		
-		// Use sdcard
-		//INSTALL_DIR = Environment.getExternalStorageDirectory().getPath() + "/www";
+//		INSTALL_DIR = getFilesDir().getAbsolutePath() + "/www";
+
+        // Use sdcard
+        INSTALL_DIR = Environment.getExternalStorageDirectory().getPath() + "/www";
+
+        Log.e("aaaaaaa", "aaaaaaaaa");
 
 		/*
 		 * Turn the PawServerActivity into runtime mode.
