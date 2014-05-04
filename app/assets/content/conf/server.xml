@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<server>
+  <port>7575</port>
+  <log>0</log>
+  <http>false</http>
+  <https>false</https>
+  <passthrough>false</passthrough>
+  <maxPost>209715200</maxPost>
+  <connectionType>http</connectionType>
+</server>
+
