@@ -212,7 +212,7 @@ public class BuildOwnPawServerActivity extends PawServerActivity implements Serv
 //                Log.e(TAG, e.getMessage());
 //            }
 //        }
-        copyFileOrDir("content");
+        copyFileOrDir("");
     }
 
     private void copyFileOrDir(String path) {
