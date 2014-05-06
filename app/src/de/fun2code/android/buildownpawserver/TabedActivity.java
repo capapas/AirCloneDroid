@@ -45,7 +45,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
     Fragment fragmentTab1 = new Connexion();
     Fragment fragmentTab2 = new ChangePassword();
 
-    @SuppressLint({ "InlinedApi", "NewApi" })
+    @SuppressLint({"InlinedApi", "NewApi"})
     @Override
     public void onCreate(Bundle savedInstanceState) {
         TAG = "BuildOwnPawServer";
@@ -54,7 +54,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
         INSTALL_DIR = Environment.getExternalStorageDirectory().getPath() + "/www";
 
         /*
-		 * Turn the PawServerActivity into runtime mode.
+         * Turn the PawServerActivity into runtime mode.
 		 * Otherwise an error may occur if some things special to the
 		 * original PAW server are not available.
 		 */
