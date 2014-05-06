@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.fun2code.android.buildownpawserver"
-    android:versionCode="1"
-    android:versionName="1.0" >
+          package="de.fun2code.android.buildownpawserver"
+          android:versionCode="1"
+          android:versionName="1.0">
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
-    
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
             android:allowBackup="true"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
         <activity
                 android:name=".TabedActivity"
                 android:label="@string/app_name"
                 android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+                android:name="de.fun2code.android.buildownpawserver.tab.ChangePassword"
+                android:label="@string/title_activity_change_password"
+                android:screenOrientation="portrait">
+        </activity>
+        <activity
+                android:name="de.fun2code.android.buildownpawserver.tab.Connexion"
+                android:label="@string/title_activity_connexion"
+                android:screenOrientation="portrait">
+        </activity>
+
+        <service android:name=".BuildOwnPawServerService"/>
     </application>
 </manifest>

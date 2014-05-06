@@ -1,16 +1,17 @@
 package de.fun2code.android.buildownpawserver;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
+import android.app.ActionBar.TabListener;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Fragment;
-import android.app.ActionBar.TabListener;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
+import android.view.Window;
 import android.widget.TextView;
 import de.fun2code.android.buildownpawserver.tab.ChangePassword;
 import de.fun2code.android.buildownpawserver.tab.Connexion;
@@ -60,11 +61,12 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
         calledFromRuntime = true;
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabed);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
+//        setContentView(R.layout.activity_tabed);
         handler = new Handler();
 
         // URL TextView
-        viewUrl = (TextView) findViewById(R.id.textView1);
+        viewUrl = (TextView) findViewById(R.id.server_state);
 
         checkInstallationTmp();
 
@@ -77,7 +79,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
 		/*
 		 * Register activity with service.
 		 */
-        BuildOwnPawServerService.setActivity(this);
+
         setContentView(R.layout.activity_tabed);
 
         ActionBar actionBar = getActionBar();
@@ -91,7 +93,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
 
         actionBar.addTab(tab1);
         actionBar.addTab(tab2);
-
+        BuildOwnPawServerService.setActivity(this);
 
     }
 
@@ -164,7 +166,8 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    viewUrl.setText("Server running on: " + url);
+                    Log.e("zzzzzz", String.valueOf(viewUrl));
+//                    viewUrl.setText("Server running on: " + url);
                 }
             });
 
