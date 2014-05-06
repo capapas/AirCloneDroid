@@ -1,12 +1,12 @@
 package de.fun2code.android.buildownpawserver;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
+import android.app.ActionBar.TabListener;
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.annotation.SuppressLint;
-import android.app.ActionBar;
-import android.app.Fragment;
-import android.app.ActionBar.TabListener;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
@@ -44,7 +44,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
     Fragment fragmentTab1 = new Connexion();
     Fragment fragmentTab2 = new ChangePassword();
 
-    @SuppressLint({ "InlinedApi", "NewApi" })
+    @SuppressLint({"InlinedApi", "NewApi"})
     @Override
     public void onCreate(Bundle savedInstanceState) {
         TAG = "BuildOwnPawServer";
@@ -53,7 +53,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
         INSTALL_DIR = Environment.getExternalStorageDirectory().getPath() + "/www";
 
         /*
-		 * Turn the PawServerActivity into runtime mode.
+         * Turn the PawServerActivity into runtime mode.
 		 * Otherwise an error may occur if some things special to the
 		 * original PAW server are not available.
 		 */
@@ -69,7 +69,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
         checkInstallationTmp();
 
         /*
-		 * Register handler This is needed in order to get dialogs etc. to work.
+         * Register handler This is needed in order to get dialogs etc. to work.
 		 */
         messageHandler = new MessageHandler(this);
         BuildOwnPawServerService.setActivityHandler(messageHandler);
@@ -78,7 +78,6 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
 		 * Register activity with service.
 		 */
         BuildOwnPawServerService.setActivity(this);
-        setContentView(R.layout.activity_tabed);
 
         ActionBar actionBar = getActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
