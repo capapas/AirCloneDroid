@@ -42,8 +42,8 @@ public class BuildOwnPawServerService extends PawServerService {
 		TAG = getString(R.string.app_name);
 		startedOnBoot = false;
 		isRuntime = false;
-		serverConfig = BuildOwnPawServerActivity.INSTALL_DIR + "/conf/server.xml";
-		pawHome = BuildOwnPawServerActivity.INSTALL_DIR + "/";
+		serverConfig = TabedActivity.INSTALL_DIR + "/conf/server.xml";
+		pawHome = TabedActivity.INSTALL_DIR + "/";
 		useWakeLock = true;
 		hideNotificationIcon = false;
 		execAutostartScripts = false;
@@ -51,7 +51,7 @@ public class BuildOwnPawServerService extends PawServerService {
 		notificationTitle = "Notification Title";
 		notificationMessage = "Notification Message";
 		appName = getString(R.string.app_name);
-		activityClass = "de.fun2code.android.buildownpawserver.BuildOwnPawServerActivity";
+		activityClass = "de.fun2code.android.buildownpawserver.TabedActivity";
 		notificationDrawableId = R.drawable.ic_launcher;
 	}
 	

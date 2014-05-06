@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BuildOwnPawServer</string>
+    <string name="app_name">MyRemoteDroid</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="server_not_launched">Server Not Launched</string>
+    <string name="title_activity_tabed">TabedActivity</string>
+    <string name="title_activity_change_password">ChangePassword</string>
+    <string name="title_activity_connexion">Connexion</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="change_password">Change password</string>
 </resources>

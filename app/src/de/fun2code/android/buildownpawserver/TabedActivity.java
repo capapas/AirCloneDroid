@@ -3,10 +3,18 @@ package de.fun2code.android.buildownpawserver;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.ActionBar.TabListener;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
 import android.widget.TextView;
+import de.fun2code.android.buildownpawserver.tab.ChangePassword;
+import de.fun2code.android.buildownpawserver.tab.Connexion;
+import de.fun2code.android.buildownpawserver.tab.MyTabListener;
 import de.fun2code.android.pawserver.PawServerActivity;
 import de.fun2code.android.pawserver.PawServerService;
 import de.fun2code.android.pawserver.listener.ServiceListener;
@@ -15,35 +23,51 @@ import de.fun2code.android.pawserver.util.Utils;
 import java.io.*;
 import java.util.HashMap;
 
-/**
- * Sample "Build your own PAW server" Activity.
- */
-public class BuildOwnPawServerActivity extends PawServerActivity implements ServiceListener {
+
+@SuppressLint("NewApi")
+public class TabedActivity extends PawServerActivity implements ServiceListener {
+
     @SuppressWarnings("unused")
     private Handler handler;
 
     // View that displays the server URL
     private TextView viewUrl;
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	ActionBar.Tab tab1, tab2;
+	Fragment fragmentTab1 = new Connexion();
+	Fragment fragmentTab2 = new ChangePassword();
+    
+	@SuppressLint({ "InlinedApi", "NewApi" })
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
         TAG = "BuildOwnPawServer";
 
-		/*
-		 * Defines the installation directory.
-		 */
-        // Use /data/data/... directory
-//		INSTALL_DIR = getFilesDir().getAbsolutePath() + "/www";
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tabed);
+        
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        
+        tab1 = actionBar.newTab().setText("Connexion");
+        tab2 = actionBar.newTab().setText("Change Password");
+        
+        tab1.setTabListener((TabListener) new MyTabListener(fragmentTab1));
+        tab2.setTabListener((TabListener) new MyTabListener(fragmentTab2));
+        
+        actionBar.addTab(tab1);
+        actionBar.addTab(tab2);
 
         // Use sdcard
         INSTALL_DIR = Environment.getExternalStorageDirectory().getPath() + "/www";
 
-        Log.e("aaaaaaa", "aaaaaaaaa");
-
-		/*
+        /*
 		 * Turn the PawServerActivity into runtime mode.
 		 * Otherwise an error may occur if some things special to the
 		 * original PAW server are not available.
@@ -51,18 +75,15 @@ public class BuildOwnPawServerActivity extends PawServerActivity implements Serv
         calledFromRuntime = true;
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_tabed);
         handler = new Handler();
 
         // URL TextView
-        viewUrl = (TextView) findViewById(R.id.url);
-
-		/* Check installation and extract ZIP if necessary */
-//		checkInstallation();
+        viewUrl = (TextView) findViewById(R.id.textView1);
 
         checkInstallationTmp();
 
-		/*
+        /*
 		 * Register handler This is needed in order to get dialogs etc. to work.
 		 */
         messageHandler = new MessageHandler(this);
@@ -72,7 +93,9 @@ public class BuildOwnPawServerActivity extends PawServerActivity implements Serv
 		 * Register activity with service.
 		 */
         BuildOwnPawServerService.setActivity(this);
-    }
+
+
+	}
 
     @Override
     public void onResume() {
@@ -119,7 +142,7 @@ public class BuildOwnPawServerActivity extends PawServerActivity implements Serv
             return;
         }
 
-        Intent serviceIntent = new Intent(BuildOwnPawServerActivity.this,
+        Intent serviceIntent = new Intent(TabedActivity.this,
                 BuildOwnPawServerService.class);
 
         startService(serviceIntent);
