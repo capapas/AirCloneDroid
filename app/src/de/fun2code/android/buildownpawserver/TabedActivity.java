@@ -34,35 +34,20 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
     private TextView viewUrl;
 
     @Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
-	ActionBar.Tab tab1, tab2;
-	Fragment fragmentTab1 = new Connexion();
-	Fragment fragmentTab2 = new ChangePassword();
-    
-	@SuppressLint({ "InlinedApi", "NewApi" })
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
+    ActionBar.Tab tab1, tab2;
+    Fragment fragmentTab1 = new Connexion();
+    Fragment fragmentTab2 = new ChangePassword();
+
+    @SuppressLint({ "InlinedApi", "NewApi" })
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         TAG = "BuildOwnPawServer";
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabed);
-        
-        ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        
-        tab1 = actionBar.newTab().setText("Connexion");
-        tab2 = actionBar.newTab().setText("Change Password");
-        
-        tab1.setTabListener((TabListener) new MyTabListener(fragmentTab1));
-        tab2.setTabListener((TabListener) new MyTabListener(fragmentTab2));
-        
-        actionBar.addTab(tab1);
-        actionBar.addTab(tab2);
 
         // Use sdcard
         INSTALL_DIR = Environment.getExternalStorageDirectory().getPath() + "/www";
@@ -93,9 +78,22 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
 		 * Register activity with service.
 		 */
         BuildOwnPawServerService.setActivity(this);
+        setContentView(R.layout.activity_tabed);
+
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        tab1 = actionBar.newTab().setText("Connexion");
+        tab2 = actionBar.newTab().setText("Change Password");
+
+        tab1.setTabListener((TabListener) new MyTabListener(fragmentTab1));
+        tab2.setTabListener((TabListener) new MyTabListener(fragmentTab2));
+
+        actionBar.addTab(tab1);
+        actionBar.addTab(tab2);
 
 
-	}
+    }
 
     @Override
     public void onResume() {
