@@ -1,5 +1,6 @@
 package de.fun2code.android.buildownpawserver;
 
+import android.util.Log;
 import de.fun2code.android.pawserver.PawServerService;
 
 /**
@@ -43,7 +44,8 @@ public class BuildOwnPawServerService extends PawServerService {
 		startedOnBoot = false;
 		isRuntime = false;
 		serverConfig = TabedActivity.INSTALL_DIR + "/conf/server.xml";
-		pawHome = TabedActivity.INSTALL_DIR + "/";
+        Log.d(TAG, serverConfig + " *************************************");
+        pawHome = TabedActivity.INSTALL_DIR + "/";
 		useWakeLock = true;
 		hideNotificationIcon = false;
 		execAutostartScripts = false;

@@ -166,7 +166,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Log.e("zzzzzz", String.valueOf(viewUrl));
+                    Log.e("zzzzzz", String.valueOf(url));
 //                    viewUrl.setText("Server running on: " + url);
                 }
             });
