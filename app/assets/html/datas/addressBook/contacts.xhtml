@@ -1,0 +1,67 @@
+<bsh>
+import android.app.Service;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.Contacts.People;
+import android.provider.Contacts.Phones;
+import android.database.Cursor;
+
+service = (Service) server.props.get("serviceContext");
+
+if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
+	String[] contactsColumns = { android.provider.ContactsContract.Data.RAW_CONTACT_ID, android.provider.ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME };
+	String[] phonesColumns = { android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER, android.provider.ContactsContract.CommonDataKinds.Phone.TYPE};
+
+	contactsUri = android.provider.ContactsContract.Data.CONTENT_URI;
+	phonesUri = android.provider.ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+
+	curContacts = service.getContentResolver().query(contactsUri, contactsColumns, // Which columns to return
+		  android.provider.ContactsContract.CommonDataKinds.StructuredName.MIMETYPE + "=?",
+		  new String[] { android.provider.ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE },
+		  android.provider.ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME + " ASC" // Order-by clause (ascending by name)
+		  );
+
+	print("[");	  
+	if(curContacts .moveToFirst()) {
+	do {
+
+		id = curContacts.getString(curContacts .getColumnIndex(android.provider.ContactsContract.Data.RAW_CONTACT_ID));
+		name = curContacts.getString(curContacts .getColumnIndex(android.provider.ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME));
+
+		phonesWhere = android.provider.ContactsContract.CommonDataKinds.Phone.RAW_CONTACT_ID + "=" + id;
+		curPhones = service.getContentResolver().query(phonesUri, phonesColumns, // Which columns to return
+					phonesWhere, // WHERE clause; which rows to return(all rows)
+					null, // WHERE clause selection arguments (none)
+					android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER + " ASC" // Order-by clause (ascending by name)
+					);
+	    
+        print("\t{\n\t\t\"name\" :\"" + name +"\",\n\t\t\"id\" :\"" + id +"\"");
+
+		if (curPhones.moveToFirst()) {
+                    print(",\n\t\t\"phones\" : [");
+					c = 0;
+					do {
+						phoneNo = curPhones.getString(curPhones.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER));
+						type = curPhones.getLong(curPhones.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE));
+
+						print("\t\t\t\"" + phoneNo + "\"");
+						if(!curPhones.isLast()) {
+						    print(",");
+						}
+						
+						c++;
+					} while (curPhones.moveToNext());
+					print("\t\t]");
+		}
+		print("\t}");
+		if(!curContacts.isLast()) {
+    	    print(",");
+		}
+		curPhones.close();
+	} while(curContacts .moveToNext());
+	}
+    print("]");	
+	curContacts .close();
+}
+
+</bsh>
