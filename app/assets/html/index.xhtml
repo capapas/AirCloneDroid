@@ -1,40 +1,189 @@
-<html>
-<head>
-    <title>It works!</title>
-</head>
-<body>
-<h1>It works!</h1>
-This is the default web page for this server.<br/>
-The web server is running but no content has been added, yet.
-<hr/>
-<div style="background-color: #6fbc74">
-<h3>System Information</h3>
-    <bsh>
-        import de.fun2code.android.pawserver.util.Utils;
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" type="text/css" href="public/css/w2ui/w2ui-1.3.2.min.css" />
+		<link rel="stylesheet" type="text/css" href="public/css/style.css" />
+		<script src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="public/javascript/w2ui/w2ui-1.3.2.min.js"></script>
+		<script type="text/javascript" src="datas/testDataset/contacts.js"></script>
+		<script>
+			//<![CDATA[
+				var icons = {
+					sms : { label:'SMS', imgPath:'messages.png'},
+					app : { label:'Applications', imgPath:'app.png'},
+					photo : { label:'Photos', imgPath:'photo.png'},
+					ringtone : { label:'Sonneries', imgPath:'ringtone.png'},
+					callLog : { label:'Journal d\'appel', imgPath:'phone.png'},
+					frequent : { label:'Contacts Fréquents', imgPath:'frequent.png'},
+					camera : { label:'Appareil photo', imgPath:'camera.png'},
+					find : { label:'Trouver le téléphone', imgPath:'find.png'},
+					screenshot : { label:'Capture d\'écran', imgPath:'screenshot.png'},
+					contacts : { label:'Contacts', imgPath:'contacts.png'},
+					video : { label:'Vidéos', imgPath:'video.png'},
+					music : { label:'Musiques', imgPath:'music.png'},
+					file : { label:'Fichiers', imgPath:'file.png'},
+					help : { label:'Aide', imgPath:'help.png'},
+				}
+				function genIcon(label, imgPath){
+					$('#desktop').append('<div class="desktop-shortcut-area"><div class="desktop-shortcut"><img src="public/img/desktop/airdroid/'+imgPath+'" /><p>'+label+'</p></div></div>');
+				}
+				jQuery(function( $ ) {
+					for(var index in icons){
+						genIcon(icons[index].label, icons[index].imgPath);
+					}
+					$( ".window" ).draggable();
+					$( ".window" ).resizable({ handles: "all" });
+				});
+			//]]>
+		</script>
+	</head>
+	<body>
+		<div id="desktop">
+			<div class="window">
+				<div class="header">
+					<h4 class="title">Contact</h4>
+					<div class="command">
+						<a class="min"></a>
+						<a class="max"></a>
+						<a class="close"></a>
+					</div>
+				</div>
+				<div class="content"></div>
+			</div>
+		</div>
+		<div id="taskbar">
+			<div id="list">
+				<div class="opened tunggal"><div class="folder small"></div>
+					<div class="screenshot">
+						<div class="col1 fold">
+							<div class="close">&amp;times;</div>
+							<div class="kotak"></div>
+						</div>
+					</div>
+				</div>
+				<div class="opened tunggal"><div class="folder np small"></div>
+					<div class="screenshot">
+						<div class="col1 ntpad">
+							<div class="close">&amp;times;</div>
+							<div class="kotak"></div>
+						</div>
+					</div>
+				</div>
+				<div class="opened pilled">
+					<div class="screenshot">
+						<div class="col1 blank">
+							<div class="close">&amp;times;</div>
+							<div class="kotak"></div>
+						</div>
+						<div class="col2 blank">
+							<div class="close">&amp;times;</div>
+							<div class="kotak"></div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div> <!-- list -->
+				<div class="clear"></div>
+			</div> <!-- opened pilled -->
 
-        service = server.props.get("serviceContext");
-        url = service.getPawServer().server.protocol + "://" + Utils.getLocalIpAddress() + ":" +
-        service.getPawServer().serverPort;
-    </bsh>
-
-    URL: <b><tt>
-    <bsh>$$.print(url)</bsh>
-</tt></b><br/>
-    PAW Version: <b><tt>
-    <bsh>$$.print(service.getPawServer().getServerProperty("version"))</bsh>
-</tt></b><br/>
-
-    <p>
-        <bsh>
-            String[] opts = { "MANUFACTURER", "BOARD", "BRAND", "DISPLAY", "MODEL", "PRODUCT",
-            "TIME", "TYPE", "USER", "VERSION.INCREMENTAL",
-            "VERSION.RELEASE", "VERSION.SDK"};
-
-            for(o : opts) {
-            print(o + ": <b><tt>" + eval("android.os.Build." + o) + "</tt></b><br/>");
-            }
-        </bsh>
-    </p>
-</div>
-</body>
+			<div class="opened hide"></div>
+			<div id="fright">
+				<div class="connection" title="Local Area Connection is Now Ready to Prikitiw..."></div>
+				<div class="clear"></div>
+			</div>
+		</div> <!-- startbar -->
+		<script>
+			//<![CDATA[
+				$(function () {
+					$('.content').w2layout({
+						name: 'content',
+						panels: [
+							{ type: 'top', size: 30 },
+							{ type: 'left', size: 150, resizable: true}
+						]
+					});
+						var btnCount = 0;
+					w2ui['content'].content('top', $().w2toolbar({
+						name: 'toolbar',
+						items: [
+							{ type: 'button', id: 'append', caption: 'Refresh', img: 'icon-reload' },
+							{ type: 'button', id: 'insert', caption: 'Add', img: 'icon-add' },
+							{ type: 'button', id: 'delete', caption: 'Delete', img: 'icon-delete' }
+						],
+						onClick: function (event) {}
+					}));
+					/*
+					w2ui['content'].content('main', $().w2grid({
+						name: 'grid',
+						header: 'List of Names',
+						show: {
+							toolbar: true,
+							footer: true
+						},
+						columns: [
+							{ field: 'recid', caption: 'ID', size: '50px', sortable: true, attr: 'align=center' },
+							{ field: 'lname', caption: 'Last Name', size: '30%', sortable: true, resizable: true },
+							{ field: 'fname', caption: 'First Name', size: '30%', sortable: true, resizable: true },
+							{ field: 'email', caption: 'Email', size: '40%', resizable: true },
+							{ field: 'sdate', caption: 'Start Date', size: '120px', resizable: true },
+						],
+						searches: [
+							{ field: 'lname', caption: 'Last Name', type: 'text' },
+							{ field: 'fname', caption: 'First Name', type: 'text' },
+							{ field: 'email', caption: 'Email', type: 'text' },
+						],
+						sortData: [{ field: 'recid', direction: 'ASC' }],
+						records: [
+							{ recid: 1, fname: 'John', lname: 'doe', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 2, fname: 'Stuart', lname: 'Motzart', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 3, fname: 'Jin', lname: 'Franson', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 4, fname: 'Susan', lname: 'Ottie', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 5, fname: 'Kelly', lname: 'Silver', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 6, fname: 'Francis', lname: 'Gatos', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 7, fname: 'Mark', lname: 'Welldo', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 8, fname: 'Thomas', lname: 'Bahh', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 9, fname: 'Sergei', lname: 'Rachmaninov', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 20, fname: 'Jill', lname: 'Doe', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 21, fname: 'Frank', lname: 'Motzart', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 22, fname: 'Peter', lname: 'Franson', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 23, fname: 'Andrew', lname: 'Ottie', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 24, fname: 'Manny', lname: 'Silver', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 25, fname: 'Ben', lname: 'Gatos', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 26, fname: 'Doer', lname: 'Welldo', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 27, fname: 'Shashi', lname: 'bahh', email: 'jdoe@gmail.com', sdate: '4/3/2012' },
+							{ recid: 28, fname: 'Av', lname: 'Rachmaninov', email: 'jdoe@gmail.com', sdate: '4/3/2012' }
+						]
+					}));
+					*/
+					nodes = [];
+					for(var i in contacts){
+						nodes.push({id: contacts[i].id, text: contacts[i].name});
+					}
+					
+					w2ui['content'].content('left', $().w2sidebar({
+						name: 'sidebar',
+						topHTML: '<div style="background-color: #eee; padding: 10px 5px; border-bottom: 1px solid silver">Liste des contacts</div>',
+						img: null,
+						nodes: nodes,
+						onClick: function (event) {
+							var i = 0;
+							while(i < contacts.length && contacts[i].id != event.target)
+								i++;
+							if(i < contacts.length){
+								var html = '<table>'
+											+'<tr><th>Nom</tdh><td>'+contacts[i].name+'</td></tr>'
+											+'<tr><th>Number</tdh><td>'+contacts[i].phone+'</td></tr>'
+											+'<tr><th>Email</tdh><td>'+contacts[i].email+'</td></tr>'
+											+'</table>';
+								w2ui['content'].content('main', html);
+								console.log(contacts[i]);
+							}
+						}
+					}));
+				});
+			//]]>
+		</script>
+	</body>
 </html>
