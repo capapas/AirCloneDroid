@@ -11,9 +11,12 @@ service = (Service) server.props.get("serviceContext");
 if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
 	String[] contactsColumns = { android.provider.ContactsContract.Data.RAW_CONTACT_ID, android.provider.ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME };
 	String[] phonesColumns = { android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER, android.provider.ContactsContract.CommonDataKinds.Phone.TYPE};
+    String[] emailsColumns = { android.provider.ContactsContract.CommonDataKinds.Email.ADDRESS, android.provider.ContactsContract.CommonDataKinds.Email.TYPE};
+
 
 	contactsUri = android.provider.ContactsContract.Data.CONTENT_URI;
 	phonesUri = android.provider.ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+	emailsUri = android.provider.ContactsContract.CommonDataKinds.Email.CONTENT_URI;
 
 	curContacts = service.getContentResolver().query(contactsUri, contactsColumns, // Which columns to return
 		  android.provider.ContactsContract.CommonDataKinds.StructuredName.MIMETYPE + "=?",
@@ -34,24 +37,48 @@ if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
 					null, // WHERE clause selection arguments (none)
 					android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER + " ASC" // Order-by clause (ascending by name)
 					);
-	    
+		
+		emailsWhere = android.provider.ContactsContract.CommonDataKinds.Email.RAW_CONTACT_ID + "=" + id;
+		curEmails = service.getContentResolver().query(emailsUri, emailsColumns, // Which columns to return
+					emailsWhere, // WHERE clause; which rows to return(all rows)
+					null, // WHERE clause selection arguments (none)
+					android.provider.ContactsContract.CommonDataKinds.Email.ADDRESS + " ASC" // Order-by clause (ascending by name)
+					);
+					
         print("\t{\n\t\t\"name\" :\"" + name +"\",\n\t\t\"id\" :\"" + id +"\",\n\t\t\"contactImg\" : \"public/img/seeContactImg.xhtml?contactId=" + id + "\"");
+    
+        if (curEmails.moveToFirst()) {
+            print(",\n\t\t\"email\" : [");
+			c = 0;
+			do {
+				email = curEmails.getString(curEmails.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Email.ADDRESS));
+
+				print("\t\t\t\"" + email + "\"");
+				if(!curEmails.isLast()) {
+				    print(",");
+				}
+				
+				c++;
+			} while (curEmails.moveToNext());
+			print("\t\t]");
+		}
+
 
 		if (curPhones.moveToFirst()) {
-                    print(",\n\t\t\"phones\" : [");
-					c = 0;
-					do {
-						phoneNo = curPhones.getString(curPhones.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER));
-						type = curPhones.getLong(curPhones.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE));
+            print(",\n\t\t\"phones\" : [");
+			c = 0;
+			do {
+				phoneNo = curPhones.getString(curPhones.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER));
+				type = curPhones.getLong(curPhones.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE));
 
-						print("\t\t\t\"" + phoneNo + "\"");
-						if(!curPhones.isLast()) {
-						    print(",");
-						}
-						
-						c++;
-					} while (curPhones.moveToNext());
-					print("\t\t]");
+				print("\t\t\t\"" + phoneNo + "\"");
+				if(!curPhones.isLast()) {
+				    print(",");
+				}
+				
+				c++;
+			} while (curPhones.moveToNext());
+			print("\t\t]");
 		}
 		print("\t}");
 		if(!curContacts.isLast()) {
