@@ -35,7 +35,7 @@ if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
 					android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER + " ASC" // Order-by clause (ascending by name)
 					);
 	    
-        print("\t{\n\t\t\"name\" :\"" + name +"\",\n\t\t\"id\" :\"" + id +"\"");
+        print("\t{\n\t\t\"name\" :\"" + name +"\",\n\t\t\"id\" :\"" + id +"\",\n\t\t\"contactImg\" : \"public/img/seeContactImg.xhtml?contactId=" + id + "\"");
 
 		if (curPhones.moveToFirst()) {
                     print(",\n\t\t\"phones\" : [");
