@@ -1,28 +1,36 @@
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-</head>
-<body>
+<script type="text/javascript">
 
-status-bar
+    function updateStatusbar() {
+        $.ajax({
+            url: 'datas/sections/status_bar.xhtml?' + new Date().getTime(),
+            type: 'GET',
+            dataType: 'text',
+            timeout: 6000,
+            error: function () {
+            },
+            success: function (data) {
+                console.log(data);
+                $("#statusbarRight").html(data);
+            },
+            complete: function () {
+                setTimeout("updateStatusbar();", 3000);
+            }
+        });
+        /*
+         $.get("sections/header_status_bar.xhtml", function(data){
+         $("#statusbarRight").html(data);
+         setTimeout("updateStatusbar();",1000);
+         });
+         */
 
-<bsh>
-    String[] opts = { "MANUFACTURER", "BOARD", "BRAND", "DISPLAY", "MODEL", "PRODUCT",
-    "TIME", "TYPE", "USER", "VERSION.INCREMENTAL",
-    "VERSION.RELEASE", "VERSION.SDK"};
-
-    for(o : opts) {
-    print(o + ": <b><tt>" + eval("android.os.Build." + o) + "</tt></b><br/>");
     }
-</bsh>
+</script>
 
-<ul>
-    <li>
-        <bsh>
-            print(o + ": <b><tt>" + eval("android.os.Build." + o) + "</tt></b><br/>");
-        </bsh>
-    </li>
-</ul>
 
-</body>
-</html>
+<div id="statusbar">
+<div id="statusbarLeft"><a href="start.xhtml" target="content"><span style="font-size: 20px; color: white; text-shadow: 1px 1px 0px #000;
+"><b><i>PAW Server</i></b></span></a><br><span
+        style="position: relative; top: -4px; left: +5px;">Android Version <i><span
+        id="pawVersion"></span></i></span></div>
+<div id="statusbarRight" style="background-color: antiquewhite"></div>
+</div>

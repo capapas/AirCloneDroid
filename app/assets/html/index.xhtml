@@ -1,12 +1,70 @@
 <html>
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <!-- <link type="text/css" href="css/ui-darkness/jquery-ui.css" rel="Stylesheet" /> -->
+    <!--<link type="text/css" href="css/overcast/jquery-ui.css" rel="Stylesheet" />-->
+    <!--<link rel="stylesheet" href="css/default.css">-->
+
     <title>It works!</title>
 </head>
 <body>
+
+<script type="text/javascript" src="public/javascript/jquery.js"></script>
+<script type="text/javascript" src="public/javascript/jquery-ui.js"></script>
+
+
+<script type="text/javascript">
+    var menuHidden = false;
+    $(document).ready(function () {
+//        resizeIframe();
+//        setPawVersion();
+//        $("#accordion").accordion();
+        updateStatusbar(); // this function is in view/statusbar.inc
+    });
+
+    //    $(window).bind('resize', function() {
+    //        resizeIframe();
+    //    });
+
+    //    function resizeIframe() {
+    //        $("#contentDiv").css("height", ($(window).height() * 0.9) + "px");
+    //    }
+
+    //    function ShowHideMenu(){
+    //        //$("#navbar").animate({"width": "toggle"}, { duration: 10 });
+    //        $("#navbar").animate({"width": "toggle"}, { duration: 0 });
+    //        menuHidden = menuHidden ? false : true;
+    //
+    //
+    //        if(menuHidden) {
+    //            $("#contentDiv").css("width", "95%");
+    //        }
+    //        else{
+    //            $("#contentDiv").css("width", "75%");
+    //        }
+    //
+    //        // Reload the iframe, if the filemanager is resized
+    //        if($('#content').contents().get(0).location.href.match("/filemanager") != null) {
+    //            $('#content').each(function() {
+    //                this.contentWindow.location.reload(true);
+    //            });
+    //        }
+    //
+    //    }
+
+</script>
+
 <h1>It works!</h1>
 This is the default web page for this server.<br/>
 The web server is running but no content has been added, yet.
 <hr/>
+
+<!--Include of status-bar-->
+<div style="position: absolute; left: 10%; top: -10px; z-index: 100; width: 80%;">
+    <bsh>cat(server.props.get("serviceContext").pawHome + "/html/views/sections/header_status_bar.xhtml");</bsh>
+</div>
+
 <div style="background-color: #6fbc74">
 <h3>System Information</h3>
     <bsh>
