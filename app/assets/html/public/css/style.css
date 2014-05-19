@@ -485,8 +485,6 @@ a:hover {
   clear:both;
 }
 
-.droid_contact {background-image: url(../img/droid_contact.png) no-repeat center;}
-
 /* Let's Dancing! */
 @-webkit-keyframes slow{
 from{-webkit-transform:translate(0px, -200px);opacity:0;}
