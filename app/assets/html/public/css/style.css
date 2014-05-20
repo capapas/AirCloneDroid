@@ -32,14 +32,19 @@ a:hover {
  * ===================================================================
  */
 #desktop{
-	height:500px;
+	height:100%;
+	padding:0px 0px 30px 0px;
 }
 /**
  * ===================================================================
  * DESKTOP SHORTCUT
  * ===================================================================
  */
+ #shortcut-area{
+	max-width:200px
+ }
 .desktop-shortcut{
+	float:left;
 	height:90px;
 	width:70px;
 	padding:5px;
@@ -453,18 +458,18 @@ a:hover {
 
 /* Let's Dancing! */
 @-webkit-keyframes slow{
-from{-webkit-transform:translate(0px, -200px);opacity:0;}
-to{-webkit-transform:translate(0px, 0px);opacity:1;}
+	from{-webkit-transform:translate(0px, -200px);opacity:0;}
+	to{-webkit-transform:translate(0px, 0px);opacity:1;}
 }
 @-moz-keyframes slow{
-from{-moz-transform:translate(0px, -200px);opacity:0;}
-to{-moz-transform:translate(0px, 0px);opacity:1;}
+	from{-moz-transform:translate(0px, -200px);opacity:0;}
+	to{-moz-transform:translate(0px, 0px);opacity:1;}
 }
 @-ms-keyframes slow{
-from{-ms-transform:translate(0px, -200px);opacity:0;}
-to{-ms-transform:translate(0px, 0px);opacity:1;}
+	from{-ms-transform:translate(0px, -200px);opacity:0;}
+	to{-ms-transform:translate(0px, 0px);opacity:1;}
 }
 @keyframes slow{
-from{transform:translate(0px, -200px);opacity:0;}
-to{transform:translate(0px, 0px);opacity:1;}
+	from{transform:translate(0px, -200px);opacity:0;}
+	to{transform:translate(0px, 0px);opacity:1;}
 }

@@ -11,23 +11,23 @@
 		<script type="text/javascript" src="datas/testDataset/contacts.js"></script>
 		<script type="text/javascript">
 			var icons = {
-				sms : { label:'SMS', imgPath:'messages.png'},
-				app : { label:'Applications', imgPath:'app.png'},
-				photo : { label:'Photos', imgPath:'photo.png'},
-				ringtone : { label:'Sonneries', imgPath:'ringtone.png'},
-				callLog : { label:'Journal d\'appel', imgPath:'phone.png'},
-				frequent : { label:'Contacts Fréquents', imgPath:'frequent.png'},
-				camera : { label:'Appareil photo', imgPath:'camera.png'},
-				find : { label:'Trouver le téléphone', imgPath:'find.png'},
-				screenshot : { label:'Capture d\'écran', imgPath:'screenshot.png'},
-				contacts : { label:'Contacts', imgPath:'contacts.png'},
-				video : { label:'Vidéos', imgPath:'video.png'},
-				music : { label:'Musiques', imgPath:'music.png'},
-				file : { label:'Fichiers', imgPath:'file.png'},
-				help : { label:'Aide', imgPath:'help.png'},
+				sms : { label:'SMS', imgPath:'messages.png', uri:'views/sms/sms.html'},
+				app : { label:'Applications', imgPath:'app.png', uri:'views/app/app.html'},
+				photo : { label:'Photos', imgPath:'photo.png', uri:'views/photos/photo.html'},
+				ringtone : { label:'Sonneries', imgPath:'ringtone.png', uri:'views/ringtone/ringtone.html'},
+				callLog : { label:'Journal d\'appel', imgPath:'phone.png', uri:'views/callLog/callLog.html'},
+				frequent : { label:'Contacts Fréquents', imgPath:'frequent.png', uri:'views/frequent/frequent.html'},
+				camera : { label:'Appareil photo', imgPath:'camera.png', uri:'views/camera/camera.html'},
+				find : { label:'Trouver le téléphone', imgPath:'find.png', uri:'views/find/find.html'},
+				screenshot : { label:'Capture d\'écran', imgPath:'screenshot.png', uri:'views/screenshot/screenshot.html'},
+				contacts : { label:'Contacts', imgPath:'contacts.png', uri:'views/addressBook/contacts.html'},
+				video : { label:'Vidéos', imgPath:'video.png', uri:'views/videos/video.html'},
+				music : { label:'Musiques', imgPath:'music.png', uri:'views/musics/music.html'},
+				file : { label:'Fichiers', imgPath:'file.png', uri:'views/files/file.html'},
+				help : { label:'Aide', imgPath:'help.png', uri:'views/help/help.html'},
 			}
 			function genIcon(label, imgPath){
-				$('#desktop').append('<div class="desktop-shortcut-area"><div class="desktop-shortcut"><img src="public/img/desktop/airdroid/'+imgPath+'" /><p>'+label+'</p></div></div>');
+				$('#shortcut-area').append('<div class="desktop-shortcut"><img src="public/img/desktop/airdroid/'+imgPath+'" /><p>'+label+'</p></div>');
 			}
 			jQuery(function( $ ) {
 				for(var index in icons){
@@ -35,12 +35,15 @@
 				}
 				$(".window").draggable();
 				$(".window").resizable({ handles: "all" });
+				$("#shortcut-area").sortable();
 				$(".content").load("views/addressBook/contacts.html");
 			});
 		</script>
 	</head>
 	<body>
 		<div id="desktop">
+			<div id="shortcut-area">
+			</div>
 			<div class="window">
 				<div class="header">
 					<h4 class="title">Contact</h4>
