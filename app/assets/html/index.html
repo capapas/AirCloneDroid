@@ -33,8 +33,9 @@
 				for(var index in icons){
 					genIcon(icons[index].label, icons[index].imgPath);
 				}
-				$( ".window" ).draggable();
-				$( ".window" ).resizable({ handles: "all" });
+				$(".window").draggable();
+				$(".window").resizable({ handles: "all" });
+				$(".content").load("views/addressBook/contacts.html");
 			});
 		</script>
 	</head>
@@ -88,55 +89,8 @@
 
 			<div class="opened hide"></div>
 			<div id="fright">
-				<div class="connection" title="Local Area Connection is Now Ready to Prikitiw..."></div>
 				<div class="clear"></div>
 			</div>
-		</div> <!-- startbar -->
-		<script type="text/javascript">
-			$(function () {
-				$('.content').w2layout({
-					name: 'content',
-					panels: [
-						{ type: 'top', size: 30 },
-						{ type: 'left', size: 150, resizable: true}
-					]
-				});
-					var btnCount = 0;
-				w2ui['content'].content('top', $().w2toolbar({
-					name: 'toolbar',
-					items: [
-						{ type: 'button', id: 'append', caption: 'Refresh', img: 'icon-reload' },
-						{ type: 'button', id: 'insert', caption: 'Add', img: 'icon-add' },
-						{ type: 'button', id: 'delete', caption: 'Delete', img: 'icon-delete' }
-					],
-					onClick: function (event) {}
-				}));
-				nodes = [];
-				for(var i in contacts){
-					nodes.push({id: contacts[i].id, text: contacts[i].name, img: 'droid_contact' });
-				}
-				
-				w2ui['content'].content('left', $().w2sidebar({
-					name: 'sidebar',
-					topHTML    : '<div style="background-color: #eee; padding: 10px 5px; border-bottom: 1px solid silver">Liste des contacts</div>',
-					img: null,
-					nodes: nodes,
-					onClick: function (event) {
-						var i = 0;
-						while(i < contacts.length && contacts[i].id != event.target)
-							i++;
-						if(i < contacts.length){
-							var html = '<table>'
-										+'<tr><th>Nom</tdh><td>'+contacts[i].name+'</td></tr>'
-										+'<tr><th>Number</tdh><td>'+contacts[i].phone+'</td></tr>'
-										+'<tr><th>Email</tdh><td>'+contacts[i].email+'</td></tr>'
-										+'</table>';
-							w2ui['content'].content('main', html);
-							console.log(contacts[i]);
-						}
-					}
-				}));
-			});
-		</script>
+		</div>
 	</body>
 </html>

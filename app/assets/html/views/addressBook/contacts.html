@@ -46,16 +46,11 @@
 						while(i < contacts.length && contacts[i].id != event.target)
 							i++;
 						if(i < contacts.length){
-							/*var html = '<table>'
+							var html = '<table>'
 										+'<tr><th>Nom</tdh><td>'+contacts[i].name+'</td></tr>'
 										+'<tr><th>Number</tdh><td>'+contacts[i].phone+'</td></tr>'
 										+'<tr><th>Email</tdh><td>'+contacts[i].email+'</td></tr>'
-										+'</table>';*/
-							var html = '<div>'
-										+'<tr><th>Nom</tdh><td>'+contacts[i].name+'</td></tr>'
-										+'<tr><th>Number</tdh><td>'+contacts[i].phone+'</td></tr>'
-										+'<tr><th>Email</tdh><td>'+contacts[i].email+'</td></tr>'
-										+'</div>';
+										+'</table>';
 							w2ui['content'].content('main', html);
 							console.log(contacts[i]);
 						}
