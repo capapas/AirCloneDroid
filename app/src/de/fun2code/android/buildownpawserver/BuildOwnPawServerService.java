@@ -50,11 +50,12 @@ public class BuildOwnPawServerService extends PawServerService {
 		hideNotificationIcon = false;
 		execAutostartScripts = false;
 		showUrlInNotification = false;
-		notificationTitle = "Notification Title";
-		notificationMessage = "Notification Message";
-		appName = getString(R.string.app_name);
+        notificationTitle = "MyRemoteDroid";
+        notificationMessage = "Notification message";
+        showUrlInNotification = true;
+        appName = getString(R.string.app_name);
 		activityClass = "de.fun2code.android.buildownpawserver.TabedActivity";
-		notificationDrawableId = R.drawable.ic_launcher;
-	}
+        notificationDrawableId = R.drawable.app_icon;
+    }
 	
 }
