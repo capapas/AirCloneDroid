@@ -19,8 +19,7 @@ public class BuildOwnPawServerService extends PawServerService {
 		 */
 		init();
 	}
-	
-	
+
 	/*
 	 * Service options are:
 	 * TAG = Tag name for message logging.
@@ -38,7 +37,6 @@ public class BuildOwnPawServerService extends PawServerService {
 	 * activityClass = Activity class name.
 	 * notificationDrawableId = ID of the notification icon to display.
 	 */
-	
 	private void init() {
 		TAG = getString(R.string.app_name);
 		startedOnBoot = false;
@@ -57,5 +55,4 @@ public class BuildOwnPawServerService extends PawServerService {
 		activityClass = "de.fun2code.android.buildownpawserver.TabedActivity";
         notificationDrawableId = R.drawable.app_icon;
     }
-	
 }

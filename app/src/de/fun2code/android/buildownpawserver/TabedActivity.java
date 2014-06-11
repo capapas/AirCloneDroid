@@ -156,6 +156,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
      */
     @Override
     public void onServiceStart(boolean success) {
+        viewUrl = (TextView) findViewById(R.id.server_state);
         if (success) {
             // Display URL
             PawServerService service = BuildOwnPawServerService.getService();
@@ -163,13 +164,17 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
                     + "://" + Utils.getLocalIpAddress() + ":"
                     + service.getPawServer().serverPort;
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Log.e("zzzzzz", String.valueOf(url));
-//                    viewUrl.setText("Server running on: " + url);
-                }
-            });
+            if (Utils.getLocalIpAddress() != null) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("gg", String.valueOf(url));
+                        viewUrl.setText(url);
+                    }
+                });
+            } else {
+                viewUrl.setText("No Wifi");
+            }
 
         } else {
             runOnUiThread(new Runnable() {
