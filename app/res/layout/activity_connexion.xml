@@ -22,12 +22,17 @@
         android:textSize="@dimen/ip_size" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/runButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/textView1"
-        android:background="@drawable/ic_action_play" />
+        android:scaleType="center"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="30dip"
+        android:layout_marginBottom="80dip"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/start_button" />
 
 </RelativeLayout>
