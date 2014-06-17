@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+		<link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="../../public/css/window-content.css" />
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../../public/javascript/knockout/knockout-3.1.0.js"></script>
+		<!--
+		<link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="public/css/window-content.css" />
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="public/javascript/knockout/knockout-3.1.0.js"></script>
+		-->
+	</head>
+	<body>
+		<div id="smsView">
+			<div class="toolbar">
+				<form class="search-wrapper cf">
+					<input type="text" required="required">
+					<button type="submit" class="btn">Recherche</button>
+				</form>
+				<button class="btn del">Supprimer</button>
+				<button class="btn">Actualiser</button>
+				<button class="btn">Nouveau message</button>
+			</div>
+			<div class="sidebar">
+				<ul id="smsList" data-bind="foreach: chat">
+					<li>
+						<p class="contact-item" data-bind="click: $parent.select"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
+					</li>
+				</ul>
+			</div>
+			<div class="content" data-bind="with: selectedContact">
+				<ol class="chat">
+  					<li class="them">
+						<blockquote>You here?</blockquote><br />
+					</li>
+					<li class="me">
+						<blockquote>hey there</blockquote>
+					</li>
+					<li class="me">
+						<blockquote>leaving in a bit though</blockquote>
+					</li>
+					<li class="them">
+						<blockquote>np:</blockquote>
+					</li>
+					<li class="them">
+						<blockquote>mind if we do 12:30 instead of 12:00 tomorrow?</blockquote>
+					</li>
+					<li class="me">
+						<blockquote>that should be fine</blockquote>
+					</li>
+				   <li class="them">
+						<blockquote>thanks</blockquote>
+					</li>
+					<li class="them">
+						<blockquote>2nd thing: I'm going to have some things for you on the Bigger Stake In The Company conversation.</blockquote>
+					</li>
+					<li class="them">
+						<blockquote>
+							If you don't mind, I think I'm going to type these up & send them to you for your perusal, rather than putting you on the spot at a lunch. That way you'll have time to digest, discuss & react.
+						</blockquote>
+					</li>
+
+					<li class="them">
+						<blockquote>
+							I might need a few more days than expected, though: I am shooting for 7/31, but we're now in that Everyone You Need Is Out On Their Boat part of the year. I'll know more on Monday.
+						</blockquote>
+					</li>
+
+					<li class="them">
+						<blockquote>
+							Is that ok?
+						</blockquote>
+					</li>
+
+					<li class="me">
+						<blockquote>
+							so this is something i'd get tomorrow and discuss later? Sorry, can't tell which point in time is which.
+						</blockquote>
+					</li>
+
+					<li class="them">
+						<blockquote>
+							I'm also heading out shortly btw.
+						</blockquote>
+					</li>
+
+					<li class="them">
+						<blockquote>
+							no, sorry - I'm still putting everything together, and had hoped to have something to give you next week, but I'm waiting for a guy who I think is now away, (Or at least not returning calls, which is odd since I met with him last Tuesday.)
+						</blockquote>
+					</li>
+
+					<li class="them">
+						<blockquote>
+							I'd like to get you something as soon as possibe, and then we can talk about it whenever you've had a chance to think about it.
+						</blockquote>
+					</li>
+
+					<li class="me">
+						<blockquote>
+							Ok, I'm preparing thoughts and ideas over here, also with the 31st in mind
+						</blockquote>
+					</li>
+				</ol>
+			</div>
+		</div>
+		<script type="text/javascript" src="public/javascript/app-window/sms.js"></script>
+	</body>
+</html>

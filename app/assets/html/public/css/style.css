@@ -155,7 +155,13 @@ a:hover {
 	padding:0px;
 	position:relative;
 }
-
+#top-panel{
+	position: relative;
+	height: 25px;
+	padding: 5px 0;
+	margin: 0 10px;
+	overflow: hidden;
+}
 /**
  * ===================================================================
  * TASKBAR

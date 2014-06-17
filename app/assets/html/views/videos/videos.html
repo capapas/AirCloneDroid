@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		
 		<link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
 		<link rel="stylesheet" href="../../public/css/window-content.css" />
 		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
@@ -16,7 +17,7 @@
 		-->
 	</head>
 	<body>
-		<div id="contactsView">
+		<div id="videosView">
 			<div class="toolbar">
 				<form class="search-wrapper cf">
 					<input type="text" required="required">
@@ -24,41 +25,10 @@
 				</form>
 				<button class="btn del">Supprimer</button>
 				<button class="btn">Actualiser</button>
-				<button class="btn">Nouveau contact</button>
 			</div>
-			<div class="sidebar">
-			<!--
-				<ul id="shortcut-contact" data-bind="foreach: shortcuts">
-					<li><a data-bind="attr: { href: '#'+$data }, text: $data"></a></li>
-				</ul>
-			-->
-				<ul id="contactsList" data-bind="foreach: contacts">
-					<li>
-						<p class="contact-item" data-bind="click: $parent.select"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
-					</li>
-				</ul>
-			</div>
-			<div class="main" data-bind="with: selectedContact">
-				<div>
-					<img data-bind="attr: { src: contactImg }"/>
-					<p>
-						<span data-bind="text: name"></span>
-					</p>
-				</div>
-				<hr />
-				<div>
-					<!-- ko foreach: { data: phones, as: 'phone' }-->
-						<p data-bind="text: phone"></p>
-					<!-- /ko -->
-				</div>
-				<hr />
-				<div>
-					<!-- ko foreach: { data: emails, as: 'email' }-->
-						<p data-bind="text: email"></p>
-					<!-- /ko -->
-				</div>
+			<div class="content" data-bind="foreach: videos">
 			</div>
 		</div>
-		<script type="text/javascript" src="public/javascript/app-window/contacts.js"></script>
+		<script type="text/javascript" src="public/javascript/app-window/videos.js"></script>
 	</body>
 </html>
