@@ -25,11 +25,14 @@ if(cur.moveToFirst()) {
 }
 cur.close();
 
+print("[");
 //--- Get infos
+
+Integer it = 0;
 for(id : threadIDs) {
-   
-   // ArrayList for this thread information
-   listThreadInfo = new ArrayList();
+    // ArrayList for this thread information
+    listThreadInfo = new ArrayList();
+
 
    /* List content
       0: Thread ID (int)
@@ -102,23 +105,26 @@ for(id : threadIDs) {
                 listThreadInfo.add(6, body);
                 listThreadInfo.add(7, unread);
     
-                print("------------------------------------");
-                
-                print("id: " + id + "\n");
-                print("addr: " + address);
-                print("name: " + name);
-                print("contactId: " + contactId);
-                print("Date: " + date);
-                print("count : " + count);
-                print("Body: " + body);
-                print("Unread : " + unread);
-                
-                print("------------------------------------");
-    
+                print("{");
+                print("\t\"id\" : " + id + ",");
+                print("\t\"addr\" : \"" + address + "\",");
+                print("\t\"name\" : \"" + name + "\",");
+                print("\t\"contactId\" : " + contactId+ ",");
+                print("\t\"date\" : \"" + date + "\",");
+                print("\t\"count\" : " + count + ",");
+                print("\t\"body\" : \"" + body + "\",");
+                print("\t\"unread\" : " + unread);
+                print("}");
+
+                it++;
+                if(it < threadIDs.size()) {
+                    print(",");
+                }
                 listThreads.add(listThreadInfo);
             }
         } while(cur.moveToNext());
     }
     cur.close();
 }
+print("]");
 </bsh>
