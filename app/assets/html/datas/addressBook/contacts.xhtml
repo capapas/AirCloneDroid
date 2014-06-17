@@ -43,10 +43,9 @@ if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
 					emailsWhere, // WHERE clause; which rows to return(all rows)
 					null, // WHERE clause selection arguments (none)
 					android.provider.ContactsContract.CommonDataKinds.Email.ADDRESS + " ASC" // Order-by clause (ascending by name)
-					);
+		);
 
-    print("\t{\n\t\t\"name\" :\"" + name +"\",\n\t\t\"id\" :\"" + id +"\",\n\t\t\"contactImg\" :
-    \"graphics/seeContactImg.xhtml?contactId=" + id + "\"");
+    print("\t{\n\t\t\"name\" :\"" + name + "\",\n\t\t\"id\" :\"" + id + "\",\n\t\t\"contactImg\" : \"graphics/seeContactImg.xhtml?contactId= " + id + "\"");
 
     if (curEmails.moveToFirst()) {
             print(",\n\t\t\"email\" : [");
