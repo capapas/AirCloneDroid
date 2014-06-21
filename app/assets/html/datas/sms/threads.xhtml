@@ -104,7 +104,9 @@ for(id : threadIDs) {
                 listThreadInfo.add(5, count);
                 listThreadInfo.add(6, body);
                 listThreadInfo.add(7, unread);
-    
+
+                body =  body.replace("\n", "<br>").replace("\t", "    ").replace("\"", "\\\"");
+
                 print("{");
                 print("\t\"id\" : " + id + ",");
                 print("\t\"addr\" : \"" + address + "\",");
