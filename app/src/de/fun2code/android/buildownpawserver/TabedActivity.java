@@ -6,6 +6,7 @@ import android.app.ActionBar.TabListener;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -115,7 +116,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
     public void onResume() {
         super.onResume();
         /*
-         *  Registers the listener that calls onServiceStart() and
+		 *  Registers the listener that calls onServiceStart() and
 		 *  onServiceStop().
 		 */
         BuildOwnPawServerService.registerServiceListener(this);

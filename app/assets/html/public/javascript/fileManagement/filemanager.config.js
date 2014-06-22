@@ -1,6 +1,6 @@
 /*---------------------------------------------------------
- Configuration
- ---------------------------------------------------------*/
+  Configuration
+---------------------------------------------------------*/
 
 // Set this to the server side language you wish to use.
 var lang = 'xhtml'; // options: lasso, php, py
