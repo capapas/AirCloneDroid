@@ -24,8 +24,6 @@
     values.put("read", Integer.valueOf(1));
     service.getContentResolver().update(SMS_CONTENT_URI, values, "thread_id=" + threadId, null);
 
-    ignoreThreadId = 0;
-
     SMS_READ_COLUMN = "read";
     SORT_ORDER = "date DESC";
 
@@ -44,6 +42,8 @@
             count = cursor.getCount();
 
             if (cursor.moveToFirst()) {
+                Integer index_Read = cursor.getColumnIndex("read");
+                Integer index_Person = cursor.getColumnIndex("person");
                 do {
                     print("\n\t\t{");
                     messageId = cursor.getLong(0);
@@ -54,11 +54,16 @@
                     body = cursor.getString(5);
                     status = cursor.getInt(6);
 
+                    read = cursor.getInt(index_Read);
+                    person = cursor.getString(index_Person);
+
                     // Add links to URLs
                     body = body.replaceAll(
                         "(http://[^\\s]*)",
                         "<a href=\"$1\" target=\"_blank\" class='link'>$1</a>"
                     );
+
+                    body =  body.replace("\n", "<br>").replace("\t", "    ").replace("\"", "\\\"");
 
                     print("\n\t\t\t\"person\" : \"" +  person + "\",\n\t\t\t\"read\" : \"" +  read + "\",\n\t\t\t\"number\" : \"" +  number + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(
         DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(timestamp)) + "\", \n\t\t\t\"message\" : \"" + body + "\""
