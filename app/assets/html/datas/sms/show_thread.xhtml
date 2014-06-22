@@ -31,7 +31,7 @@
 
     cursor = service.getContentResolver().query(
         SMS_CONTENT_URI,
-        new String[] { "_id", "thread_id", "address", "person", "date", "body", "status", "read"},
+        new String[] { "_id", "thread_id", "address", "person", "date", "body", "status", "read", "type"},
         WHERE_CONDITION,
         null,
         SORT_ORDER
@@ -44,6 +44,8 @@
             if (cursor.moveToFirst()) {
                 Integer index_Read = cursor.getColumnIndex("read");
                 Integer index_Person = cursor.getColumnIndex("person");
+                Integer index_Type = cursor.getColumnIndex("type");
+
                 do {
                     print("\n\t\t{");
                     messageId = cursor.getLong(0);
@@ -55,7 +57,13 @@
                     status = cursor.getInt(6);
 
                     read = cursor.getInt(index_Read);
-                    person = cursor.getString(index_Person);
+                    person = cursor.getInt(index_Person);
+                    type = cursor.getInt(index_Type);
+
+                    sent = "true";
+                    if (type == 1) {
+                        sent = "false";
+                    }
 
                     // Add links to URLs
                     body = body.replaceAll(
@@ -65,7 +73,7 @@
 
                     body =  body.replace("\n", "<br>").replace("\t", "    ").replace("\"", "\\\"");
 
-                    print("\n\t\t\t\"person\" : \"" +  person + "\",\n\t\t\t\"read\" : \"" +  read + "\",\n\t\t\t\"number\" : \"" +  number + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(
+                    print("\t\t\t\"sent\" : " +  sent + ",\n\t\t\t\"read\" : " +  read + ",\n\t\t\t\"number\" : \"" +  number + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(
         DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(timestamp)) + "\", \n\t\t\t\"message\" : \"" + body + "\""
 
                     );
