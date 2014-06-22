@@ -6,7 +6,6 @@ import android.app.ActionBar.TabListener;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -74,13 +73,13 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
         checkInstallationTmp();
 
         /*
-		 * Register handler This is needed in order to get dialogs etc. to work.
+         * Register handler This is needed in order to get dialogs etc. to work.
 		 */
         messageHandler = new MessageHandler(this);
         BuildOwnPawServerService.setActivityHandler(messageHandler);
 
 		/*
-		 * Register activity with service.
+         * Register activity with service.
 		 */
 
         setContentView(R.layout.activity_tabed);
@@ -116,7 +115,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
     public void onResume() {
         super.onResume();
         /*
-		 *  Registers the listener that calls onServiceStart() and
+         *  Registers the listener that calls onServiceStart() and
 		 *  onServiceStop().
 		 */
         BuildOwnPawServerService.registerServiceListener(this);
@@ -154,7 +153,7 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
 
     public void runOrStopServer() {
 
-        Button btn = (Button)findViewById(R.id.runButton);
+        Button btn = (Button) findViewById(R.id.runButton);
 
         if (BuildOwnPawServerService.isRunning()) {
             stopService();
@@ -179,7 +178,6 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
     @Override
     public void onServiceStart(boolean success) {
         viewUrl = (TextView) findViewById(R.id.server_state);
-
 
 
         if (success) {

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<bsh>
+    service = server.props.get("serviceContext");
+</bsh>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+        Gestion des dossiers - fichiers
+    </title>
+    <link rel="stylesheet" type="text/css" href="/public/css/fileManagement/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/fileManagement/jqueryFileTree.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/fileManagement/jquery.contextMenu.css"/>
+    <link rel="stylesheet" type="text/css" href="/public/css/fileManagement/filemanager.css"/>
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="styles/ie.css"/>
+    <![endif]-->
+
+</head>
+<body>
+
+<!-- **************************** Header / Tooltip ********************************** -->
+<form id="uploader" method="post">
+
+    <h1><input id="dirpath" type="text" onKeyPress="return checkSubmit(event)" style="width: 100%;"></h1>
+    <bsh> maxUploadSize = Integer.parseInt(service.getPawServer().maxPost) / 1024 / 1024;</bsh>
+    <div id="uploadresponse"></div>
+    <input id="mode" name="mode" type="hidden" value="add"/>
+    <input id="currentpath" name="currentpath" type="hidden"/>
+    <input id="newfile" name="newfile" type="file"/>
+    <button id="upload" name="upload" type="submit" value="Upload"
+            title="Taille maximale : <bsh> print(maxUploadSize); </bsh> Mbytes">
+        Upload
+    </button>
+    <button id="newfolder" name="newfolder" type="button" value="New Folder">
+        Nouveau dossier
+    </button>
+    <button id="grid" class="ON" type="button" title="Affichage en mode grille">&nbsp;</button>
+    <button id="list" type="button" title="Affichage en mode liste">&nbsp;</button>
+
+</form>
+
+<div id="splitter">
+    <!--colonne de gauche-->
+    <div id="filetree"></div>
+    <!--colonne centrale-->
+    <div id="fileinfo">
+        <h1>Cliquez sur un dossier de la liste de gauche pour en afficher le contenu.<br><br><i> La taille maximale des
+            fichiers uploadables est
+            actuellement limitée à
+            <bsh>print(maxUploadSize);</bsh>
+            Mo.</i></h1>
+    </div>
+</div>
+
+<ul id="itemOptions" class="contextMenu">
+    <li class="select"><a href="#select">
+        Ouvrir
+    </a></li>
+    <li class="download"><a href="#download">
+        Télécharger
+    </a></li>
+    <li class="rename"><a href="#rename">
+        Renommer
+    </a></li>
+    <li class="delete separator"><a href="#delete">
+        Supprimer
+    </a></li>
+</ul>
+
+<script type="text/javascript" src="/public/javascript/fileManagement/jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="/public/javascript/fileManagement/jquery.form.js"></script>
+
+<script type="text/javascript" src="/public/javascript/fileManagement/jquery.splitter.js"></script>
+<script type="text/javascript" src="/public/javascript/fileManagement/jqueryFileTree.js"></script>
+
+<script type="text/javascript" src="/public/javascript/fileManagement/jquery.contextMenu.js"></script>
+
+<script type="text/javascript" src="/public/javascript/fileManagement/jquery.impromptu-1.5.js"></script>
+<script type="text/javascript" src="/public/javascript/fileManagement/jquery.tablesorter.min.js"></script>
+
+<script type="text/javascript" src="/public/javascript/fileManagement/filemanager.config.js"></script>
+
+
+<script type="text/javascript" src="/public/javascript/fileManagement/filemanager.xhtml"></script>
+
+Test file management
+</body>
+</html>
