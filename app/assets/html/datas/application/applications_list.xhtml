@@ -1,0 +1,19 @@
+<bsh>
+    import android.app.Service;
+    import android.content.pm.PackageManager;
+    import android.content.pm.ApplicationInfo;
+
+    service = (Service) server.props.get("serviceContext");
+    pkgManager = service.getPackageManager();
+
+    apps = pkgManager.getInstalledApplications(PackageManager.GET_META_DATA);
+
+    print("[{\n\t\"applications\":[");
+    for (int i=0;i<apps.size();i++) {
+        print("\t\t{\n\t\t\t\"name\" : \"" + apps.get(i).processName + "\",\n\t\t\t\"icon\" : \"graphics/seeAppIcon.xhtml?processname=" + apps.get(i).processName + "\",\n\t\t\t\"description\" : \"" + apps.get(i).loadLabel(pkgManager) + "\"\n\t\t}");
+        if (i+1 != apps.size()) {
+            print(",");
+        }
+    }
+    print("\t]\n}]");
+</bsh>
