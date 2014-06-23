@@ -28,13 +28,13 @@
 				<button class="btn">Nouveau message</button>
 			</div>
 			<div class="sidebar">
-				<ul id="smsList" data-bind="foreach: chat">
+				<ul id="smsList" data-bind="foreach: threads">
 					<li>
-						<p class="contact-item" data-bind="click: $parent.select"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
+						<p class="sms-item" data-bind="click: $parent.select"><img data-bind="attr: { src: img }"/><span data-bind="text: name"></span></p>
 					</li>
 				</ul>
 			</div>
-			<div class="content" data-bind="with: selectedContact">
+			<div class="content" data-bind="with: selectedThread">
 				<ol class="chat">
   					<li class="them">
 						<blockquote>You here?</blockquote><br />

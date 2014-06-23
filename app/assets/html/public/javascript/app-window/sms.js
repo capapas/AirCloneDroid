@@ -20,7 +20,7 @@ $.getJSON('datas/testDataset/contacts.json', function(datas) {
 		}, 'slow');
 	});
 	$(".contact-item").click(function(){
-		$(this).addClass('selected');
+		$(this).addClass('selected');;
 	});
 });
 
@@ -62,7 +62,7 @@ function ContactsViewModel(){
 		if(i != NaN && i > 0)
 			return self.contacts()[i];
 		console.log(index);
-		console.log("L'index doit être un entier positif.");
+		console.log("L'index doit Ãªtre un entier positif.");
 		return null;
 	};
 	self.sortContacts = function(){

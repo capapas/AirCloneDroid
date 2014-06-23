@@ -1,4 +1,17 @@
-function initContactsView(){
+////////////////////////////////////////////////////////////
+//////////////////////////COMMON////////////////////////////
+////////////////////////////////////////////////////////////
+function getCharArray(){
+	var charArray = [];
+	for(var i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
+		charArray.push(String.fromCharCode(i));
+	}
+	return charArray;
+}
+////////////////////////////////////////////////////////////
+//////////////////////////CONTACTS//////////////////////////
+////////////////////////////////////////////////////////////
+function loadContactsView(){
 	//$.getJSON('../../datas/testDataset/contacts.json', function(datas) {
 	$.getJSON('datas/testDataset/contacts.json', function(datas) {
 		for(key in datas){
@@ -26,15 +39,7 @@ function initContactsView(){
 	});
 	
 	var cvm = new ContactsViewModel();
-	ko.applyBindings(cvm);
-}
-
-function getCharArray(){
-	var charArray = [];
-	for(var i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
-		charArray.push(String.fromCharCode(i));
-	}
-	return charArray;
+	ko.applyBindings(cvm, document.getElementById('contactsView'));
 }
 
 function Contact(n, i, p, e){
@@ -75,6 +80,113 @@ function ContactsViewModel(){
 			if (a.name < b.name)
 				return -1;
 			if (a.name > b.name)
+				return 1;
+			return 0;
+		});
+	};
+};
+////////////////////////////////////////////////////////////
+/////////////////////////////SMS////////////////////////////
+////////////////////////////////////////////////////////////
+function loadSmsView(){
+	//$.getJSON('../../datas/testDataset/smsThreads.json', function(datas) {
+	$.getJSON('datas/testDataset/smsThreads.json', function(datas) {
+		for(key in datas){
+			smsThreadVM.addThread(datas[key]);
+		}
+		smsThreadVM.sortThreads(datas[key]);
+		
+		$(".sms-item").click(function(){
+			$(this).addClass('selected');;
+		});
+	});
+	
+	var smsThreadVM = new SmsThreadViewModel();
+	ko.applyBindings(smsThreadVM, document.getElementById('smsView'));
+}
+
+function SmsThread(_address, _name, _contactId, _date, _count, _body, _unread){
+	var self = this;
+	self.id;
+	self.addr = _address;
+	self.name = _name;
+	self.contactId = _contactId;
+	self.date = _date;
+	self.count = _count;
+	self.body = _body;
+	self.unread = _unread;
+}
+
+function SmsThreadViewModel(){
+	var self = this;
+	
+	self.selectedThread = ko.observable();
+	self.threads = ko.observableArray([]);
+	self.addThread = function(obj){
+		self.threads.push(obj);
+	};
+	self.select = function(thread){
+		self.selectedContact(thread);
+	};
+	self.getThread = function(index){
+		var i = null;
+		if(typeof(index) == "function")
+			i = index.call();
+		else
+			i = parseInt(index);
+		if(i != NaN && i > 0)
+			return self.contacts()[i];
+		console.log(index);
+		console.log("L'index doit être un entier positif.");
+		return null;
+	};
+	self.sortThreads = function(){
+		self.threads.sort(function(a,b) {
+			if (a.date < b.date)
+				return -1;
+			if (a.date > b.date)
+				return 1;
+			return 0;
+		});
+	};
+};
+
+function Sms(t, c, d){
+	var self = this;
+	self.id;
+	self.type = t;
+	self.content = c;
+	self.date = d;
+}
+
+function SmsViewModel(){
+	var self = this;
+	
+	self.selectedSms = ko.observable();
+	self.sms = ko.observableArray([]);
+	self.addSms = function(obj){
+		self.sms.push(obj);
+	};
+	self.select = function(sms){
+		self.selectedSms(sms);
+	};
+	self.getSms = function(index){
+		var i = null;
+		if(typeof(index) == "function")
+			i = index.call();
+		else
+			i = parseInt(index);
+		if(i != NaN && i > 0)
+			return self.sms()[i];
+		console.log(index);
+		console.log("L'index doit être un entier positif.");
+		return null;
+	};
+	self.sortSms = function(){
+		self.sms.sort(function(a,b) {
+			if (a.date < b.date)
+				return -1;
+			if (a.date > b.date)
 				return 1;
 			return 0;
 		});

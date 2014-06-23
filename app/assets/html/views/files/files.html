@@ -26,6 +26,13 @@
 				<button class="btn del">Supprimer</button>
 				<button class="btn">Actualiser</button>
 			</div>
+			<div class="sidebar">
+				<ul id="contactsList" data-bind="foreach: files">
+					<li>
+						<p class="contact-item" data-bind="click: $parent.select"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
+					</li>
+				</ul>
+			</div>
 			<div class="content" data-bind="foreach: files">
 			</div>
 		</div>
