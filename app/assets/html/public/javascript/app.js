@@ -33,9 +33,6 @@ function loadContactsView(){
 				scrollTop: $("#letter"+c).offset().top - $("#contactsList").offset().top
 			}, 'slow');
 		});
-		$(".contact-item").click(function(){
-			$(this).addClass('selected');;
-		});
 	});
 	
 	var cvm = new ContactsViewModel();
@@ -92,32 +89,20 @@ function loadSmsView(){
 	//$.getJSON('../../datas/testDataset/smsThreads.json', function(datas) {
 	$.getJSON('datas/testDataset/smsThreads.json', function(datas) {
 		for(key in datas){
-			smsThreadVM.addThread(datas[key]);
+			smsVM.addThread(datas[key]);
 		}
-		smsThreadVM.sortThreads(datas[key]);
+		smsVM.sortThreads(datas[key]);
 		
 		$(".sms-item").click(function(){
 			$(this).addClass('selected');;
 		});
 	});
 	
-	var smsThreadVM = new SmsThreadViewModel();
-	ko.applyBindings(smsThreadVM, document.getElementById('smsView'));
+	var smsVM = new SmsViewModel();
+	ko.applyBindings(smsVM, document.getElementById('smsView'));
 }
 
-function SmsThread(_address, _name, _contactId, _date, _count, _body, _unread){
-	var self = this;
-	self.id;
-	self.addr = _address;
-	self.name = _name;
-	self.contactId = _contactId;
-	self.date = _date;
-	self.count = _count;
-	self.body = _body;
-	self.unread = _unread;
-}
-
-function SmsThreadViewModel(){
+function SmsViewModel(){
 	var self = this;
 	
 	self.selectedThread = ko.observable();
@@ -125,20 +110,16 @@ function SmsThreadViewModel(){
 	self.addThread = function(obj){
 		self.threads.push(obj);
 	};
-	self.select = function(thread){
-		self.selectedContact(thread);
-	};
-	self.getThread = function(index){
-		var i = null;
-		if(typeof(index) == "function")
-			i = index.call();
-		else
-			i = parseInt(index);
-		if(i != NaN && i > 0)
-			return self.contacts()[i];
-		console.log(index);
-		console.log("L'index doit être un entier positif.");
-		return null;
+	self.selectThread = function(thread){
+		self.selectedThread(thread);
+		$.getJSON('datas/testDataset/sms.json', function(datas){
+			for(key in datas){
+				if(datas[key].threadId == thread.id){
+					console.log(datas[key]);
+					self.currentChat(datas[key]);
+				}
+			}
+		});
 	};
 	self.sortThreads = function(){
 		self.threads.sort(function(a,b) {
@@ -149,38 +130,16 @@ function SmsThreadViewModel(){
 			return 0;
 		});
 	};
-};
-
-function Sms(t, c, d){
-	var self = this;
-	self.id;
-	self.type = t;
-	self.content = c;
-	self.date = d;
-}
-
-function SmsViewModel(){
-	var self = this;
+	
+	self.currentChat = ko.observable();
 	
 	self.selectedSms = ko.observable();
 	self.sms = ko.observableArray([]);
 	self.addSms = function(obj){
 		self.sms.push(obj);
 	};
-	self.select = function(sms){
+	self.selectSms = function(sms){
 		self.selectedSms(sms);
-	};
-	self.getSms = function(index){
-		var i = null;
-		if(typeof(index) == "function")
-			i = index.call();
-		else
-			i = parseInt(index);
-		if(i != NaN && i > 0)
-			return self.sms()[i];
-		console.log(index);
-		console.log("L'index doit être un entier positif.");
-		return null;
 	};
 	self.sortSms = function(){
 		self.sms.sort(function(a,b) {

@@ -34,7 +34,7 @@
 			-->
 				<ul id="contactsList" data-bind="foreach: contacts">
 					<li>
-						<p class="contact-item" data-bind="click: $parent.select"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
+						<p class="contact-item" data-bind="click: $parent.select, css: { selected: $data == $root.selectedContact() }"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
 					</li>
 				</ul>
 			</div>
