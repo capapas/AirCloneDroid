@@ -2,15 +2,19 @@
     import android.app.Service;
     import android.content.pm.PackageManager;
     import android.content.pm.ApplicationInfo;
+    import java.text.DateFormat;
 
     service = (Service) server.props.get("serviceContext");
     pkgManager = service.getPackageManager();
 
-    apps = pkgManager.getInstalledApplications(PackageManager.GET_META_DATA);
+    apps = pkgManager.getInstalledPackages(0);
 
     print("[{\n\t\"applications\":[");
     for (int i=0;i<apps.size();i++) {
-        print("\t\t{\n\t\t\t\"name\" : \"" + apps.get(i).processName + "\",\n\t\t\t\"icon\" : \"graphics/seeAppIcon.xhtml?processname=" + apps.get(i).processName + "\",\n\t\t\t\"description\" : \"" + apps.get(i).loadLabel(pkgManager) + "\"\n\t\t}");
+
+        apkLocation = apps.get(i).applicationInfo.sourceDir;
+        apkFile = new File(apkLocation);
+        print("\t\t{\n\t\t\t\"name\" : \"" + pkgManager.getApplicationLabel(apps.get(i).applicationInfo) + "\", \n\t\t\t\"version\" : \"" + apps.get(i).versionName + "\", \n\t\t\t\"installDate\" : \"" + DateFormat.getDateInstance(DateFormat.LONG).format(new Date(apkFile.lastModified())) + "\",\n\t\t\t\"size\" : \"" + apkFile.length() + "\",\n\t\t\t\"location\" : \"" + apkLocation + "\",\n\t\t\t\"icon\" : \"graphics/seeAppIcon.xhtml?processname=" + apps.get(i).packageName + "\",\n\t\t\t\"retrieve_apk\" : \"utils/application/retrieve_apk.xhtml?processname=" + apps.get(i).packageName + "\"\n\t\t}");
         if (i+1 != apps.size()) {
             print(",");
         }
