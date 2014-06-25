@@ -47,7 +47,6 @@
                     status = cursor.getInt(6);
 
                     read = cursor.getInt(index_Read);
-
                 
                     // Add links to URLs
                     body = body.replaceAll(
@@ -57,7 +56,7 @@
 
                     body =  body.replace("\n", "<br>").replace("\t", "    ").replace("\"", "\\\"");
 
-                    print("\n\t\t\t\"number\" : \"" +  number + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(timestamp)) + "\", \n\t\t\t\"message\" : \"" + body + "\""
+                    print("\n\t\t\t\"id\" : " +  messageId + ",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(timestamp)) + "\", \n\t\t\t\"message\" : \"" + body + "\""
                     );
                     print("\t\t}");
                     if (!cursor.isLast())  {
