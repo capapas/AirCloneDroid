@@ -49,8 +49,12 @@
 					});
 					$jq('#'+id).draggable().resizable({ handles: "all", alsoResize: '#'+id+' .content', minWidth: '845' }).hide();
 					$jq('#'+id+' .close').click(function(){
-						console.log(software.id+'Layout');
 						$jq('#'+id).hide();
+					});
+					$jq('#'+id+' .max').click(function(){
+						//$jq('#'+id).height($( window ).height());
+						//$jq('#'+id).children().height($( window ).height());
+						//$jq('#'+id).css('transform', 'scale(2)');
 					});
 				}
 				function genIcon(software){

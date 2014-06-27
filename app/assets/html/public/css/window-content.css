@@ -40,7 +40,6 @@ a {
 	border-left:solid 1px #d7e4f2;
 	position: absolute;
 	top: 50px;
-	bottom: 0px;
 	margin-left: 300px;
 	color:#000;
 	font:normal 12px/18px arial,sans-serif;
@@ -48,7 +47,6 @@ a {
 	position:relative;
 	background-color: #f5f6f7;
 }
-
 .btn {
 	overflow: visible;
 	position: relative;
@@ -209,7 +207,10 @@ a {
 	vertical-align:middle;
 }
 .droid_contact {background: url(../img/droid_contact.png) no-repeat center;}
-/************************************SMS************************************/
+/************************************SMS************************************
+.chat{
+	position: absolute;
+}*/
 .chat blockquote {
 	line-height: 1.7;
 	max-width: 75%;
@@ -220,11 +221,9 @@ a {
 	position: relative;
 	box-shadow: 0 15px 1px -12px rgba(0,0,0,0.05);
 }
-
 .chat .them, .chat .me { margin-bottom: 1ex; }
 .chat .them { text-align: left; }
 .chat .me { text-align: right; }
-
 blockquote:last-child::before {
 	display:block;
 	position: absolute;
@@ -233,7 +232,6 @@ blockquote:last-child::before {
 	bottom: 0;
 	border-radius: 1em/1ex;  
 }
-
 .chat .them blockquote { background-color: #ccc; }
 .chat .them blockquote:last-child::before {
 	border-bottom-color: #ccc;
@@ -241,7 +239,6 @@ blockquote:last-child::before {
 	left: -0.8ex;
 	content: "";
 }
-
 .chat .typing blockquote { 
 	background-color: #ccc;
 	font-weight: bold;
@@ -255,14 +252,11 @@ blockquote:last-child::before {
 	box-shadow: -1.1ex 0.3ex 0 -0.3ex #ccc;
 	content: "";
 }
-
-
 .chat .me blockquote {
 	background-color: #007AFF;
 	background-image: linear-gradient(180deg,#007AFF,#1D62F0);
 	color: white;
 }
-
 .chat .me blockquote:last-child::before {
 	content: "";
 	right: -0.8ex;
