@@ -14,7 +14,14 @@
 
         apkLocation = apps.get(i).applicationInfo.sourceDir;
         apkFile = new File(apkLocation);
-        print("\t\t{\n\t\t\t\"name\" : \"" + pkgManager.getApplicationLabel(apps.get(i).applicationInfo) + "\", \n\t\t\t\"version\" : \"" + apps.get(i).versionName + "\", \n\t\t\t\"installDate\" : \"" + DateFormat.getDateInstance(DateFormat.LONG).format(new Date(apkFile.lastModified())) + "\",\n\t\t\t\"size\" : \"" + apkFile.length() + "\",\n\t\t\t\"location\" : \"" + apkLocation + "\",\n\t\t\t\"icon\" : \"graphics/seeAppIcon.xhtml?processname=" + apps.get(i).packageName + "\",\n\t\t\t\"retrieve_apk\" : \"utils/application/retrieve_apk.xhtml?processname=" + apps.get(i).packageName + "\"\n\t\t}");
+        print("\t\t{\n\t\t\t\"name\" : \"" + pkgManager.getApplicationLabel(apps.get(i).applicationInfo) + "\",");
+        print("\t\t\t\"version\" : \"" + apps.get(i).versionName + "\",");
+        print("\t\t\t\"installDate\" : \"" + DateFormat.getDateInstance(DateFormat.LONG).format(new Date(apkFile.lastModified())) + "\",");
+        print("\t\t\t\"size\" : \"" + apkFile.length() + "\",");
+        print("\t\t\t\"location\" : \"" + apkLocation + "\",");
+        print("\t\t\t\"icon\" : \"graphics/seeAppIcon.xhtml?processname=" + apps.get(i).packageName + "\",");
+        print("\t\t\t\"download\" : \"get_file.xhtml?file=" + apkLocation + "&name=" + pkgManager.getApplicationLabel(apps.get(i).applicationInfo).replaceAll("\\s+", "_") + "-" + apps.get(i).versionName.replaceAll("\\s+", "_") + ".apk&mime=application/octet-stream\"");
+        print("\t\t}");
         if (i+1 != apps.size()) {
             print(",");
         }
