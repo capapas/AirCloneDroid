@@ -21,7 +21,6 @@
 				photos : { id:'photos', label:'Photos', icon:'photo.png', view:'views/photos/photos.html'},
 				callLog : { id:'callLog', label:'Journal d\'appel', icon:'phone.png', view:'views/callLog/callLog.html'},
 				contacts : { id:'contacts', label:'Contacts', icon:'contacts.png', view:'views/addressBook/contacts.html'},
-				musics : { id:'musics', label:'Musiques', icon:'music.png', view:'views/musics/musics.html'},
 				files : { id:'files', label:'Fichiers', icon:'file.png', view:'views/files/files.html'}
 			}
 			jQuery(function($jq) {
@@ -51,7 +50,7 @@
 					});
 				}
 				function genIcon(software){
-					$jq('#shortcut-area').append('<div id="icon_'+software.id+'" class="desktop-shortcut"><img src="'+iconsFolder+software.icon+'" /><p>'+software.label+'</p></div>');
+					$jq('#shortcut-area').append('<div id="icon_'+software.id+'" class="desktop-shortcut"><img src="'+iconsFolder+software.icon+'" /><div>'+software.label+'</div></div>');
 				}
 				for(var index in softwares){
 					genIcon(softwares[index]);
