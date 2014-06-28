@@ -1,0 +1,25 @@
+<bsh>
+    name = parameters.get("name");
+    path = parameters.get("path");
+    f = new File(path + name);
+
+    fileInfos = new StringBuilder();
+    fileInfos.append("[");
+
+    fileInfos.append("{\"Exist\" : \"" + f.exists() + "\",");
+    if (f.exists()) {
+        if (f.isDirectory()) {
+            fileInfos.append("\"Type\" : \"directory\"}");
+        } else {
+            fileInfos.append("\"Type\" : \"file\"}");
+        }
+    } else {
+        fileInfos.append("\"Type\" : " + null + "}");
+    }
+
+    fileInfos.append("]");
+
+    request.sendResponse(fileInfos.toString().getBytes(), "text/plain");
+    request.out.flush();
+    request.out.close();
+</bsh>

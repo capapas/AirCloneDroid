@@ -79,7 +79,7 @@ if(dir !=null) {
 
     dirTreeSb2.append("]");
 
-    request.sendResponse(dirTreeSb2.toString().getBytes(), "text/html");
+    request.sendResponse(dirTreeSb2.toString().getBytes(), "text/plain");
     request.out.flush();
     request.out.close();
 
