@@ -1,0 +1,100 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css"/>
+    <link rel="stylesheet" href="../../public/css/window-content.css"/>
+    <link rel="stylesheet" href="../../public/css/custom-content.css"/>
+    <script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="../../public/javascript/knockout/knockout-3.1.0.js"></script>
+    <!--
+    <link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="public/css/window-content.css" />
+    <script type="text/javascript" src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="public/javascript/knockout/knockout-3.1.0.js"></script>
+    -->
+    <script type="text/javascript">
+        $(".zoom").click(function () {
+            var image = $(this);
+            var display = $(".imagedisplay");
+            var imageholder = $(".viewimage");
+            display.css({
+                "display": "table-cell"
+            });
+            imageholder.html("<img src='" + image.attr('src') + "'/>");
+        });
+    </script>
+</head>
+<body>
+<div id="contactsView">
+    <div class="second-nav">
+        <div class="header">
+            CONTACTS
+        </div>
+        <div class="controls">
+            <input class="search-input" type="text" value="Search" name="search"/>
+        </div>
+        <div class="messages">
+            <div class="contact">
+                <div class="cell">
+                    <div class="profileImage">
+                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/osvaldas/128.jpg"/>
+                    </div>
+                    <div class="contactName">
+                        Jack Woolley
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="messages">
+            <div class="contact">
+                <div class="cell">
+                    <div class="profileImage">
+                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/angelceballos/128.jpg"/>
+                    </div>
+                    <div class="contactName">
+                        Ben Jones
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="messages">
+            <div class="contact">
+                <div class="cell">
+                    <div class="profileImage">
+                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/michaelmartinho/128.jpg"/>
+                    </div>
+                    <div class="contactName">
+                        Oliver Holder
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="messages">
+            <div class="contact">
+                <div class="cell">
+                    <div class="profileImage">
+                        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/aaronalfred/128.jpg"/>
+                    </div>
+                    <div class="contactName">
+                        Alexis Zaninetti
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="viewer">
+        <div class="header" id="email">
+            <p class="subject">Subject: Recent Project</p>
+
+            <p class="message">To: Me, Jack Woolley, Alexis Zaninetti</p>
+        </div>
+        <div class="body">
+            CP?TE?TNFDIJNgk
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="public/javascript/app-window/contacts.js"></script>
+</body>
+</html>
