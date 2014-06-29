@@ -1,0 +1,34 @@
+<bsh>
+    import android.app.Service;
+    import android.content.Intent;
+    import android.net.Uri;
+    import android.provider.Contacts.People;
+    import android.provider.Contacts.Phones;
+    import android.content.ContentValues;
+
+    name = parameters.get("name");
+    phone = parameters.get("phone");
+    cellphone = parameters.get("cellphone");
+    email = parameters.get("email");
+    address = parameters.get("address");
+
+    if ( name != null
+        && !name.equals("")
+        && cellphone != null
+        && !cellphone.equals("")
+    ) {
+        service = (Service) server.props.get("serviceContext");
+        cr = service.getContentResolver();
+        cv = new ContentValues();
+        cv.put(android.provider.ContactsContract.Data.RAW_CONTACT_ID, Integer.valueOf(6000));
+        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, "MHOR");
+        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER, "+331648678");
+        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE, Integer.valueOf(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE));
+        cr.insert(android.provider.ContactsContract.RawContacts.CONTENT_URI, cv);
+        print("[{\"success\" : true}]");
+    } else {
+    print("[{\"success\" : false}]");
+    }
+
+
+</bsh>
