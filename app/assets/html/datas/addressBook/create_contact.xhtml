@@ -4,6 +4,7 @@
     import android.net.Uri;
     import android.provider.Contacts.People;
     import android.provider.Contacts.Phones;
+    import android.content.ContentUris;
     import android.content.ContentValues;
 
     name = parameters.get("name");
@@ -12,23 +13,26 @@
     email = parameters.get("email");
     address = parameters.get("address");
 
-    if ( name != null
-        && !name.equals("")
-        && cellphone != null
-        && !cellphone.equals("")
-    ) {
         service = (Service) server.props.get("serviceContext");
-        cr = service.getContentResolver();
         cv = new ContentValues();
-        cv.put(android.provider.ContactsContract.Data.RAW_CONTACT_ID, Integer.valueOf(6000));
-        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME, "MHOR");
-        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER, "+331648678");
-        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE, Integer.valueOf(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE));
-        cr.insert(android.provider.ContactsContract.RawContacts.CONTENT_URI, cv);
-        print("[{\"success\" : true}]");
-    } else {
-    print("[{\"success\" : false}]");
-    }
+        cv.put(android.provider.ContactsContract.RawContacts.ACCOUNT_TYPE, null);
+        cv.put(android.provider.ContactsContract.RawContacts.ACCOUNT_NAME, null);
+        Uri rawContactUri = service.getContentResolver().insert(android.provider.ContactsContract.RawContacts.CONTENT_URI, cv);
+        Long rawContactId = ContentUris.parseId(rawContactUri);
 
+        cv.clear();
+        cv.put(android.provider.ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
+        cv.put(android.provider.ContactsContract.Data.MIMETYPE, android.provider.ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE);
+        cv.put(android.provider.ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME, name);
+        service.getContentResolver().insert(android.provider.ContactsContract.Data.CONTENT_URI, cv);
+
+        cv.clear();
+        cv.put(android.provider.ContactsContract.Data.RAW_CONTACT_ID, rawContactId);
+        cv.put(android.provider.ContactsContract.Data.MIMETYPE, android.provider.ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE);
+        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER, cellphone);
+        cv.put(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE, Integer.valueOf(android.provider.ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE));
+        service.getContentResolver().insert(android.provider.ContactsContract.Data.CONTENT_URI, cv);
+
+        print("[{\"success\" : true}]");
 
 </bsh>
