@@ -31,21 +31,25 @@ a {
 	position: absolute;
 	top: 50px;
 	bottom: 0px;
-	width: 300px;
+	width: 200px;
 	float: left;
 	overflow: auto;
+	background-color:#F5F7FA;
+	border-left:1px solid #e0e0e0;
+	border-right:1px solid #e0e0e0;
 }
 .main {
 	border: none;
 	border-left:solid 1px #d7e4f2;
 	position: absolute;
 	top: 50px;
-	margin-left: 300px;
+	left: 200px;
+	bottom: 0px;
+	right: 0px;
 	color:#000;
 	font:normal 12px/18px arial,sans-serif;
-	overflow:auto;
-	position:relative;
 	background-color: #f5f6f7;
+	overflow:hidden;
 }
 .btn {
 	overflow: visible;
@@ -150,6 +154,26 @@ a {
 	border: 0;
     padding: 0;
 }
+.sidebar .navList{
+	position: absolute;
+	right: 0px;
+	left: 40px;
+}
+.sidebar .navList .item{
+	padding: 5px 15px 5px 0px;
+	border-bottom:1px solid #e0e0e0;
+}
+.selected{
+	background-image: -webkit-linear-gradient(#69b1e0,#4a96d3);
+	background-image: -moz-linear-gradient(#69b1e0,#4a96d3);
+	background-image: -ms-linear-gradient(#69b1e0,#4a96d3);
+	background-image: -o-linear-gradient(#69b1e0,#4a96d3);
+	background-image: linear-gradient(#69b1e0,#4a96d3);
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff69b1e0', endColorstr='#ff4a96d3', GradientType=0);
+	border-top: 1px solid #5295cd;
+	border-bottom: 1px solid #2661a6;
+	color: #fff;
+}
 /************************************CONTACTS************************************/
 #contactsView{
 	height:100%;
@@ -167,8 +191,8 @@ a {
 	border-radius: 17px;
 }
 #shortcut-contact li{
-	height: 25px;
-	line-height: 25px;
+	height: 15px;
+	line-height: 15px;
 	text-align: center;
 }
 #shortcut-contact a{
@@ -184,33 +208,48 @@ a {
 #shortcut-contact a:hover{
 	color: #3571c8;
 }
-#contactsList{
-	position: absolute;
-	right: 0px;
-	left: 40px;
-}
-.contact-item{
-}
-.selected{
-	padding: 5px 15px 5px 0px;
-	background-image: -webkit-linear-gradient(#69b1e0,#4a96d3);
-	background-image: -moz-linear-gradient(#69b1e0,#4a96d3);
-	background-image: -ms-linear-gradient(#69b1e0,#4a96d3);
-	background-image: -o-linear-gradient(#69b1e0,#4a96d3);
-	background-image: linear-gradient(#69b1e0,#4a96d3);
-	filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ff69b1e0', endColorstr='#ff4a96d3', GradientType=0);
-	border-top: 1px solid #5295cd;
-	border-bottom: 1px solid #2661a6;
-	color: #fff;
-}
-.contact-item img{
-	vertical-align:middle;
-}
 .droid_contact {background: url(../img/droid_contact.png) no-repeat center;}
-/************************************SMS************************************
+#addContactForm label, #addContactForm input {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+#addContactForm label {
+	font-weight: bold;
+	background: linear-gradient(#f1f1f1, #e2e2e2);
+	padding: 5px 10px;
+	color: #444;
+	border: 1px solid #d4d4d4;
+	border-right: 0;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
+	line-height: 1.5em;
+	width: 30%;
+	clear: left;
+	margin-top:6px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+}
+#addContactForm input {
+	width: 70%;
+	padding: 5px 5px 3px 5px;
+	border: 1px solid #d4d4d4;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 4px;
+	line-height: 1.5em;
+	float: right;
+	box-shadow: inset 0px 2px 2px #ececec;
+	margin:6px 0 0;
+	&:focus {
+	outline: 0;
+	border: 1px solid #bbb;
+}
+/************************************SMS************************************/
 .chat{
-	position: absolute;
-}*/
+	position: relative;
+	overflow:hidden;
+}
 .chat blockquote {
 	line-height: 1.7;
 	max-width: 75%;
@@ -262,4 +301,84 @@ blockquote:last-child::before {
 	right: -0.8ex;
 	border-bottom-color: #1D62F0;  
 	border-left-color: #1D62F0;
+}
+/************************************FILE************************************/
+.css-treeview ul,
+.css-treeview li{
+	padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.css-treeview input{
+    position: absolute;
+    opacity: 0;
+}
+.css-treeview{
+    font: normal 11px "Segoe UI", Arial, Sans-serif;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.css-treeview a{
+    color: #00f;
+    text-decoration: none;
+}
+.css-treeview a:hover{
+    text-decoration: underline;
+}
+.css-treeview input + label + ul{
+    margin: 0 0 0 22px;
+}
+.css-treeview input ~ ul{
+    display: none;
+}
+.css-treeview label,
+.css-treeview label::before{
+    cursor: pointer;
+}
+.css-treeview input:disabled + label{
+    cursor: default;
+    opacity: .6;
+}
+.css-treeview input:checked:not(:disabled) ~ ul{
+    display: block;
+}
+.css-treeview label,
+.css-treeview label::before{
+    background: url("../img/files/folder-treeview.png") no-repeat;
+}
+.css-treeview label,
+.css-treeview a,
+.css-treeview label::before{
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.css-treeview label{
+    background-position: 18px 0;
+}
+.css-treeview label::before{
+    content: "";
+    width: 16px;
+    margin: 0 22px 0 0;
+    vertical-align: middle;
+    background-position: 0 -32px;
+}
+.css-treeview input:checked + label::before{
+    background-position: 0 -16px;
+}
+/* webkit adjacent element selector bugfix */
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	.css-treeview {
+		-webkit-animation: webkit-adjacent-element-selector-bugfix infinite 1s;
+	}
+	@-webkit-keyframes webkit-adjacent-element-selector-bugfix {
+		from { 
+			padding: 0;
+		}
+		to{ 
+			padding: 0;
+		}
+	}
 }

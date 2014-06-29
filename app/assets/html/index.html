@@ -36,10 +36,10 @@
 					var id = 'sw_'+software.id;
 					$jq('#desktop').append('<div id="'+id+'" class="window"><div class="header"><img class="icon" src="'+iconsFolder+software.icon+'"/><h4 class="title">'+software.label+'</h4><div class="command"><a class="min"></a><a class="max"></a><a class="close"></a></div></div><div class="content"></div></div>');
 					$jq('#'+id+' .content').load(software.view+' #'+software.id+'View', function() {
-						console.log( "Load html was performed." );
-						console.log( 'id : #'+id );
-						console.log( 'load'+capitaliseFirstLetter(software.id)+'View' );
-						window['load'+capitaliseFirstLetter(software.id)+'View']();
+						//console.log( "Load html was performed." );
+						//console.log( 'id : #'+id );
+						//console.log( 'init'+capitaliseFirstLetter(software.id)+'View' );
+						window['init'+capitaliseFirstLetter(software.id)+'View']();
 						/*$.getScript( 'public/javascript/app-window/'+software.id+'.js', function( data, textStatus, jqxhr ) {
 							console.log( data ); // Data returned
 							console.log( textStatus ); // Success
@@ -47,7 +47,7 @@
 							console.log( "Load script was performed." );
 						});*/
 					});
-					$jq('#'+id).draggable().resizable({ handles: "all", alsoResize: '#'+id+' .content', minWidth: '845' }).hide();
+					$jq('#'+id).draggable({cancel: '#'+id+' .content'}).resizable({ handles: "all", alsoResize: '#'+id+' .content', minWidth: '845' , minHeight: '475' }).hide();
 					$jq('#'+id+' .close').click(function(){
 						$jq('#'+id).hide();
 					});

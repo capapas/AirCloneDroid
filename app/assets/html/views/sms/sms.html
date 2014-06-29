@@ -25,23 +25,41 @@
 				</form>
 				<button class="btn del">Supprimer</button>
 				<button class="btn">Actualiser</button>
-				<button class="btn">Nouveau message</button>
+				<button class="btn" data-bind="click: setNewSmsMode">Nouveau message</button>
 			</div>
 			<div class="sidebar">
 				<ul id="smsList" data-bind="foreach: threads">
 					<li>
-						<p class="sms-item" data-bind="click: $parent.selectThread, css: { selected: $data == $parent.selectedThread() }"><img data-bind="attr: { src: img }"/><span data-bind="text: name"></span></p>
+						<p class="sms-item" data-bind="click: $parent.selectThread, css: { selected: $data == $parent.selectedThread() }">
+							<img data-bind="attr: { src: img }"/>
+							<span data-bind="text: name"></span>
+						</p>
 					</li>
 				</ul>
 			</div>
 			<div class="main" data-bind="with: currentChat">
+				<div>
+					<label for="tags">To : </label>
+					<!-- ko if: $root.currentMode() === $root.modeEnum.NEW_SMS -->
+						<input id="tags" data-bind="jqAuto: { autoFocus: true }, jqAutoSource: $root.contacts, jqAutoQuery: searchContacts, jqAutoSourceLabel: 'displayName', jqAutoSourceInputValue: 'name', jqAutoSourceValue: 'guid'">
+					<!-- /ko -->
+					<!-- ko if: $root.currentMode() === $root.modeEnum.READ_THREAD -->
+						<div data-bind="with: $root.selectedThread">
+							<span data-bind="text: name"></span>
+						</div>
+					<!-- /ko -->
+					<!-- ko if: $root.currentMode() === $root.modeEnum.NEW_SMS -->
+						<button data-bind="jqAutoCombo: 'auto'">+</button>
+					<!-- /ko -->
+				</div>
+				<div></div>
 				<ol class="chat" data-bind="foreach: messages">
-  					<li data-bind="attr: { class: sent ? 'me' : 'them'}">
+					<li data-bind="attr: { class: sent ? 'me' : 'them'}">
 						<blockquote data-bind="text: message"></blockquote>
 					</li>
 				</ol>
-				<form id="writingSmsZone" action="">
-					<textarea maxlength="140" name="message" id="message" placeholder="write a message"></textarea>
+				<form data-bind="submit: $parent.submitSms">
+					<textarea name="smsText" id="smsText" placeholder="write a message"></textarea>
 					<input type="submit" value="Envoyer">
 				</form>
 			</div>

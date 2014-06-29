@@ -81,21 +81,19 @@ a:hover {
 	background-color:rgba(160,160,160,0.4);
 	border:1px solid #000;
 	position:absolute;
-	height:446px;
+	height:475px;
 	width:845px;
 	top:120px;
 	left: 200px;
 	right: 0px;
 	padding-bottom:46px;
 }
-
 .window .icon {
 	top:5px;
 	left:5px;
 	height:30px;
 	float: left;
 }
-
 .window .title {
 	background:transparent;
 	background-size:24px 24px;
@@ -114,7 +112,6 @@ a:hover {
 	vertical-align:middle;
 	float: left;
 }
-
 .window .command{
 	float: right;
 	margin-right:7px;
@@ -137,7 +134,6 @@ a:hover {
 	width: 48px;
 	height:19px;
 }
-
 .window .content {
 	-moz-border-radius:1px;
 	-webkit-border-radius:1px;
@@ -168,7 +164,6 @@ a:hover {
  * TASKBAR
  * ===================================================================
  */
-
 #taskbar {
 	position:fixed;
 	bottom:0px;
@@ -187,7 +182,6 @@ a:hover {
 	box-shadow:inset 0 1px 0px rgba(255,255,255,0.4);
 	font:normal 12px Calibri,Arial,Sans-Serif;
 }
-
 /* Creating Folders with CSS Gradients and Pseudo Elements */
 .folder {
 	width:20px;
@@ -207,7 +201,6 @@ a:hover {
 	-moz-border-radius:1px;
 	border-radius:1px;
 }
-
 .folder:before {
 	content:"";
 	width:8px;
@@ -218,13 +211,11 @@ a:hover {
 	bottom:100%;
 	left:0px;
 }
-
 /* Minimized Windows */
 #list {
 	float:left;
 	display:inline;
 }
-
 .opened {
 	width:38px;
 	height:25px;
@@ -246,11 +237,9 @@ a:hover {
 	margin:2px 2px 0;
 	cursor:pointer;
 }
-
 .opened.pilled {
 	position:relative;
 }
-
 .opened .np {
 	border:none;
 	width:12px !important;
@@ -261,7 +250,6 @@ a:hover {
 	-o-transform:skew(2deg,2deg) rotate(-2deg) translate(0px,0px);
 	transform:skew(2deg,2deg) rotate(-2deg) translate(0px,0px);
 }
-
 .opened.pilled:before {
 	content:"";
 	width:38px;
@@ -288,17 +276,14 @@ a:hover {
 	-o-transition:all 0.2s ease-out;
 	transition:all 0.2s ease-out;
 }
-
 .opened .folder.small {
 	margin:4px auto 0;
 	width:20px;
 	height:15px;
 }
-
 .opened .folder.small:before {
 	display:none;
 }
-
 /* Preview of Minimized Windows */
 .opened .screenshot {
 	position:absolute;
@@ -329,7 +314,6 @@ a:hover {
 	transition:all 0.5s ease-out 0.35s;
 	cursor:default;
 }
-
 /* Close Button */
 .opened .screenshot .close {
 	position:absolute;
@@ -360,17 +344,14 @@ a:hover {
 	transition:all 0.2s ease-out;
 	cursor:pointer;
 }
-
 .opened:hover .screenshot {
 	opacity:1;
 	bottom:0px;
 }
-
 .opened .screenshot .col1:hover .close,.opened .screenshot .col2:hover .close {
 	visibility:visible;
 	opacity:1;
 }
-
 .opened .screenshot .col1,.opened .screenshot .col2 {
 	width:174px;
 	height:116px;
@@ -382,7 +363,6 @@ a:hover {
 	border:1px solid transparent;
 	position:relative;
 }
-
 .opened .screenshot .kotak {
 	width:170px;
 	height:90px;
@@ -398,12 +378,10 @@ a:hover {
 	-moz-box-shadow:0 0 1px rgba(255,255,255,0.8);
 	box-shadow:0 0 1px rgba(255,255,255,0.8);
 }
-
 .opened.tunggal .screenshot {
 	width:204px;
 	padding:10px 0;
 }
-
 .opened.tunggal .screenshot .col1 {
 	width:174px;
 	padding:5px;
@@ -412,12 +390,10 @@ a:hover {
 	display:block;
 	position:relative;
 }
-
 .opened .screenshot .col1:hover,.opened .screenshot .col2:hover {
 	background:rgba(255,255,255,0.2);
 	border:1px solid rgba(255,255,255,0.2);
 }
-
 .opened.tunggal .screenshot .col1.fold:before {
 	content:"My Documents";
 	position:absolute;
@@ -425,7 +401,6 @@ a:hover {
 	top:7px;
 	left:7px;
 }
-
 .opened.tunggal .screenshot .col1.ntpad:before {
 	content:"I love CSS3";
 	position:absolute;
@@ -433,7 +408,6 @@ a:hover {
 	top:7px;
 	left:7px;
 }
-
 .opened .screenshot .blank:before {
 	content:"Not Available";
 	position:absolute;
@@ -441,36 +415,30 @@ a:hover {
 	top:7px;
 	left:7px;
 }
-
 .opened:hover {
 	-webkit-box-shadow:inset 0px 1px 1px #fff;
 	-moz-box-shadow:inset 0px 1px 1px #fff;
 	box-shadow:inset 0px 1px 1px #fff;
 }
-
 /* Show Desktop (see the right bottom of Windows) */
 .opened.hide {
 	float:right;
 	width:12px;
 }
-
 #fright {
 	float:right;
 	width:132px;
 	padding-top:8px;
 	color:#fff;
 }
-
 #fright div {
 	float:left;
 	display:inline;
 	cursor:pointer;
 }
-
 .clear {
   clear:both;
 }
-
 /* Let's Dancing! */
 @-webkit-keyframes slow{
 	from{-webkit-transform:translate(0px, -200px);opacity:0;}
