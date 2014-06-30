@@ -6,12 +6,14 @@ var dataSource = {
 	contacts : '../../datas/testDataset/contacts.json',
 	smsThreads : '../../datas/testDataset/smsThreads.json',
 	sms : '../../datas/testDataset/sms.json',
-	files : '../../datas/testDataset/files.json'
+	files : '../../datas/testDataset/files.json',
+	apps : ''../../datas/testDataset/apps.json'
 	*/
 	contacts : 'datas/testDataset/contacts.json',
 	smsThreads : 'datas/testDataset/smsThreads.json',
 	sms : 'datas/testDataset/sms.json',
-	files : 'datas/testDataset/files.json'
+	files : 'datas/testDataset/files.json',
+	apps : 'datas/testDataset/apps.json'
 };
 function getCharArray(){
 	var charArray = [];
@@ -377,7 +379,7 @@ function SmsViewModel(){
 ////////////////////////////FILES///////////////////////////
 ////////////////////////////////////////////////////////////
 function initFilesView(){
-	var filesVM = new SmsViewModel();
+	var filesVM = new FilesViewModel();
 	ko.applyBindings(filesVM, document.getElementById('filesView'));
 	
 	loadFiles(filesVM);
@@ -419,6 +421,97 @@ function FilesViewModel(){
 			if (a.date < b.date)
 				return -1;
 			if (a.date > b.date)
+				return 1;
+			return 0;
+		});
+	};
+};
+////////////////////////////////////////////////////////////
+/////////////////////////////APP////////////////////////////
+////////////////////////////////////////////////////////////
+function initAppsView(){
+	var appsVM = new AppsViewModel();
+	ko.applyBindings(appsVM, document.getElementById('appsView'));
+	
+	loadApps(appsVM);
+}
+function loadApps(viewModel, callback){
+	$.getJSON(dataSource.apps, function(datas) {
+		viewModel.apps.removeAll();
+		for(key in datas){
+			viewModel.addApp(datas[key]);
+		}
+		viewModel.sortApps(datas[key]);
+		
+		if(typeof(callback) == "function")
+			callback();
+	});
+}
+function App(_name, _version, _installDate, _size, _icon, _location, _download){
+	var self = this;
+	self.id;
+	self.name = _name;
+	self.version = _version;
+	self.installDate = _installDate;
+	self.size = _size;
+	self.icon = _icon;
+	self.location = _location;
+	self.download = _download;
+	self.selected = ko.observable(false);
+}
+function AppsViewModel(){
+	var self = this;
+
+	self.apps = ko.observableArray([]);
+	
+	self.selectedApp = ko.observable();
+	self.addApp = function(obj){
+		self.apps.push(new App(obj.name, obj.version, obj.installDate, obj.size, obj.icon, obj.location, obj.download));
+	};
+	self.delete = function(obj){
+		$.ajax({
+			url: 'http://www.truc.com',
+			success: function(json) {
+				if(json.success) {
+					console.log('application supprimée');
+				} else {
+					console.log('echec de la suppression');
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.log('status : '+textStatus);
+				console.log('error : '+errorThrown);
+			}
+		});
+	};
+	self.download = function(obj){
+		$.ajax({
+			url: 'http://www.truc.com',
+			success: function(json) {
+				if(json.success) {
+					console.log('application supprimée');
+				} else {
+					console.log('echec de la suppression');
+				}
+			},
+			error: function(jqXHR, textStatus, errorThrown) {
+				console.log('status : '+textStatus);
+				console.log('error : '+errorThrown);
+			}
+		});
+	};
+	self.selectApp = function(obj){
+		if(obj.selected())
+			obj.selected(false);
+		else
+			obj.selected(true);
+		self.selectedApp(obj);
+	};
+	self.sortApps = function(){
+		self.apps.sort(function(a,b) {
+			if (a.name < b.name)
+				return -1;
+			if (a.name > b.name)
 				return 1;
 			return 0;
 		});
