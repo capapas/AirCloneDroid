@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+		<link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="../../public/css/window-content.css" />
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../../public/javascript/knockout/knockout-3.1.0.js"></script>
+		<!--
+		<link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="public/css/window-content.css" />
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="public/javascript/knockout/knockout-3.1.0.js"></script>
+		-->
+	</head>
+	<body>
+		<div id="photosView">
+			<div class="toolbar">
+				<form class="search-wrapper cf">
+					<input type="text" required="required">
+					<button type="submit" class="btn">Recherche</button>
+				</form>
+				<button class="btn del">Supprimer</button>
+				<button class="btn">Actualiser</button>
+			</div>
+			<div class="content" data-bind="foreach: photos">
+			</div>
+		</div>
+		<script type="text/javascript" src="public/javascript/app-window/photos.js"></script>
+	</body>
+</html>

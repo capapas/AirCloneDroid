@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		
+		<link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="../../public/css/window-content.css" />
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../../public/javascript/knockout/knockout-3.1.0.js"></script>
+		<!--
+		<link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="public/css/window-content.css" />
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="public/javascript/knockout/knockout-3.1.0.js"></script>
+		-->
+	</head>
+	<body>
+		<div id="filesView">
+			<div class="toolbar">
+				<form class="search-wrapper cf">
+					<input type="text" required="required">
+					<button type="submit" class="btn">Recherche</button>
+				</form>
+				<button class="btn del">Supprimer</button>
+				<button class="btn">Actualiser</button>
+			</div>
+			<div class="sidebar">
+				<div class="css-treeview">
+					<ul>
+						<li><input type="checkbox" id="item-0" /><label for="item-0">This Folder is Closed By Default</label>
+							<ul>
+								<li><input type="checkbox" id="item-0-0" /><label for="item-0-0">Ooops! A Nested Folder</label>
+									<ul>
+										<li><input type="checkbox" id="item-0-0-0" /><label for="item-0-0-0">Look Ma - No Hands!</label>
+											<ul>
+												<li><a href="./">First Nested Item</a></li>
+												<li><a href="./">Second Nested Item</a></li>
+												<li><a href="./">Third Nested Item</a></li>
+												<li><a href="./">Fourth Nested Item</a></li>
+											</ul>
+										</li>
+										<li><a href="./">Item 1</a></li>
+										<li><a href="./">Item 2</a></li>
+										<li><a href="./">Item 3</a></li>
+									</ul>
+								</li>
+								<li><input type="checkbox" id="item-0-1" /><label for="item-0-1">Yet Another One</label>
+									<ul>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+									</ul>
+								</li>
+								<li><input type="checkbox" id="item-0-2" disabled="disabled" /><label for="item-0-2">Disabled Nested Items</label>
+									<ul>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+									</ul>
+								</li>
+								<li><a href="./">item</a></li>
+								<li><a href="./">item</a></li>
+								<li><a href="./">item</a></li>
+								<li><a href="./">item</a></li>
+							</ul>
+						</li>
+						<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1">This One is Open by Default...</label>
+							<ul>
+								<li><input type="checkbox" id="item-1-0" /><label for="item-1-0">And Contains More Nested Items...</label>
+									<ul>
+										<li><a href="./">Look Ma - No Hands</a></li>
+										<li><a href="./">Another Item</a></li>
+										<li><a href="./">And Yet Another</a></li>
+									</ul>
+								</li>
+								<li><a href="./">Lorem</a></li>
+								<li><a href="./">Ipsum</a></li>
+								<li><a href="./">Dolor</a></li>
+								<li><a href="./">Sit Amet</a></li>
+							</ul>
+						</li>
+						<li><input type="checkbox" id="item-2" /><label for="item-2">Can You Believe...</label>
+							<ul>
+								<li><input type="checkbox" id="item-2-0" /><label for="item-2-0">That This Treeview...</label>
+									<ul>
+										<li><input type="checkbox" id="item-2-2-0" /><label for="item-2-2-0">Does Not Use Any JavaScript...</label>
+											<ul>
+												<li><a href="./">But Relies Only</a></li>
+												<li><a href="./">On the Power</a></li>
+												<li><a href="./">Of CSS3</a></li>
+											</ul>
+										</li>
+										<li><a href="./">Item 1</a></li>
+										<li><a href="./">Item 2</a></li>
+										<li><a href="./">Item 3</a></li>
+									</ul>
+								</li>
+								<li><input type="checkbox" id="item-2-1" /><label for="item-2-1">This is a Folder With...</label>
+									<ul>
+										<li><a href="./">Some Nested Items...</a></li>
+										<li><a href="./">Some Nested Items...</a></li>
+										<li><a href="./">Some Nested Items...</a></li>
+										<li><a href="./">Some Nested Items...</a></li>
+										<li><a href="./">Some Nested Items...</a></li>
+									</ul>
+								</li>
+								<li><input type="checkbox" id="item-2-2" disabled="disabled" /><label for="item-2-2">Disabled Nested Items</label>
+									<ul>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+										<li><a href="./">item</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="content" data-bind="foreach: selectedFolder">
+			</div>
+		</div>
+		<script type="text/javascript" src="public/javascript/app-window/files.js"></script>
+	</body>
+</html>

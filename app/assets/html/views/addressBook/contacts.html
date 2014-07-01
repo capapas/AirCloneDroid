@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="../../public/css/window-content.css" />
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="../../public/javascript/knockout/knockout-3.1.0.js"></script>
+		<!--
+		<link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+		<link rel="stylesheet" href="public/css/window-content.css" />
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+		<script type="text/javascript" src="public/javascript/knockout/knockout-3.1.0.js"></script>
+		-->
+	</head>
+	<body>
+		<div id="contactsView">
+			<div class="toolbar">
+				<form class="search-wrapper cf">
+					<input type="text" required="required">
+					<button type="submit" class="btn">Recherche</button>
+				</form>
+				<button class="btn del">Supprimer</button>
+				<button class="btn">Actualiser</button>
+				<button class="btn" data-bind="click: setAddContactMode">Nouveau contact</button>
+			</div>
+			<div class="sidebar">
+				<ul id="shortcut-contact" data-bind="foreach: shortcuts">
+					<li><a data-bind="attr: { href: '#'+$data }, text: $data"></a></li>
+				</ul>
+				<ul id="contactsList" class="navList" data-bind="foreach: contacts">
+					<li>
+						<p class="item" data-bind="click: $parent.select, css: { selected: $data == $root.selectedContact() }"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
+					</li>
+				</ul>
+			</div>
+			<div class="main" data-bind="with: selectedContact">
+				<!-- ko if: $root.currentMode() === $root.modeEnum.READ -->
+					<div>
+						<!--<img data-bind="attr: { src: contactImg }"/>-->
+						<p>
+							<span data-bind="text: name"></span>
+						</p>
+					</div>
+					<hr />
+					<div>
+                        <!-- ko if: typeof phones !== 'undefined' -->
+                            <!-- ko foreach: { data: phones, as: 'phone' }-->
+                                <p data-bind="text: phone"></p>
+                            <!-- /ko -->
+                        <!-- /ko -->
+					</div>
+					<hr />
+					<div>
+                        <!-- ko if: typeof emails !== 'undefined' -->
+                        <!-- ko foreach: { data: emails, as: 'email' }-->
+							<p data-bind="text: email"></p>
+						<!-- /ko -->
+                        <!-- /ko -->
+					</div>
+				<!-- /ko -->
+				<!-- ko if: $root.currentMode() === $root.modeEnum.CREATE -->
+					<form id="addContactForm" action="" method="post">
+						<label for="name">Nom</label>
+						<input type="text" id="name" name="name" />
+						<br />
+						<label for="phone">Téléphone</label>
+						<input type="text" id="phone" name="phone" />
+						<br />
+						<label for="email">Courriel</label>
+						<input type="text" id="email" name="email" />
+						<br />
+						<label for="address">Address</label>
+						<input type="text" id="address" name="address" />
+
+						<button type="submit" class="btn">Ajouter</button>
+					</form>
+				<!-- /ko -->
+			</div>
+		</div>
+		<script type="text/javascript" src="public/javascript/app-window/contacts.js"></script>
+	</body>
+</html>

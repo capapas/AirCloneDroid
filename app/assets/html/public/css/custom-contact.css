@@ -1,0 +1,202 @@
+*:focus {
+    outline: 0;
+}
+
+.profile {
+    border-radius: 100%;
+    border: 2px solid #ffffff;
+    width: 55px;
+    height: 55px;
+}
+
+.stat {
+    width: 100%;
+    background-color: #656D78;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #CCD1D9;
+}
+
+.contactButton {
+    width: 100px;
+    background: none;
+    border: none;
+    padding: 20px 0px;
+    color: #808080;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.contactButton:hover i {
+    color: #4FC1E9;
+}
+
+.contactButton:active {
+    background-color: #4FC1E9;
+    color: #ffffff;
+}
+
+.contactButton:active i {
+    color: #ffffff;
+}
+
+.scroll {
+    height:100vh;
+    overflow-y:scroll;
+}
+
+.content {
+    width: 100%;
+    padding: 0px;
+    padding-left: 335px;
+}
+
+.second-nav {
+    float: left;
+    width: 40%;
+    height: 100%;
+    background-color: #F5F7FA;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+
+.controls {
+    padding: 2px;
+    background-color: #ffffff;
+    width: 98%;
+    display: table;
+    height: 30px;
+    border: 1px solid #e0e0e0;
+}
+
+.messages {
+    display: table;
+    width: 100%;
+    background-color: #F5F7FA;
+}
+
+.contact {
+    display: table-row;
+    height: 30px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.cell {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px 5px;
+    padding-top: 5px;
+    width: 100%;
+    font-size: 14px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.profileImage {
+    width: 50px;
+    float: left;
+}
+
+.profileImage img {
+    padding-top: 5px;
+    border-radius: 5px;
+    width: 45px;
+}
+
+.contactName {
+    width: 210px;
+    padding-left: 10px;
+    padding-top: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    height: 40px;
+}
+
+.viewer {
+    width: 50%;
+    float: right;
+}
+
+.viewer .header {
+    background-color: #FFFFFF;
+    color: #AAB2BD;
+}
+
+.header {
+    font-size: 14px;
+    text-align: center;
+}
+
+#email {
+    padding: 0px;
+    padding-left: 100px;
+    padding-top: 20px;
+}
+
+#email p {
+    color: #656d78;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#email .subject {
+    font-weight: 700;
+}
+
+.viewer .header img {
+    width: 60px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.body {
+    padding: 20px;
+    color: #656d78;
+}
+
+.body h1 {
+    font-weight: 300;
+}
+
+.body img {
+    width: 100%;
+    border-radius: 10px;
+    max-width: 600px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.body img:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
+.imagedisplay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #434A54;
+    display: none;
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.viewimage {
+    width: 600px;
+}
+
+.viewimage img {
+    width: 100%;
+}
+
+.search-input {
+    width: 97%;
+    height: 100%;
+}
