@@ -1,0 +1,72 @@
+<bsh>
+    import android.app.Service;
+    import android.database.Cursor;
+    import android.net.Uri;
+    import java.text.DateFormat;
+    import android.provider.Contacts.People;
+    import android.content.ContentValues;
+
+    threadId = parameters.get("threadId");
+    contactId = parameters.get("contactId");
+
+    print("[{\n\t\"messages\" : [");
+
+    service = (Service) server.props.get("serviceContext");
+    SMS_CONTENT_URI = Uri.parse("content://sms");
+
+    SMS_READ_COLUMN = "read";
+    SORT_ORDER = "date DESC";
+
+    WHERE_CONDITION = SMS_READ_COLUMN + " = 0";
+
+    cursor = service.getContentResolver().query(
+        SMS_CONTENT_URI,
+        new String[] { "_id", "thread_id", "address", "person", "date", "body", "status", "read"},
+        WHERE_CONDITION,
+        null,
+        SORT_ORDER
+    );
+
+    if (cursor != null) {
+        try {
+            count = cursor.getCount();
+
+            if (cursor.moveToFirst()) {
+                Integer index_Read = cursor.getColumnIndex("read");
+                Integer index_Person = cursor.getColumnIndex("person");
+                Integer index_Type = cursor.getColumnIndex("type");
+
+                do {
+                    print("\n\t\t{");
+                    messageId = cursor.getLong(0);
+                    threadId = cursor.getLong(1);
+                    number = cursor.getString(2);
+                    long timestamp = cursor.getLong(4);
+
+                    body = cursor.getString(5);
+                    status = cursor.getInt(6);
+
+                    read = cursor.getInt(index_Read);
+                
+                    // Add links to URLs
+                    body = body.replaceAll(
+                        "(http://[^\\s]*)",
+                        "<a href=\"$1\" target=\"_blank\" class='link'>$1</a>"
+                    );
+
+                    body =  body.replace("\n", "<br>").replace("\t", "    ").replace("\"", "\\\"");
+
+                    print("\n\t\t\t\"id\" : " +  messageId + ",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(timestamp)) + "\", \n\t\t\t\"message\" : \"" + body + "\""
+                    );
+                    print("\t\t}");
+                    if (!cursor.isLast())  {
+                        print(",");
+                    }
+                } while(cursor.moveToNext());
+            }
+        } finally {
+            cursor.close();
+        }
+    }
+    print("\t]}]");
+</bsh>

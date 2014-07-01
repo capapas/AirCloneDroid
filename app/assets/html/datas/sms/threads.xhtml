@@ -1,0 +1,132 @@
+
+<bsh>
+import android.net.Uri;
+import android.provider.Contacts.People;
+import android.provider.Contacts.Phones;
+import java.text.DateFormat;
+
+service = server.props.get("serviceContext");
+delete = parameters.get("delete");
+
+SMS_CONTENT_URI = Uri.parse("content://sms");
+
+// ArrayList for thread information
+listThreads = new ArrayList();
+
+URI = Uri.parse("content://sms");
+
+// --- Thread IDs
+cur = service.getContentResolver().query(URI, new String[] {"DISTINCT thread_id"}, null, null, "date DESC");
+threadIDs = new ArrayList();
+if(cur.moveToFirst()) {
+    do {
+        threadIDs.add(cur.getInt(0));
+    } while(cur.moveToNext());
+}
+cur.close();
+
+print("[");
+//--- Get infos
+
+Integer it = 0;
+for(id : threadIDs) {
+    // ArrayList for this thread information
+    listThreadInfo = new ArrayList();
+
+
+   /* List content
+      0: Thread ID (int)
+      1: Address (String)
+      2: Name (might be null) (String)
+      3: Contact ID (might be 0) (int)
+      4: Date (Date)
+      5: Messages in Thread (int)
+      6: Body (String)
+      7: Unread messages (int)
+   */
+
+    // -- Messages in thread
+    cur = service.getContentResolver().query(URI, new String[] { "COUNT(thread_id)" }, "thread_id=?", new String[] { "" + id }, null);
+    cur.moveToFirst();
+    count = cur.getInt(0);
+    cur.close();
+
+    // -- Unread messages
+    cur = service.getContentResolver().query(URI, new String[] { "COUNT(read)" }, "thread_id=? AND read == 0", new String[] { "" + id }, null);
+    cur.moveToFirst();
+    unread = cur.getInt(0);
+    cur.close();
+
+    cur = service.getContentResolver().query(URI, null, "thread_id=?", new String[] { "" + id }, "date DESC LIMIT 1");
+    if(cur.moveToFirst()) {
+        do {
+            contactId = cur.getInt(cur.getColumnIndex("person"));
+            address = cur.getString(cur.getColumnIndex("address"));
+            date = new Date(cur.getLong(cur.getColumnIndex("date")));
+            body = cur.getString(cur.getColumnIndex("body"));
+
+            // Only if address != null. Otherwise it's a DRAFT
+            if(address != null) {
+      
+                name = null;
+          
+                phones = service.getContentResolver().query(
+                    android.provider.ContactsContract.CommonDataKinds.Phone.CONTENT_URI, new String[] { android.provider.ContactsContract.CommonDataKinds.Phone.RAW_CONTACT_ID },
+                    android.provider.ContactsContract.CommonDataKinds.Phone.NUMBER + "=?", new String[] { address }, null
+                );
+       
+                if(phones.moveToFirst()) {
+                    contactId = phones.getInt(0);
+                }
+       
+                phones.close();
+        
+                if(contactId != 0) {
+
+                    contact = service.getContentResolver().query(
+                        android.provider.ContactsContract.Data.CONTENT_URI, new String[]{android.provider.ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME }, 
+                        android.provider.ContactsContract.Data.RAW_CONTACT_ID + "=? AND " + 
+                        android.provider.ContactsContract.CommonDataKinds.StructuredName.MIMETYPE + "=?", new String[] { "" + contactId, android.provider.ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE }, null
+                    );
+
+                    if(contact.moveToFirst()) {
+                        name = contact.getString(0);
+                    }
+
+                    contact.close();
+                }
+          
+                listThreadInfo.add(0, id);
+                listThreadInfo.add(1, address);
+                listThreadInfo.add(2, name);
+                listThreadInfo.add(3, contactId);
+                listThreadInfo.add(4, date);
+                listThreadInfo.add(5, count);
+                listThreadInfo.add(6, body);
+                listThreadInfo.add(7, unread);
+
+                body =  body.replace("\n", "<br>").replace("\t", "    ").replace("\"", "\\\"");
+
+                print("{");
+                print("\t\"id\" : " + id + ",");
+                print("\t\"addr\" : \"" + address + "\",");
+                print("\t\"name\" : \"" + name + "\",");
+                print("\t\"contactId\" : " + contactId+ ",");
+                print("\t\"date\" : \"" + date + "\",");
+                print("\t\"count\" : " + count + ",");
+                print("\t\"body\" : \"" + body + "\",");
+                print("\t\"unread\" : " + unread);
+                print("}");
+
+                it++;
+                if(it < threadIDs.size()) {
+                    print(",");
+                }
+                listThreads.add(listThreadInfo);
+            }
+        } while(cur.moveToNext());
+    }
+    cur.close();
+}
+print("]");
+</bsh>

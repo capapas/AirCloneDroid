@@ -5,7 +5,7 @@
     <http>false</http>
     <https>false</https>
     <passthrough>false</passthrough>
-    <maxPost>209715200</maxPost>
+    <maxPost>31457280</maxPost>
     <connectionType>http</connectionType>
 </server>
 

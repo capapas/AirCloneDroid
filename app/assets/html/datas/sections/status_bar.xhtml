@@ -1,0 +1,166 @@
+<bsh>
+
+    import de.fun2code.android.pawserver.util.*;
+    import android.content.Intent;
+    import android.app.Service;
+    import android.os.BatteryManager;
+    import android.content.Context;
+    import android.media.AudioManager;
+    import android.app.ActivityManager;
+    import android.app.ActivityManager.MemoryInfo;
+    import android.database.Cursor;
+    import android.net.Uri;
+    import de.fun2code.android.pawserver.AndroidInterface;
+    import android.net.wifi.WifiInfo;
+    import android.content.Context;
+
+    res = "aaaa";
+
+    service = server.props.get("serviceContext");
+
+    //Toolbar constants
+    /* TOOLBAR_HIDE_BATTERY = 1;
+    TOOLBAR_HIDE_RINGER_VOLUME = 2;
+    TOOLBAR_HIDE_MEMORY = 4;
+    TOOLBAR_HIDE_WIFI = 8;
+    TOOLBAR_HIDE_LOAD = 16;
+    TOOLBAR_HIDE_MESSAGE = 32;
+    TOOLBAR_HIDE_MEDIA_PLAYER = 64;
+    TOOLBAR_HIDE_SHARING = 128;
+    */
+
+    intent = IntentUtil.getIntentResultFromBroadcast(service, Intent.ACTION_BATTERY_CHANGED);
+
+
+    //**************************************************************
+    // Récupération de la batterie
+    //**************************************************************
+
+    rawlevel = intent.getIntExtra("level", -1); // percent of charging
+    scale = intent.getIntExtra("scale", -1);
+    status = intent.getIntExtra("status", -1);
+    if (rawlevel >= 0 && scale > 0) {
+    percent = (rawlevel * 100) / scale;
+    }
+
+    phoneCharging = "";
+
+    if (status == BatteryManager.BATTERY_STATUS_CHARGING) {
+    phoneCharging = "-charging";
+    }
+
+    if(percent >= 100) {
+    img = "battery" + phoneCharging + "-100";
+    }
+    else if(percent >= 75) {
+    img = "battery" + phoneCharging + "-075";
+    }
+    else if(percent >= 50) {
+    img = "battery" + phoneCharging + "-050";
+    }
+    else if(percent >= 25) {
+    img = "battery" + phoneCharging + "-025";
+    }
+    else if(percent > 5) {
+    img = "battery" + phoneCharging + "-caution";
+    }
+    else {
+    img = "battery" + phoneCharging + "-low";
+    }
+
+
+    //**************************************************************
+    // Récupération du volume de l'appareil
+    //**************************************************************
+
+    audio = service.getSystemService(Context.AUDIO_SERVICE);
+    ringerVol = audio.getStreamVolume(AudioManager.STREAM_RING);
+
+
+    //**************************************************************
+    // Récupération de la mémoire restantes.
+    //**************************************************************
+
+    activityManager = (ActivityManager) service.getSystemService(Context.ACTIVITY_SERVICE);
+    memInfo = new ActivityManager.MemoryInfo();
+    activityManager.getMemoryInfo(memInfo);
+
+
+    //**************************************************************
+    // Récupération des informations sur le Wifi
+    //**************************************************************
+
+    //information du wifi
+    wifiService = service.getSystemService(Context.WIFI_SERVICE);
+
+    // vérification des réseaux connectés
+    wifiInfo = wifiService.getConnectionInfo();
+
+    wifiActive = false;
+
+    if(wifiInfo != null && wifiInfo.getIpAddress() != 0) {
+    wifiActive = true;
+    }
+
+    if(wifiActive) {
+    SSID = wifiInfo.getSSID();
+    if(SSID == null) { SSID = "unknown"; }
+
+    SSID = SSID.replace("\"", "");
+
+    linkspeed = wifiInfo.getLinkSpeed() + " " + WifiInfo.LINK_SPEED_UNITS;
+    if(wifiInfo.getLinkSpeed()
+    <
+    0) { linkspeed = "unknown"; }
+
+    wifiStrengthPercent = (100 + wifiInfo.getRssi() + 20);
+
+    if(wifiStrengthPercent > 100) { wifiStrengthPercent = 100; }
+    if(wifiStrengthPercent
+    <
+    0) { wifiStrengthPercent = 0; }
+
+    wifiBars = wifiStrengthPercent / 20;
+    if(wifiBars > 4) { wifiBars = 4; }
+    if(wifiBars
+    <
+    0) { wifiBars = 0; }
+    }
+
+    print("[\n");
+
+    print("\t{\n");
+
+    print("\"memory\" : {\n");
+    print("\"img\" : \"public/img/memory.png\",");
+    print("\"available\" : \"" + (memInfo.availMem / 1024 /1024) + "M\"");
+    print("},");
+
+    print("\"volume\" : {\n");
+    print("\"img\" : \"public/img/speaker.png\",");
+    print("\"ringervol\" : \"" + (memInfo.availMem / 1024 /1024) + "M\"");
+    print("},");
+
+    print("\"wifi\" : {\n");
+    print("\"img\" : \"public/img/"+wifiBars+"\",");
+    print("\"name\" : \""+SSID+"\",");
+    print("\"linkspeed\" : \""+linkspeed+"\",");
+    print("\"wifistrengthpercent\" : \""+wifiStrengthPercent+"\"");
+    print("},");
+
+    print("\"battery\" : {\n");
+    print("\"img\" : \"public/img/"+img+"\",");
+    print("\"percent\" : \""+percent+"\"");
+    print("}");
+
+    print("}");
+
+    print("]");
+
+    /*res += memInfos;
+
+    request.sendResponse(res.getBytes(), "text/plain");
+    request.out.flush();
+    request.out.close();
+    */
+</bsh>

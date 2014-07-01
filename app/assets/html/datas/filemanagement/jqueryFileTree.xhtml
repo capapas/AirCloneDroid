@@ -1,0 +1,90 @@
+<html>
+<body>
+<!--<script>-->
+<bsh>
+    import java.text.SimpleDateFormat;
+
+
+dir = parameters.get("dir");
+dir = "%2Fsdcard%2F";
+
+dirTreeSb2 = new StringBuilder();
+dirTreeSb2.append("[");
+
+
+if(dir !=null) {
+	dir = URLDecoder.decode(dir, "UTF-8");
+	// Set as variable so we know where we are
+	fileTreeCurrentDir = dir;
+
+
+	if (dir.charAt(dir.length()-1) == '\\') {
+    	dir = dir.substring(0, dir.length()-1) + "/";
+	} else if (dir.charAt(dir.length()-1) != '/') {
+	    dir += "/";
+	}
+    if (new File(dir).exists()) {
+		String[] files = new File(dir).list(new FilenameFilter() {
+		    public boolean accept(File dir, String name) {
+				return name.charAt(0) != '.';
+		    }
+		});
+		Arrays.sort(files, String.CASE_INSENSITIVE_ORDER);
+
+    dateFormat = new SimpleDateFormat("MM/dd/yyyy kk:mm:ss");
+
+
+		// All dirs
+		for (String file : files) {
+    realFile = new File(dir, file);
+		    if (realFile.isDirectory()) {
+                dirTreeSb2.append("{");
+                dirTreeSb2.append("\"Filetype\": \"dir\",");
+                dirTreeSb2.append("\"Extension\": " + null + ",");
+                dirTreeSb2.append("\"Modified\": \"" + dateFormat.format(realFile.lastModified()) + "\",");
+                dirTreeSb2.append("\"Size\": " + null + ",");
+                dirTreeSb2.append("\"Preview\": \"/public/img/filemanagement/fileicons/directory.png\",");
+                dirTreeSb2.append("\"Filename\": \"" + file + "\",");
+                dirTreeSb2.append("\"Path\": \"" + dir + file + "\"");
+                dirTreeSb2.append("}");
+
+                    dirTreeSb2.append(",");
+		    }
+		}
+		// All files
+		for (String file : files) {
+            realFile = new File(dir, file);
+		    if (!realFile.isDirectory()) {
+				int dotIndex = file.lastIndexOf('.');
+				String ext = dotIndex > 0 ? file.substring(dotIndex + 1) : "";
+                dirTreeSb2.append("{");
+                dirTreeSb2.append("\"Filetype\": \"file\",");
+                dirTreeSb2.append("\"Extension\": \"" + ext + "\",");
+                dirTreeSb2.append("\"Modified\": \"" + dateFormat.format(realFile.lastModified()) + "\",");
+                dirTreeSb2.append("\"Size\": \"" + realFile.length() + "\",");
+                dirTreeSb2.append("\"Preview\": \"/public/img/filemanagement/fileicons/" + ext + ".png\",");
+                dirTreeSb2.append("\"Filename\": \"" + file + "\",");
+                dirTreeSb2.append("\"Path\": \"" + dir + file + "\"");
+                dirTreeSb2.append("}");
+
+                dirTreeSb2.append(",");
+		    	}
+		}
+    }
+}
+
+    if (dirTreeSb2.lastIndexOf(",") == (dirTreeSb2.length() -1)) {
+        dirTreeSb2.deleteCharAt(dirTreeSb2.lastIndexOf(","));
+    }
+
+    dirTreeSb2.append("]");
+
+    request.sendResponse(dirTreeSb2.toString().getBytes(), "text/plain");
+    request.out.flush();
+    request.out.close();
+
+<!--</script>-->
+</bsh>
+</body>
+</html>
+

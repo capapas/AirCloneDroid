@@ -1,0 +1,60 @@
+<bsh>
+    import android.app.Service;
+    import android.database.Cursor;
+    import android.net.Uri;
+    import java.text.DateFormat;
+    import android.provider.CallLog;
+
+    service = (Service) server.props.get("serviceContext");
+
+    SORT_ORDER = CallLog.Calls.DATE + " DESC";
+
+    cursor = service.getContentResolver().query(
+        CallLog.Calls.CONTENT_URI,
+        new String[] { CallLog.Calls.NUMBER, CallLog.Calls.CACHED_NAME,
+        CallLog.Calls.DATE,
+        CallLog.Calls.DURATION, CallLog.Calls.TYPE },
+        null,
+        null,
+        SORT_ORDER
+    );
+
+    if (cursor != null) {
+        try {
+            count = cursor.getCount();
+            if (cursor.moveToFirst()) {
+                print("[{\n\t\"calls\":[");
+                do {
+
+                    callNumber = cursor.getString(0);
+                    callName = cursor.getString(1);
+                    callDate = cursor.getLong(2);
+                    callDuration = cursor.getLong(3);
+                    callType = cursor.getLong(4);
+
+                    callTypeLabel = "";
+
+                    switch(callType) {
+                        case CallLog.Calls.INCOMING_TYPE:
+                            callTypeLabel = "received";
+                            break;
+                        case CallLog.Calls.OUTGOING_TYPE:
+                            callTypeLabel = "sent";
+                            break;
+                        case CallLog.Calls.MISSED_TYPE:
+                            callTypeLabel = "miss";
+                            break;
+                    }
+
+                    print("\t\t{\n\t\t\t\"number\" : \"" + callNumber + "\",\n\t\t\t\"name\" : \"" + callName + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(callDate)) + "\",\n\t\t\t\"duration\" : \"" + callDuration + "\",\n\t\t\t\"type\" : \"" + callTypeLabel + "\"\n\t\t}");
+                    if (!cursor.isLast()) {
+                        print(",");
+                    }
+                } while(cursor.moveToNext());
+                print("\t]\n}]");
+            }
+        } finally {
+            cursor.close();
+        }
+    }
+</bsh>

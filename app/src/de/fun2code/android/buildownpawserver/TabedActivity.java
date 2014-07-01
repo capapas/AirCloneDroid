@@ -6,12 +6,15 @@ import android.app.ActionBar.TabListener;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.TextView;
 import de.fun2code.android.buildownpawserver.tab.ChangePassword;
 import de.fun2code.android.buildownpawserver.tab.Connexion;
@@ -71,13 +74,13 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
         checkInstallationTmp();
 
         /*
-		 * Register handler This is needed in order to get dialogs etc. to work.
+         * Register handler This is needed in order to get dialogs etc. to work.
 		 */
         messageHandler = new MessageHandler(this);
         BuildOwnPawServerService.setActivityHandler(messageHandler);
 
 		/*
-		 * Register activity with service.
+         * Register activity with service.
 		 */
 
         setContentView(R.layout.activity_tabed);
@@ -95,6 +98,18 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
         actionBar.addTab(tab2);
         BuildOwnPawServerService.setActivity(this);
 
+    }
+
+    public void addListenerOnButton() {
+
+        Button buttonGo = (Button) findViewById(R.id.runButton);
+
+        buttonGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                runOrStopServer();
+            }
+        });
     }
 
     @Override
@@ -135,17 +150,24 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
      */
     @Override
     public void startService() {
-        /*
-		 * Do nothing, if service is already running.
-		 */
+    }
+
+    public void runOrStopServer() {
+
+        Button btn = (Button) findViewById(R.id.runButton);
+
         if (BuildOwnPawServerService.isRunning()) {
-            return;
+            stopService();
+            btn.setBackgroundResource(R.drawable.start_button);
+            viewUrl = (TextView) findViewById(R.id.server_state);
+            viewUrl.setText("Server is stopped");
+        } else {
+            Intent serviceIntent = new Intent(TabedActivity.this,
+                    BuildOwnPawServerService.class);
+
+            startService(serviceIntent);
+            btn.setBackgroundResource(R.drawable.stop_button);
         }
-
-        Intent serviceIntent = new Intent(TabedActivity.this,
-                BuildOwnPawServerService.class);
-
-        startService(serviceIntent);
     }
 
     /**
@@ -156,6 +178,9 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
      */
     @Override
     public void onServiceStart(boolean success) {
+        viewUrl = (TextView) findViewById(R.id.server_state);
+
+
         if (success) {
             // Display URL
             PawServerService service = BuildOwnPawServerService.getService();
@@ -163,13 +188,17 @@ public class TabedActivity extends PawServerActivity implements ServiceListener 
                     + "://" + Utils.getLocalIpAddress() + ":"
                     + service.getPawServer().serverPort;
 
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Log.e("zzzzzz", String.valueOf(url));
-//                    viewUrl.setText("Server running on: " + url);
-                }
-            });
+            if (Utils.getLocalIpAddress() != null) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("gg", String.valueOf(url));
+                        viewUrl.setText(url);
+                    }
+                });
+            } else {
+                viewUrl.setText("No internet connexion");
+            }
 
         } else {
             runOnUiThread(new Runnable() {
