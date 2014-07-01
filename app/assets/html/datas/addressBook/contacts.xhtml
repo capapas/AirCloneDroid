@@ -30,7 +30,7 @@ if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
 
         hasNumber = curContacts.getInt(curContacts .getColumnIndex(android.provider.ContactsContract.CommonDataKinds.StructuredName.HAS_PHONE_NUMBER));
 
-        if (hasNumber == 1) {
+        //if (hasNumber == 1) {
             id = curContacts.getString(curContacts .getColumnIndex(android.provider.ContactsContract.Data.RAW_CONTACT_ID));
             name = curContacts.getString(curContacts .getColumnIndex(android.provider.ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME));
 
@@ -51,7 +51,7 @@ if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
         print("\t{\n\t\t\"name\" :\"" + name + "\",\n\t\t\"id\" :\"" + id + "\",\n\t\t\"contactImg\" : \"graphics/seeContactImg.xhtml?contactId=" + id + "\"");
 
         if (curEmails.moveToFirst()) {
-                print(",\n\t\t\"email\" : [");
+                print(",\n\t\t\"emails\" : [");
                 c = 0;
                 do {
                     email = curEmails.getString(curEmails.getColumnIndex(android.provider.ContactsContract.CommonDataKinds.Email.ADDRESS));
@@ -88,7 +88,7 @@ if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
                 print(",");
             }
             curPhones.close();
-        }
+        //}
 	} while(curContacts .moveToNext());
 	}
     print("]");	

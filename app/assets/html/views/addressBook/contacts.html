@@ -39,22 +39,26 @@
 			<div class="main" data-bind="with: selectedContact">
 				<!-- ko if: $root.currentMode() === $root.modeEnum.READ -->
 					<div>
-						<img data-bind="attr: { src: contactImg }"/>
+						<!--<img data-bind="attr: { src: contactImg }"/>-->
 						<p>
 							<span data-bind="text: name"></span>
 						</p>
 					</div>
 					<hr />
 					<div>
-						<!-- ko foreach: { data: phones, as: 'phone' }-->
-							<p data-bind="text: phone"></p>
-						<!-- /ko -->
+                        <!-- ko if: typeof phones !== 'undefined' -->
+                            <!-- ko foreach: { data: phones, as: 'phone' }-->
+                                <p data-bind="text: phone"></p>
+                            <!-- /ko -->
+                        <!-- /ko -->
 					</div>
 					<hr />
 					<div>
-						<!-- ko foreach: { data: emails, as: 'email' }-->
+                        <!-- ko if: typeof emails !== 'undefined' -->
+                        <!-- ko foreach: { data: emails, as: 'email' }-->
 							<p data-bind="text: email"></p>
 						<!-- /ko -->
+                        <!-- /ko -->
 					</div>
 				<!-- /ko -->
 				<!-- ko if: $root.currentMode() === $root.modeEnum.CREATE -->
@@ -70,7 +74,7 @@
 						<br />
 						<label for="address">Address</label>
 						<input type="text" id="address" name="address" />
-						
+
 						<button type="submit" class="btn">Ajouter</button>
 					</form>
 				<!-- /ko -->

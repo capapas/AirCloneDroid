@@ -9,11 +9,19 @@ var dataSource = {
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
 	*/
-	contacts : 'datas/testDataset/contacts.json',
+	/*
+    contacts : 'datas/testDataset/contacts.json',
 	smsThreads : 'datas/testDataset/smsThreads.json',
-	sms : 'datas/testDataset/sms.json',
-	files : 'datas/testDataset/files.json',
+	*/sms : 'datas/testDataset/sms.json',
+	/*files : 'datas/testDataset/files.json',
 	apps : 'datas/testDataset/apps.json'
+    */
+
+    contacts : 'datas/addressBook/contacts.xhtml',
+    smsThreads : 'datas/sms/threads.xhtml',
+    //sms : 'datas/sms/show_thread.xhtml',
+    files : 'datas/filemanagement/filemanager.xhtml',
+    apps : 'datas/application/applications_list.xhtml'
 };
 function getCharArray(){
 	var charArray = [];
@@ -151,7 +159,7 @@ ko.bindingHandlers.jqAutoCombo = {
 function initContactsView(){
 	var cvm = new ContactsViewModel();
 	ko.applyBindings(cvm, document.getElementById('contactsView'));
-	
+
 	loadContacts(cvm, function(){
 		$("#contactsList li").each(function(index, element) {
 			var letter = $(this).children().children('span').text().charAt(0);
@@ -168,6 +176,8 @@ function initContactsView(){
 			}, 'slow');
 		});
 	});
+
+    console.log("aprÃ¨s loadcontact");
 }
 function loadContacts(viewModel, callback){
 	$.getJSON(dataSource.contacts, function(datas) {
@@ -179,7 +189,9 @@ function loadContacts(viewModel, callback){
 		
 		if(typeof(callback) == "function")
 			callback();
-	});
+	}).fail(function (d, textStatus, error) {
+        console.error("getJSON failed, status :" + textStatus + ", error : " + error);
+    });
 }
 function searchContacts(searchTerm, sourceArray){
 	$.getJSON(dataSource.contacts, function(datas) {
@@ -232,7 +244,7 @@ function ContactsViewModel(){
 		if(i != NaN && i > 0)
 			return self.contacts()[i];
 		console.log(index);
-		console.log("L'index doit être un entier positif.");
+		console.log("L'index doit ï¿½tre un entier positif.");
 		return null;
 	};
 	self.sortContacts = function(){
@@ -259,7 +271,7 @@ function ContactsViewModel(){
 				dataType: 'json', // JSON
 				success: function(json) {
 					if(json.success) {
-						console.log('contact ajouté');
+						console.log('contact ajoutï¿½');
 					} else {
 						console.log('echec de l\'ajout');
 					}
@@ -281,16 +293,21 @@ function initSmsView(){
 	loadSms(smsVM);
 }
 function loadSms(viewModel, callback){
+    console.log('avant getjson sms');
 	$.getJSON(dataSource.smsThreads, function(datas) {
 		viewModel.threads.removeAll();
+        console.log(datas);
 		for(key in datas){
+            console.log(datas[key]);
 			viewModel.addThread(datas[key]);
 		}
 		viewModel.sortThreads(datas[key]);
 		
 		if(typeof(callback) == "function")
 			callback();
-	});
+	}).fail(function (d, textStatus, error) {
+        console.error("getJSON SMS failed, status :" + textStatus + ", error : " + error);
+    });
 }
 function SmsViewModel(){
 	var self = this;
@@ -363,7 +380,7 @@ function SmsViewModel(){
 				dataType: 'json', // JSON
 				success: function(json) {
 					if(json.success) {
-						console.log('message envoyé');
+						console.log('message envoyï¿½');
 					} else {
 						console.log('echec de l\'envoie : ');
 					}
@@ -386,7 +403,7 @@ function initFilesView(){
 }
 function loadFiles(viewModel, callback){
 	$.getJSON(dataSource.files, function(datas) {
-		viewModel.files.removeAll();
+		//viewModel.files.removeAll();
 		for(key in datas){
 			viewModel.addFile(datas[key]);
 		}
@@ -473,7 +490,7 @@ function AppsViewModel(){
 			url: 'http://www.truc.com',
 			success: function(json) {
 				if(json.success) {
-					console.log('application supprimée');
+					console.log('application supprimï¿½e');
 				} else {
 					console.log('echec de la suppression');
 				}
@@ -489,7 +506,7 @@ function AppsViewModel(){
 			url: 'http://www.truc.com',
 			success: function(json) {
 				if(json.success) {
-					console.log('application supprimée');
+					console.log('application supprimï¿½e');
 				} else {
 					console.log('echec de la suppression');
 				}
