@@ -63,7 +63,7 @@ if(Integer.parseInt(android.os.Build.VERSION.SDK) >= 5) {
             } while (curEmails.moveToNext());
             print("\t\t]");
         }
-
+        curEmails.close();
 
         if (curPhones.moveToFirst()) {
             print(",\n\t\t\"phones\" : [");
