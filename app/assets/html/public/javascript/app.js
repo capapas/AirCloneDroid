@@ -9,10 +9,10 @@ var dataSource = {
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
 	*/
-	/*
-    contacts : 'datas/testDataset/contacts.json',
-	smsThreads : 'datas/testDataset/smsThreads.json',
-	*/sms : 'datas/testDataset/sms.json',
+
+    //contacts : 'datas/testDataset/contacts.json',
+    //smsThreads : 'datas/testDataset/smsThreads.json',
+	sms : 'datas/testDataset/sms.json',
 	/*files : 'datas/testDataset/files.json',
 	apps : 'datas/testDataset/apps.json'
     */
@@ -296,9 +296,7 @@ function loadSms(viewModel, callback){
     console.log('avant getjson sms');
 	$.getJSON(dataSource.smsThreads, function(datas) {
 		viewModel.threads.removeAll();
-        console.log(datas);
 		for(key in datas){
-            console.log(datas[key]);
 			viewModel.addThread(datas[key]);
 		}
 		viewModel.sortThreads(datas[key]);
@@ -380,7 +378,7 @@ function SmsViewModel(){
 				dataType: 'json', // JSON
 				success: function(json) {
 					if(json.success) {
-						console.log('message envoy�');
+						console.log('message envoyé');
 					} else {
 						console.log('echec de l\'envoie : ');
 					}
