@@ -46,7 +46,7 @@
         <params>
             <param name="bsh.class" value="org.paw.handler.BeanShellFileHandler"/>
             <param name="bsh.root" value="[PAW_HOME]/html"/>
-            <param name="bsh.default" value="index.xhtml"/>
+            <param name="bsh.default" value="index.html"/>
             <param name="bsh.minInterpreters" value="5"/>
             <param name="bsh.maxInterpreters" value="10"/>
         </params>
