@@ -474,7 +474,6 @@ function App(_name, _version, _installDate, _size, _icon, _location, _download){
 	self.icon = _icon;
 	self.location = _location;
 	self.download = _download;
-	self.selected = ko.observable(false);
 }
 function AppsViewModel(){
 	var self = this;
@@ -485,30 +484,14 @@ function AppsViewModel(){
 	self.addApp = function(obj){
 		self.apps.push(new App(obj.name, obj.version, obj.installDate, obj.size, obj.icon, obj.location, obj.download));
 	};
-	self.delete = function(obj){
-		$.ajax({
-			url: 'http://www.truc.com',
-			success: function(json) {
-				if(json.success) {
-					console.log('application supprim�e');
-				} else {
-					console.log('echec de la suppression');
-				}
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log('status : '+textStatus);
-				console.log('error : '+errorThrown);
-			}
-		});
-	};
 	self.download = function(obj){
 		$.ajax({
-			url: 'http://www.truc.com',
+			url: obj.download,
 			success: function(json) {
 				if(json.success) {
-					console.log('application supprim�e');
+					console.log('application téléchargé');
 				} else {
-					console.log('echec de la suppression');
+					console.log('echec du téléchargement');
 				}
 			},
 			error: function(jqXHR, textStatus, errorThrown) {

@@ -9,7 +9,7 @@
 
     apps = pkgManager.getInstalledPackages(0);
 
-    print("[{\n\t\"applications\":[");
+    print("[");
     for (int i=0;i<apps.size();i++) {
 
         apkLocation = apps.get(i).applicationInfo.sourceDir;
@@ -26,5 +26,5 @@
             print(",");
         }
     }
-    print("\t]\n}]");
+    print("]");
 </bsh>

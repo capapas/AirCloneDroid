@@ -23,18 +23,15 @@
 					<input type="text" required="required">
 					<button type="submit" class="btn">Recherche</button>
 				</form>
-				<button class="btn del">Supprimer</button>
 				<button class="btn">Actualiser</button>
 			</div>
-			<div class="main" data-bind="foreach: apps">
+			<div class="main-without-sidebar" data-bind="foreach: apps">
 				<div class="app-listItem">
 					<img data-bind="attr: { src: icon }" width="74" height="74" />
 					<div>
 						<p data-bind="text: name"></p>
 						<p>
-							<a href="#" class="checkbox" data-bind="click: $parent.selectApp, css: { checked: $data.selected }"></a>
 							<a href="#" class="icon-download" title="Télécharger" data-bind="click: $parent.download"></a>
-							<a href="#" class="icon-delete"  title="Désinstaller" data-bind="click: $parent.delete"></a>
 						</p>
 					</div>
 				</div>
