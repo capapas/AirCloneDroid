@@ -34,12 +34,11 @@
         new String[] { "_id", "thread_id", "address", "person", "date", "body", "status", "read", "type"},
         WHERE_CONDITION,
         null,
-        SORT_ORDER
+        SORT_ORDER + " LIMIT 10"
     );
 
     if (cursor != null) {
         try {
-            count = cursor.getCount();
 
             if (cursor.moveToFirst()) {
                 Integer index_Read = cursor.getColumnIndex("read");
@@ -72,9 +71,8 @@
 
                     body =  body.replace("\n", "<br>").replace("\t", "    ").replace("\"", "\\\"");
 
-                    print("\t\t\t\"sent\" : " +  sent + ",\n\t\t\t\"read\" : " +  read + ",\n\t\t\t\"number\" : \"" +  number + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(
+                    print("\t\t\t\"sent\" : " +  sent + ",\n\t\t\t\"timest\" : " +  timestamp + ",\n\t\t\t\"read\" : " +  read + "\n,\n\t\t\t\"number\" : \"" +  number + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(
         DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(timestamp)) + "\", \n\t\t\t\"message\" : \"" + body + "\""
-
                     );
                     print("\t\t}");
                     if (!cursor.isLast())  {

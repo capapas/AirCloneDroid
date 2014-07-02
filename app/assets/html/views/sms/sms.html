@@ -23,7 +23,6 @@
 					<input type="text" required="required">
 					<button type="submit" class="btn">Recherche</button>
 				</form>
-				<button class="btn del">Supprimer</button>
 				<button class="btn">Actualiser</button>
 				<button class="btn" data-bind="click: setNewSmsMode">Nouveau message</button>
 			</div>
@@ -51,10 +50,10 @@
 					<!-- ko if: $root.currentMode() === $root.modeEnum.READ_THREAD -->
 						<div data-bind="with: $root.selectedThread">
                             <!-- ko if: name == "null" -->
-                            <span data-bind="text: addr"></span>
+                                <span data-bind="text: addr"></span>
                             <!-- /ko -->
                             <!-- ko if: name != "null" -->
-                            <span data-bind="text: name"></span>
+                                <span data-bind="text: name"></span>
                             <!-- /ko -->
 						</div>
 					<!-- /ko -->
@@ -69,7 +68,8 @@
 					</li>
 				</ol>
 				<form data-bind="submit: $parent.submitSms">
-					<textarea name="smsText" id="smsText" placeholder="write a message"></textarea>
+					<input type="hidden" name="number" data-bind="value: addr">
+                    <textarea name="smsText" id="smsText" placeholder="write a message"></textarea>
 					<input type="submit" value="Envoyer">
 				</form>
 			</div>
