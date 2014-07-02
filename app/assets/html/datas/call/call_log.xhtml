@@ -23,7 +23,7 @@
         try {
             count = cursor.getCount();
             if (cursor.moveToFirst()) {
-                print("[{\n\t\"calls\":[");
+                print("[");
                 do {
 
                     callNumber = cursor.getString(0);
@@ -51,7 +51,7 @@
                         print(",");
                     }
                 } while(cursor.moveToNext());
-                print("\t]\n}]");
+                print("]");
             }
         } finally {
             cursor.close();
