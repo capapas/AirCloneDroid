@@ -333,9 +333,9 @@ function SmsViewModel(){
             datas[0]['addr']  = thread.addr;
 
             datas[0]['messages'].sort(function(a,b) {
-                if (a.date < b.date)
+                if (a.timest < b.timest)
                     return -1;
-                if (a.date > b.date)
+                if (a.timest > b.timest)
                     return 1;
                 return 0;
             });
