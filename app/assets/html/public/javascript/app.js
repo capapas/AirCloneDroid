@@ -19,7 +19,7 @@ var dataSource = {
 
     contacts : 'datas/addressBook/contacts.xhtml',
     smsThreads : 'datas/sms/threads.xhtml',
-    //sms : 'datas/sms/show_thread.xhtml',
+    sms : 'datas/sms/show_thread.xhtml',
     files : 'datas/filemanagement/filemanager.xhtml',
     apps : 'datas/application/applications_list.xhtml',
     callLogs : 'datas/call/call_log.xhtml'
@@ -333,16 +333,14 @@ function SmsViewModel(){
             datas[0]['addr']  = thread.addr;
 
             datas[0]['messages'].sort(function(a,b) {
-                if (a.date > b.date)
-                    return -1;
                 if (a.date < b.date)
+                    return -1;
+                if (a.date > b.date)
                     return 1;
                 return 0;
             });
 
             self.currentChat(datas[0]);
-            console.log(self.currentChat);
-            self.sortSms(datas[0]);
 		});
 	};
     self.sortThreads = function(){
