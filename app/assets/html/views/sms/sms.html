@@ -67,9 +67,9 @@
 						<blockquote data-bind="text: message"></blockquote>
 					</li>
 				</ol>
-				<form data-bind="submit: $parent.submitSms">
+				<form action="datas/sms/send_sms.xhtml"  method="POST" data-bind="submit: $parent.submitSms">
 					<input type="hidden" name="number" data-bind="value: addr">
-                    <textarea name="smsText" id="smsText" placeholder="write a message"></textarea>
+                    <textarea name="message" id="message" placeholder="write a message"></textarea>
 					<input type="submit" value="Envoyer">
 				</form>
 			</div>

@@ -294,7 +294,6 @@ function initSmsView(){
 	loadSms(smsVM);
 }
 function loadSms(viewModel, callback){
-    console.log('avant getjson sms');
 	$.getJSON(dataSource.smsThreads, function(datas) {
 		viewModel.threads.removeAll();
 		for(key in datas){
@@ -310,13 +309,13 @@ function loadSms(viewModel, callback){
 }
 function SmsViewModel(){
 	var self = this;
-	
+
 	self.modeEnum = {
 		READ_THREAD : 0,
 		NEW_SMS : 1
 	};
 	self.currentMode = ko.observable(self.modeEnum.READ_THREAD);
-	self.setNewSmsMode = function(){
+	self.setNewSmsMode = function() {
 		self.currentMode(self.modeEnum.NEW_SMS);
 	};
 	
@@ -327,7 +326,7 @@ function SmsViewModel(){
 	self.addThread = function(obj){
 		self.threads.push(obj);
 	};
-	self.selectThread = function(thread){
+	self.selectThread = function(thread) {
 		self.selectedThread(thread);
 		$.getJSON(dataSource.sms + "?threadId=" + thread.id + "&contactId=" + thread.contactId , function(datas){
             datas[0]['addr']  = thread.addr;
@@ -355,8 +354,6 @@ function SmsViewModel(){
 
 	self.currentChat = ko.observable();
 	self.sortSms = function() {
-
-        console.log(self.currentChat.messages);
 		self.currentChat.messages.sort(function(a,b) {
 			if (a.timest > b.timest) {
                 return -1;
@@ -369,7 +366,7 @@ function SmsViewModel(){
 	};
 	
 	self.submitSms = function(formElement){
-		var smsText = $('#smsText').val();
+		var smsText = $('#message').val();
 	 
 		if(smsText !== '') {
 			$.ajax({
@@ -378,9 +375,24 @@ function SmsViewModel(){
 				data: $(formElement).serialize(),
 				dataType: 'json', // JSON
 				success: function(json) {
-					if(json.success) {
+					if(json[0].success) {
 						console.log('message envoyé');
-					} else {
+                        $('#message').val("");
+                        $('#message').text("");
+                        $('#message').html("");
+
+                        self.currentChat().messages.push({
+                            "timest" : new Date().getTime(),
+                            "message" : smsText,
+                            "date" : "now",
+                            "number" : "",
+                            "sent" : true,
+                            "read" : 1
+                        });
+
+                        self.currentChat(self.currentChat());
+
+                    } else {
 						console.log('echec de l\'envoie : ');
 					}
 				},

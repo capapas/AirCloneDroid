@@ -42,41 +42,41 @@
                 // Components
                 slide_links: 'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
                 slides: [
-                            <bsh>
-                            STOCK_DIR = "/sdcard/DCIM/Camera";
-                            HTC_DIR = "/sdcard/DCIM/100MEDIA";
+                        <bsh>
+                        STOCK_DIR = "/sdcard/DCIM/Camera";
+            HTC_DIR = "/sdcard/DCIM/100MEDIA";
 
-                            cameraDir = STOCK_DIR;
+            cameraDir = STOCK_DIR;
 
-                // HTC
-                            if (new File(HTC_DIR).exists()) {
-                                cameraDir = HTC_DIR;
-                            }
+            // HTC
+            if (new File(HTC_DIR).exists()) {
+                cameraDir = HTC_DIR;
+            }
 
-                            dir = new File(cameraDir);
-                            c = 0;
-                            cameraFiles = dir.list();
+            dir = new File(cameraDir);
+            c = 0;
+            cameraFiles = dir.list();
 
-                            if (children != null) {
-                                for (f : cameraFiles )
-                                {
-                                    // Only show JPG images
-                                    if (!f.toLowerCase().endsWith(".jpg")) {
-                                        continue;
-                                    }
+            if (children != null) {
+                for (f : cameraFiles )
+                {
+                    // Only show JPG images
+                    if (!f.toLowerCase().endsWith(".jpg")) {
+                        continue;
+                    }
 
-                                    c++;
-                                    n = f.substring(0, f.lastIndexOf("."));
-                                    $$.print("\n\t{image: '/datas/filemanagement/get_file.xhtml?file=" + cameraDir + "/" + f + "'}");
-                                    if (c < cameraFiles.length) {
-                                        print(",");
-                                    }
-                                }
-                            }
+                    c++;
+                    n = f.substring(0, f.lastIndexOf("."));
+                    $$.print("\n\t{image: '/datas/filemanagement/get_file.xhtml?file=" + cameraDir + "/" + f + "'}");
+                    if (c < cameraFiles.length) {
+                        print(",");
+                    }
+                }
+            }
 
-                            </bsh>
+            </bsh>
 
-                        ]
+            ]
 
         });
         })
