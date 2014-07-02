@@ -57,7 +57,7 @@ for(id : threadIDs) {
     unread = cur.getInt(0);
     cur.close();
 
-    cur = service.getContentResolver().query(URI, null, "thread_id=?", new String[] { "" + id }, "date DESC LIMIT 1");
+    cur = service.getContentResolver().query(URI, null, "thread_id=?", new String[] { "" + id }, "date ASC LIMIT 1");
     if(cur.moveToFirst()) {
         do {
             contactId = cur.getInt(cur.getColumnIndex("person"));
