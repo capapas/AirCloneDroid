@@ -32,7 +32,12 @@
 					<li>
 						<p class="sms-item" data-bind="click: $parent.selectThread, css: { selected: $data == $parent.selectedThread() }">
 							<img data-bind="attr: { src: img }"/>
-							<span data-bind="text: name"></span>
+                            <!-- ko if: name == "null" -->
+    							<span data-bind="text: addr"></span>
+                            <!-- /ko -->
+                            <!-- ko if: name != "null" -->
+                                <span data-bind="text: name"></span>
+                            <!-- /ko -->
 						</p>
 					</li>
 				</ul>
@@ -45,7 +50,12 @@
 					<!-- /ko -->
 					<!-- ko if: $root.currentMode() === $root.modeEnum.READ_THREAD -->
 						<div data-bind="with: $root.selectedThread">
-							<span data-bind="text: name"></span>
+                            <!-- ko if: name == "null" -->
+                            <span data-bind="text: addr"></span>
+                            <!-- /ko -->
+                            <!-- ko if: name != "null" -->
+                            <span data-bind="text: name"></span>
+                            <!-- /ko -->
 						</div>
 					<!-- /ko -->
 					<!-- ko if: $root.currentMode() === $root.modeEnum.NEW_SMS -->
