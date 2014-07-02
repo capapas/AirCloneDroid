@@ -424,3 +424,23 @@ blockquote:last-child::before {
 	height: 140px;
 	float: left;
 }
+
+/************************************CALL LOGS*******************************/
+
+.call_table {
+    margin-bottom: 2px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.call_table thead tr td {
+    background: url("/public/img/desktop/repeat_x.png") repeat-x scroll 0 -42px rgba(0, 0, 0, 0);
+    border-right: 1px solid #ccc;
+    height: 23px;
+    line-height: 20px;
+}
+
+.call_table tr td {
+    padding: 0 5px;
+}

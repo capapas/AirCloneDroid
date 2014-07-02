@@ -1,34 +1,77 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		
-		<link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
-		<link rel="stylesheet" href="../../public/css/window-content.css" />
-		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
-		<script type="text/javascript" src="../../public/javascript/knockout/knockout-3.1.0.js"></script>
-		<!--
-		<link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
-		<link rel="stylesheet" href="public/css/window-content.css" />
-		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
-		<script type="text/javascript" src="public/javascript/knockout/knockout-3.1.0.js"></script>
-		-->
-	</head>
-	<body>
-		<div id="smsView">
-			<div class="toolbar">
-				<form class="search-wrapper cf">
-					<input type="text" required="required">
-					<button type="submit" class="btn">Recherche</button>
-				</form>
-				<button class="btn del">Supprimer</button>
-				<button class="btn">Actualiser</button>
-			</div>
-			<div class="content" data-bind="foreach: Log">
-			</div>
-		</div>
-		<script type="text/javascript" src="public/javascript/app-window/callLog.js"></script>
-	</body>
+<head>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css"/>
+    <link rel="stylesheet" href="../../public/css/window-content.css"/>
+    <script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="../../public/javascript/knockout/knockout-3.1.0.js"></script>
+    <!--
+    <link rel="stylesheet" href="public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
+    <link rel="stylesheet" href="public/css/window-content.css" />
+    <script type="text/javascript" src="public/javascript/jquery-ui/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="public/javascript/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="public/javascript/knockout/knockout-3.1.0.js"></script>
+    -->
+</head>
+<body>
+<div id="callLogsView">
+    <div>
+        <table class="call_table">
+
+            <thead> <!-- En-tête du tableau -->
+            <tr>
+                <td style="width: 8%">Appel</td>
+                <td style="width: 25%">Nom</td>
+                <td style="width: 25%">Numéro</td>
+                <td style="width: 30%">Date</td>
+                <td style="width: 12%">Durée</td>
+            </tr>
+            </thead>
+        </table>
+
+        <table class="call_table">
+            <tbody data-bind="foreach: callLogs"> <!-- Corps du tableau -->
+            <tr>
+                <td style="text-align: center"><img
+                        data-bind="attr: { src: '/public/img/'.concat(type).concat('.png') }"
+                        height="25px"/></td>
+                <!-- ko if: name == "null" -->
+                <td data-bind="text: number"></td>
+                <!-- /ko -->
+                <!-- ko if: name != "null" -->
+                <td data-bind="text: name"></td>
+                <!-- /ko -->
+                <td data-bind="text: number"></td>
+                <td data-bind="text: date"></td>
+                <td data-bind="text: duration"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--<div data-bind="foreach: callLogs">-->
+    <!--<p data-bind="text: type"></p>-->
+    <!--<table class="main-without-sidebar" style="border-collapse: collapse">-->
+    <!--<tr>-->
+    <!--<th>Appel</th>-->
+    <!--<th>Nom</th>-->
+    <!--<th>Numéro</th>-->
+    <!--<th>Date</th>-->
+    <!--<th>Durée</th>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
+    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
+    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
+    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
+    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
+    <!--</tr>-->
+    <!--</table>-->
+    <!--</div>-->
+</div>
+<script type="text/javascript" src="public/javascript/app-window/callLog.js"></script>
+</body>
 </html>
