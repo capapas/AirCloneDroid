@@ -318,7 +318,11 @@ function SmsViewModel(){
 	self.setNewSmsMode = function() {
 		self.currentMode(self.modeEnum.NEW_SMS);
 	};
-	
+    self.refreshSmsThread = function() {
+        if (self.selectedThread() !== undefined) {
+            self.selectThread(self.selectedThread());
+        }
+    };
 	self.contacts = ko.observableArray();
 	
 	self.selectedThread = ko.observable();
