@@ -214,6 +214,11 @@ a {
 	background-position: -349px -162px;
 }
 /************************************CONTACTS************************************/
+.contact-icon {
+    height:64px;
+    width:64px;
+}
+
 #contactsView{
 	height:100%;
 	width:100%;
@@ -282,6 +287,11 @@ a {
 	margin:6px 0 0;
 }
 /************************************SMS************************************/
+.text-sms {
+    width: 95%;
+    margin-left: 10px;
+}
+
 .chat{
 	position: relative;
 	overflow:hidden;

@@ -32,7 +32,7 @@
 				</ul>
 				<ul id="contactsList" class="navList" data-bind="foreach: contacts">
 					<li>
-						<p class="item" data-bind="click: $parent.select, css: { selected: $data == $root.selectedContact() }"><img data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
+						<p class="item" data-bind="click: $parent.select, css: { selected: $data == $root.selectedContact() }"><img class="contact-icon" data-bind="attr: { src: contactImg }"/><span data-bind="text: name"></span></p>
 					</li>
 				</ul>
 			</div>

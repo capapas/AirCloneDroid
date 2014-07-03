@@ -30,7 +30,7 @@
 				<ul id="smsList" data-bind="foreach: threads">
 					<li>
 						<p class="sms-item" data-bind="click: $parent.selectThread, css: { selected: $data == $parent.selectedThread() }">
-							<img data-bind="attr: { src: img }"/>
+							<img class="contact-icon" data-bind="attr: { src: img }"/>
                             <!-- ko if: name == "null" -->
     							<span data-bind="text: addr"></span>
                             <!-- /ko -->
@@ -69,7 +69,7 @@
 				</ol>
 				<form action="datas/sms/send_sms.xhtml"  method="POST" data-bind="submit: $parent.submitSms">
 					<input type="hidden" name="number" data-bind="value: addr">
-                    <textarea name="message" id="message" placeholder="write a message"></textarea>
+                    <textarea class="text-sms" name="message" id="message" placeholder="write a message"></textarea>
 					<input type="submit" value="Envoyer">
 				</form>
 			</div>
