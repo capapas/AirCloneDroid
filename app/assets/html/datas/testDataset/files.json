@@ -1,65 +1,297 @@
-[
-  {
-    "id": 0,
-    "Filetype": "file",
-    "Filename": "occaecat.sit",
-    "Extension": "sit",
-    "Path": "xex/mgr/drs/occaecat.sit",
-    "size": 963567176,
-    "Modified": "14/03/2014 01:55:55:025"
-  },
-  {
-    "id": 1,
-    "Filetype": "file",
-    "Filename": "voluptate.aliquip",
-    "Extension": "aliquip",
-    "Path": "cimk/ewtp/1l28/csja/voluptate.aliquip",
-    "size": 645757624,
-    "Modified": "15/06/2014 11:17:08:880"
-  },
-  {
-    "id": 2,
-    "Filetype": "file",
-    "Filename": "duis.veniam",
-    "Extension": "veniam",
-    "Path": "v/duis.veniam",
-    "size": 167501109,
-    "Modified": "14/06/2014 03:32:44:054"
-  },
-  {
-    "id": 3,
-    "Filetype": "file",
-    "Filename": "consequat.elit",
-    "Extension": "elit",
-    "Path": "b2fw9pig/s118w7yb/xpglmvqr/orp3tpnf/ew9byn5k/9r6loozp/vegswq94/m5kli4ko/consequat.elit",
-    "size": 426051709,
-    "Modified": "11/02/2014 21:44:58:184"
-  },
-  {
-    "id": 4,
-    "Filetype": "folder",
-    "Filename": "esse.excepteur",
-    "Extension": "excepteur",
-    "Path": "h5q/hmh/29a/esse.excepteur",
-    "size": 988501198,
-    "Modified": "04/06/2014 19:18:28:281"
-  },
-  {
-    "id": 5,
-    "Filetype": "folder",
-    "Filename": "commodo.pariatur",
-    "Extension": "pariatur",
-    "Path": "dgkmcx/unbxnj/kfkust/lhgdhk/saf4eb/yzdwmb/commodo.pariatur",
-    "size": 589201605,
-    "Modified": "27/02/2014 05:51:27:938"
-  },
-  {
-    "id": 6,
-    "Filetype": "folder",
-    "Filename": "et.reprehenderit",
-    "Extension": "reprehenderit",
-    "Path": "h4d4y/0eadt/peibk/b9jpa/k2ybs/et.reprehenderit",
-    "size": 81757485,
-    "Modified": "30/01/2014 22:59:46:786"
-  }
-]
+[{
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "02/12/2013 15:01:32",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "@music",
+    "Path": "/sdcard/@music"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "19/04/2012 20:38:40",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "@Playlists",
+    "Path": "/sdcard/@Playlists"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "16/03/2014 09:19:38",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "acer_ug",
+    "Path": "/sdcard/acer_ug"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "12/01/2014 13:34:28",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "airdroid",
+    "Path": "/sdcard/airdroid"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "31/12/2012 23:00:10",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Alarms",
+    "Path": "/sdcard/Alarms"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "30/12/2010 23:59:38",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Android",
+    "Path": "/sdcard/Android"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "21/09/2013 20:48:02",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "aquery",
+    "Path": "/sdcard/aquery"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "04/12/2013 20:25:20",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "AudioRecorder",
+    "Path": "/sdcard/AudioRecorder"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "30/06/2014 12:59:57",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "backup",
+    "Path": "/sdcard/backup"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "29/12/2012 17:04:30",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "bluetooth",
+    "Path": "/sdcard/bluetooth"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "24/11/2013 21:00:32",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Books",
+    "Path": "/sdcard/Books"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "28/01/2014 20:59:02",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "DCIM",
+    "Path": "/sdcard/DCIM"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "07/12/2013 09:45:20",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Download",
+    "Path": "/sdcard/Download"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "16/03/2014 10:14:06",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "fota_dn",
+    "Path": "/sdcard/fota_dn"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "31/12/2009 23:00:38",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "googleota",
+    "Path": "/sdcard/googleota"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "22/09/2013 14:29:58",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Halfbrick",
+    "Path": "/sdcard/Halfbrick"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "10/12/2013 20:38:40",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "ihealth",
+    "Path": "/sdcard/ihealth"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "03/12/2013 13:07:34",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "lightflow",
+    "Path": "/sdcard/lightflow"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "30/12/2010 23:59:22",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "LOST.DIR",
+    "Path": "/sdcard/LOST.DIR"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "21/09/2013 20:32:26",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "media",
+    "Path": "/sdcard/media"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "29/01/2014 10:20:42",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "MonDictaphone",
+    "Path": "/sdcard/MonDictaphone"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "05/01/2014 17:44:34",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Moves",
+    "Path": "/sdcard/Moves"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "31/12/2012 23:00:10",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Movies",
+    "Path": "/sdcard/Movies"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "31/12/2012 23:00:10",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Music",
+    "Path": "/sdcard/Music"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "31/12/2009 23:00:44",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Notifications",
+    "Path": "/sdcard/Notifications"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "12/05/2014 23:30:46",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "paw",
+    "Path": "/sdcard/paw"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "26/04/2013 21:05:58",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Photos",
+    "Path": "/sdcard/Photos"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "28/01/2014 20:59:02",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Pictures",
+    "Path": "/sdcard/Pictures"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "31/12/2012 23:00:10",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Podcasts",
+    "Path": "/sdcard/Podcasts"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "05/05/2014 24:02:42",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Ringtones",
+    "Path": "/sdcard/Ringtones"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "28/01/2014 21:03:44",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "screenshotultimate",
+    "Path": "/sdcard/screenshotultimate"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "19/11/2013 14:04:06",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "SoundCloud",
+    "Path": "/sdcard/SoundCloud"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "28/10/2013 16:29:24",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Video",
+    "Path": "/sdcard/Video"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "22/07/2013 15:05:28",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "Videos",
+    "Path": "/sdcard/Videos"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "30/09/2013 19:12:46",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "WunderlistFiles",
+    "Path": "/sdcard/WunderlistFiles"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "03/07/2014 14:07:34",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "www",
+    "Path": "/sdcard/www"
+}, {
+    "Filetype": "dir",
+    "Extension": null,
+    "Modified": "08/09/2012 19:30:26",
+    "Size": null,
+    "Preview": "/public/img/filemanagement/fileicons/directory.png",
+    "Filename": "zemail",
+    "Path": "/sdcard/zemail"
+}]

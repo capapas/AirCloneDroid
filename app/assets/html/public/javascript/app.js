@@ -8,23 +8,23 @@ var dataSource = {
 	sms : '../../datas/testDataset/sms.json',
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
-	*/
-	/*
+	*
     contacts : 'datas/testDataset/contacts.json',
     smsThreads : 'datas/testDataset/smsThreads.json',
 	sms : 'datas/testDataset/sms.json',
+    fileTree : 'datas/testDataset/files.json',
 	files : 'datas/testDataset/files.json',
 	apps : 'datas/testDataset/apps.json',
     callLogs : 'datas/testDataset/call_log.json'
-*/
-
+	/*/
     contacts : 'datas/addressBook/contacts.xhtml',
     smsThreads : 'datas/sms/threads.xhtml',
     sms : 'datas/sms/show_thread.xhtml',
+    fileTree : 'datas/filemanagement/jqueryfiletree.xhtml',
     files : 'datas/filemanagement/filemanager.xhtml',
     apps : 'datas/application/applications_list.xhtml',
     callLogs : 'datas/call/call_log.xhtml'
-
+	//*/
 };
 function basename(path) {
     return path.replace(/\\/g,'/').replace( /.*\//, '' );
@@ -425,27 +425,27 @@ function initFilesView(){
 	loadFiles(filesVM);
 }
 function loadFiles(viewModel, callback){
-	$.getJSON(dataSource.files, function(datas) {
-		//viewModel.files.removeAll();
+	$.getJSON(dataSource.fileTree, function(datas) {
+		viewModel.rootFiles.removeAll();
 		for(key in datas){
 			viewModel.addFile(datas[key]);
 		}
 		viewModel.sortFiles(datas);
-		
 		if(typeof(callback) == "function")
 			callback();
 	});
 }
-function File(_filetype, _path, _name, _ext, _size, _modificationDate){
+function File(_id, _filetype, _path, _name, _ext, _size, _modificationDate){
 	var self = this;
-	self.id;
+	self.id = _id;
 	self.type = _filetype;
 	self.extension = _ext;
 	self.name = _name;
 	self.path = _path;
 	self.size = _size;
 	self.modificationDate = _modificationDate;
-	self.files = ko.observableArray([]);
+	//self.parent = ko.observable();
+	self.children = ko.observableArray([]);
 }
 function FilesViewModel(){
 	var self = this;
@@ -455,26 +455,27 @@ function FilesViewModel(){
 		NAME : 1
 	};
 	
-	self.files = ko.observableArray([]);
+	self.rootFiles = ko.observableArray([]);
 	
 	self.selectedFolder = ko.observable();
 	self.addFile = function(obj){
-		var file = new File(obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified);
-		self.files.push(file);
+		var file = new File(self.rootFiles().length, obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified);
+		self.rootFiles.push(file);
 	};
 	self.selectFile = function(file){
 		self.selectedFolder(file);
-		$.getJSON(dataSource.sms, function(datas){
+		$.getJSON(dataSource.fileTree+'?dir='+file.path, function(datas){
 			for(key in datas){
-				if(datas[key].threadId == file.id){
-					console.log(datas[key]);
-					self.currentChat(datas[key]);
-				}
+				//file.children().push(datas[key]);
+				file.children.push(new File(self.rootFiles().length, datas[key].Filetype, datas[key].Path, datas[key].Filename, datas[key].Extension, datas[key].Size, datas[key].Modified));
 			}
+			console.log(self.rootFiles());
+		}).fail(function (d, textStatus, error) {
+			console.error("getJSON file failed, status :" + textStatus + ", error : " + error);
 		});
 	};
 	self.sortFiles = function(sortType){
-		self.files.sort(function(a,b) {
+		self.rootFiles.sort(function(a,b) {
 			if(self.SORT_TYPE.DATE === sortType){
 				if (a.modificationDate < b.modificationDate)
 					return -1;
@@ -487,23 +488,22 @@ function FilesViewModel(){
 			}
 		});
 	};
-	self.fileTree = ko.computed(function(){
+	self.fileTree = function(){
 		self.sortFiles();
 		var result = {};
 		var done = [];
-		for(k1 in self.files()){
-			done.push(k1);
-			for(k2 in self.files()){
-				if(done.indexOf(k2) != -1){
-					if(self.files()[k1].path === self.files()[k2].path.substring(0, str.lastIndexOf("/"))){
-						self.files()[k1].files.push(self.files()[k2]);
-					}
+		for(k1 in self.rootFiles()){
+			var f1 = self.rootFiles()[k1];
+			for(k2 in self.rootFiles()){
+				var f2 = self.rootFiles()[k2];
+				if(f1.path === f2.path.substring(0, f2.path.lastIndexOf("/"))){
+					f1.children.push(f2);
 				}
 			}
 		}
-		console.log(self.files());
-		return self.files();
-	});
+		console.log(self.rootFiles());
+		return self.rootFiles();
+	};
 };
 ////////////////////////////////////////////////////////////
 /////////////////////////////APP////////////////////////////

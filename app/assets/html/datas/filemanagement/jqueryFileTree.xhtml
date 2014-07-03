@@ -6,7 +6,9 @@
 
 
 dir = parameters.get("dir");
-dir = "%2Fsdcard%2F";
+if(dir == null){
+	dir = "%2Fsdcard%2F";
+}
 
 dirTreeSb2 = new StringBuilder();
 dirTreeSb2.append("[");
