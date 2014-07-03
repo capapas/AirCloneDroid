@@ -355,6 +355,10 @@ function SmsViewModel(){
 	self.selectThread = function(thread) {
 		self.selectedThread(thread);
 
+        if (self.currentChat() !== undefined) {
+            self.currentChat('');
+        }
+
 		$.getJSON(dataSource.sms + "?threadId=" + thread.id + "&contactId=" + thread.contactId , function(datas){
             datas[0]['addr']  = thread.addr;
 
