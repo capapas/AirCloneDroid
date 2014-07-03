@@ -327,6 +327,20 @@ function SmsViewModel(){
 		self.currentMode(self.modeEnum.NEW_SMS);
 	};
     self.refreshSmsThread = function() {
+
+        $.getJSON(dataSource.smsThreads, function(datas) {
+            self.threads.removeAll();
+            for(key in datas){
+                self.threads.push(datas[key]);
+            }
+            self.sortThreads(datas[key]);
+
+            if(typeof(callback) == "function")
+                callback();
+        }).fail(function (d, textStatus, error) {
+            console.error("getJSON SMS failed, status :" + textStatus + ", error : " + error);
+        });
+
         if (self.selectedThread() !== undefined) {
             self.selectThread(self.selectedThread());
         }
@@ -340,6 +354,7 @@ function SmsViewModel(){
 	};
 	self.selectThread = function(thread) {
 		self.selectedThread(thread);
+
 		$.getJSON(dataSource.sms + "?threadId=" + thread.id + "&contactId=" + thread.contactId , function(datas){
             datas[0]['addr']  = thread.addr;
 

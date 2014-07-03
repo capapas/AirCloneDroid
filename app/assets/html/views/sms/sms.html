@@ -19,12 +19,7 @@
 	<body>
 		<div id="smsView">
 			<div class="toolbar">
-				<form class="search-wrapper cf">
-					<input type="text" required="required">
-					<button type="submit" class="btn">Recherche</button>
-				</form>
 				<button class="btn" data-bind="click: refreshSmsThread">Actualiser</button>
-				<button class="btn" data-bind="click: setNewSmsMode">Nouveau message</button>
 			</div>
 			<div class="sidebar">
 				<ul id="smsList" data-bind="foreach: threads">
