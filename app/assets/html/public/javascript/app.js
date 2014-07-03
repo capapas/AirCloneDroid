@@ -411,14 +411,24 @@ function loadFiles(viewModel, callback){
 			callback();
 	});
 }
+function File(_filetype, _path, _name, _ext, _size, _modificationDate){
+	var self = this;
+	self.id;
+	self.filetype = _filetype;
+	self.extension = _ext;
+	self.filename = _name;
+	self.path = _path;
+	self.size = _size;
+	self.modified = _modificationDate;
+}
 function FilesViewModel(){
 	var self = this;
 
-	self.fileSystem = ko.observableArray([]);
+	self.files = ko.observableArray([]);
 	
 	self.selectedFolder = ko.observable();
 	self.addFile = function(obj){
-		self.fileSystem.push(obj);
+		self.files.push(new File(obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified));
 	};
 	self.selectFile = function(file){
 		self.selectedFolder(file);
@@ -432,7 +442,7 @@ function FilesViewModel(){
 		});
 	};
 	self.sortFileSystemItem = function(){
-		self.fileSystem.sort(function(a,b) {
+		self.files.sort(function(a,b) {
 			if (a.date < b.date)
 				return -1;
 			if (a.date > b.date)
