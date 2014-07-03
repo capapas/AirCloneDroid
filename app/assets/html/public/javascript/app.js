@@ -562,20 +562,7 @@ function AppsViewModel(){
         self.apps.push(new App(obj.name, obj.version, obj.installDate, obj.size, obj.icon, obj.location, obj.download));
     };
     self.download = function(obj){
-        $.ajax({
-            url: obj.download,
-            success: function(json) {
-                if(json.success) {
-                    console.log('application téléchargé');
-                } else {
-                    console.log('echec du téléchargement');
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log('status : '+textStatus);
-                console.log('error : '+errorThrown);
-            }
-        });
+        window.location.href = obj.download;
     };
     self.selectApp = function(obj){
         if(obj.selected())
