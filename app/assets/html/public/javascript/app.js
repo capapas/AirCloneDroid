@@ -483,6 +483,13 @@ function FilesViewModel(){
 		var file = new File(self.rootFiles().length, obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified, obj.Preview);
 		self.rootFiles.push(file);
 	};
+    self.download = function(obj){
+        console.log("testtesttest download");
+        console.log(obj);
+        if (obj.type == "dir") {
+            window.location.href = "/datas/filemanagement/download.xhtml?path=" + obj.path;
+        }
+    };
 	self.selectFile = function(file, event){
 		self.selectedFolder(file);
 		file.children.removeAll();

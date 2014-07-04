@@ -19,12 +19,12 @@
 	<body>
 		<div id="filesView">
 			<div class="toolbar">
-				<form class="search-wrapper cf">
-					<input type="text" required="required" />
-					<button type="submit" class="btn">Recherche</button>
-				</form>
-				<button class="btn del">Supprimer</button>
-				<button class="btn">Actualiser</button>
+				<!--<form class="search-wrapper cf">-->
+					<!--<input type="text" required="required" />-->
+					<!--<button type="submit" class="btn">Recherche</button>-->
+				<!--</form>-->
+				<!--<button class="btn del">Supprimer</button>-->
+				<!--<button class="btn">Actualiser</button>-->
 			</div>
 			<div class="sidebar">
 				<div class="css-treeview">
@@ -38,9 +38,9 @@
                     <img data-bind="attr: { src: icon }" width="74" height="74" />
                     <div>
                         <p class="name-file" data-bind="text: name"></p>
-                        <!--<p>-->
-                            <!--<a href="#" class="icon-download" title="Télécharger" data-bind="click: $parent.download"></a>-->
-                        <!--</p>-->
+                        <p>
+                            <a href="#" class="icon-download" title="Télécharger" data-bind="click: $root.download"></a>
+                        </p>
                     </div>
                 </div>
 </div>
