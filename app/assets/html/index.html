@@ -19,11 +19,14 @@
 			var softwares = {
 				sms : { id:'sms', label:'SMS', icon:'messages.png', view:'views/sms/sms.html'},
 				apps : { id:'apps', label:'Applications', icon:'app.png', view:'views/app/app.html'},
-				photos : { id:'photos', label:'Photos', icon:'photo.png', view:'views/photos/photos.html'},
 				callLog : { id:'callLogs', label:'Journal d\'appel', icon:'phone.png', view:'views/callLog/callLog.html'},
 				contacts : { id:'contacts', label:'Contacts', icon:'contacts.png', view:'views/addressBook/contacts.html'},
 				files : { id:'files', label:'Fichiers', icon:'file.png', view:'views/files/files.html'}
 			}
+            var openTabSofts = {
+                photos : { id:'photos', label:'Photos', icon:'photo.png', view:'views/slideshow/slide.xhtml'}
+
+            }
 			jQuery(function($jq) {
 				function genWindow(software){
 					var id = 'sw_'+software.id;
@@ -53,10 +56,18 @@
 				function genIcon(software){
 					$jq('#shortcut-area').append('<div id="icon_'+software.id+'" class="desktop-shortcut"><img src="'+iconsFolder+software.icon+'" /><div>'+software.label+'</div></div>');
 				}
+                function genIconOpenTab(software){
+                    $jq('#shortcut-area').append('<div onclick="window.open(\'/'+software.view+'\')" id="icon_'+software.id+'" class="desktop-shortcut"><img src="'+iconsFolder+software.icon+'" /><div>'+software.label+'</div></div>');
+                }
 				for(var index in softwares){
 					genIcon(softwares[index]);
 					genWindow(softwares[index]);
 				}
+
+                for(var index in openTabSofts) {
+                    genIconOpenTab(openTabSofts[index]);
+                }
+
 				$jq("#shortcut-area").sortable();
 				$jq(".desktop-shortcut").click(function() {
 					$jq('#sw_'+$jq(this).attr('id').split('_')[1]).show();
