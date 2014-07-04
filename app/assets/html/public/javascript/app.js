@@ -455,7 +455,7 @@ function loadFiles(viewModel, callback){
 			callback();
 	});
 }
-function File(_id, _filetype, _path, _name, _ext, _size, _modificationDate){
+function File(_id, _filetype, _path, _name, _ext, _size, _modificationDate, _icon){
 	var self = this;
 	self.id = _id;
 	self.type = _filetype;
@@ -463,6 +463,7 @@ function File(_id, _filetype, _path, _name, _ext, _size, _modificationDate){
 	self.name = _name;
 	self.path = _path;
 	self.size = _size;
+    self.icon = _icon
 	self.modificationDate = _modificationDate;
 	//self.parent = ko.observable();
 	self.children = ko.observableArray([]);
@@ -479,7 +480,7 @@ function FilesViewModel(){
 	
 	self.selectedFolder = ko.observable();
 	self.addFile = function(obj){
-		var file = new File(self.rootFiles().length, obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified);
+		var file = new File(self.rootFiles().length, obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified, obj.Preview);
 		self.rootFiles.push(file);
 	};
 	self.selectFile = function(file, event){
@@ -487,7 +488,7 @@ function FilesViewModel(){
 		file.children.removeAll();
 		$.getJSON(dataSource.fileTree+'?dir='+file.path, function(datas){
 			for(key in datas){
-				file.children.push(new File(self.rootFiles().length, datas[key].Filetype, datas[key].Path, datas[key].Filename, datas[key].Extension, datas[key].Size, datas[key].Modified));
+				file.children.push(new File(self.rootFiles().length, datas[key].Filetype, datas[key].Path, datas[key].Filename, datas[key].Extension, datas[key].Size, datas[key].Modified, datas[key].Preview));
 			}
 		}).fail(function (d, textStatus, error) {
 			console.error("getJSON file failed, status :" + textStatus + ", error : " + error);
