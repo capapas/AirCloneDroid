@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		
+
 		<link rel="stylesheet" href="../../public/css/jquery-ui-smoothness/jquery-ui-1.10.4.custom.min.css" />
 		<link rel="stylesheet" href="../../public/css/window-content.css" />
 		<script type="text/javascript" src="../../public/javascript/jquery-ui/jquery-1.10.2.js"></script>
@@ -32,18 +32,29 @@
 					</ul>
 				</div>
 			</div>
-			<div class="main" data-bind="width: selectedFolder">
-				<ul class="sortable-grid" data-bind="foreach: children">
-					<li>
-						<img data-bind="attr: { src: Preview }" width="74" height="74" />
-						<p data-bind="text: name"></p>
-					</li>
-				</ul>
+			<div class="main" data-bind="with: selectedFolder">
+<div data-bind="foreach: children">
+                <div class="app-listItem">
+                    <!--<img data-bind="attr: { src: icon }" width="74" height="74" />-->
+                    <div>
+                        <p class="name-file" data-bind="text: name"></p>
+                        <!--<p>-->
+                            <!--<a href="#" class="icon-download" title="Télécharger" data-bind="click: $parent.download"></a>-->
+                        <!--</p>-->
+                    </div>
+                </div>
+</div>
+				<!--<ul class="sortable-grid" data-bind="foreach: children">-->
+					<!--<li>-->
+						<!--<img data-bind="attr: { src: Preview }" width="74" height="74" />-->
+						<!--<p data-bind="text: name"></p>-->
+					<!--</li>-->
+				<!--</ul>-->
 			</div>
 			<script type="text/html" id="tree-template">
 				<li data-bind="if: type === 'dir'">
 					<input type="checkbox" data-bind="attr: { id: 'item-'+id }, click: $root.selectFile" />
-					<label data-bind="text: name, attr: { for: 'item-'+id }"></label>
+					<label style="white-space: nowrap" data-bind="text: name, attr: { for: 'item-'+id }"></label>
 					<!-- ko if: typeof children !== 'undefined' && children().length > 0 -->
 						<ul data-bind="template: { name: 'tree-template', foreach: children }">
 						</ul>

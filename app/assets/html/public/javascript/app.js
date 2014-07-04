@@ -9,6 +9,7 @@ var dataSource = {
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
 	*/
+    /*
     contacts : 'datas/testDataset/contacts.json',
     smsThreads : 'datas/testDataset/smsThreads.json',
 	sms : 'datas/testDataset/sms.json',
@@ -16,7 +17,7 @@ var dataSource = {
 	files : 'datas/testDataset/files.json',
 	apps : 'datas/testDataset/apps.json',
     callLogs : 'datas/testDataset/call_log.json'
-	/*/
+	*/
     contacts : 'datas/addressBook/contacts.xhtml',
     smsThreads : 'datas/sms/threads.xhtml',
     sms : 'datas/sms/show_thread.xhtml',
@@ -24,7 +25,7 @@ var dataSource = {
     files : 'datas/filemanagement/filemanager.xhtml',
     apps : 'datas/application/applications_list.xhtml',
     callLogs : 'datas/call/call_log.xhtml'
-	//*/
+
 };
 function basename(path) {
     return path.replace(/\\/g,'/').replace( /.*\//, '' );

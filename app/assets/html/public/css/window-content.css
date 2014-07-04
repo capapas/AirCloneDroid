@@ -349,6 +349,11 @@ blockquote:last-child::before {
 	border-left-color: #1D62F0;
 }
 /************************************FILE************************************/
+.name-file {
+    overflow: hidden;
+    width: 110px;
+    text-overflow: ellipsis;
+}
 .sortable-grid{
 	list-style-type: none;
 	margin: 0;
