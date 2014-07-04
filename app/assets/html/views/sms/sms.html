@@ -23,8 +23,7 @@
 					<input type="text" required="required">
 					<button type="submit" class="btn">Recherche</button>
 				</form>
-				<button class="btn del">Supprimer</button>
-				<button class="btn">Actualiser</button>
+				<button class="btn" data-bind="click: refreshSmsThread">Actualiser</button>
 				<button class="btn" data-bind="click: setNewSmsMode">Nouveau message</button>
 			</div>
 			<div class="sidebar">
@@ -32,7 +31,12 @@
 					<li>
 						<p class="sms-item" data-bind="click: $parent.selectThread, css: { selected: $data == $parent.selectedThread() }">
 							<img data-bind="attr: { src: img }"/>
-							<span data-bind="text: name"></span>
+                            <!-- ko if: name == "null" -->
+    							<span data-bind="text: addr"></span>
+                            <!-- /ko -->
+                            <!-- ko if: name != "null" -->
+                                <span data-bind="text: name"></span>
+                            <!-- /ko -->
 						</p>
 					</li>
 				</ul>
@@ -45,7 +49,12 @@
 					<!-- /ko -->
 					<!-- ko if: $root.currentMode() === $root.modeEnum.READ_THREAD -->
 						<div data-bind="with: $root.selectedThread">
-							<span data-bind="text: name"></span>
+                            <!-- ko if: name == "null" -->
+                                <span data-bind="text: addr"></span>
+                            <!-- /ko -->
+                            <!-- ko if: name != "null" -->
+                                <span data-bind="text: name"></span>
+                            <!-- /ko -->
 						</div>
 					<!-- /ko -->
 					<!-- ko if: $root.currentMode() === $root.modeEnum.NEW_SMS -->
@@ -58,8 +67,9 @@
 						<blockquote data-bind="text: message"></blockquote>
 					</li>
 				</ol>
-				<form data-bind="submit: $parent.submitSms">
-					<textarea name="smsText" id="smsText" placeholder="write a message"></textarea>
+				<form action="datas/sms/send_sms.xhtml"  method="POST" data-bind="submit: $parent.submitSms">
+					<input type="hidden" name="number" data-bind="value: addr">
+                    <textarea name="message" id="message" placeholder="write a message"></textarea>
 					<input type="submit" value="Envoyer">
 				</form>
 			</div>

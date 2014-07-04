@@ -9,11 +9,19 @@ var dataSource = {
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
 	*/
+<<<<<<< HEAD
 	
     contacts : 'datas/testDataset/contacts.json',
     smsThreads : 'datas/testDataset/smsThreads.json',
 	sms : 'datas/testDataset/sms.json',
 	files : 'datas/testDataset/files.json',
+=======
+
+    //contacts : 'datas/testDataset/contacts.json',
+    //smsThreads : 'datas/testDataset/smsThreads.json',
+	//sms : 'datas/testDataset/sms.json',
+	/*files : 'datas/testDataset/files.json',
+>>>>>>> b31cd00c33b0022d63054efc3c7684def80688b3
 	apps : 'datas/testDataset/apps.json'
 
 	/*
@@ -21,8 +29,13 @@ var dataSource = {
     smsThreads : 'datas/sms/threads.xhtml',
     sms : 'datas/sms/show_thread.xhtml',
     files : 'datas/filemanagement/filemanager.xhtml',
+<<<<<<< HEAD
     apps : 'datas/application/applications_list.xhtml'
 	*/
+=======
+    apps : 'datas/application/applications_list.xhtml',
+    callLogs : 'datas/call/call_log.xhtml'
+>>>>>>> b31cd00c33b0022d63054efc3c7684def80688b3
 };
 function basename(path) {
     return path.replace(/\\/g,'/').replace( /.*\//, '' );
@@ -300,14 +313,13 @@ function initSmsView(){
 	loadSms(smsVM);
 }
 function loadSms(viewModel, callback){
-    console.log('avant getjson sms');
 	$.getJSON(dataSource.smsThreads, function(datas) {
 		viewModel.threads.removeAll();
 		for(key in datas){
 			viewModel.addThread(datas[key]);
 		}
-		viewModel.sortThreads(datas[key]);
-		
+        viewModel.sortThreads(datas[key]);
+
 		if(typeof(callback) == "function")
 			callback();
 	}).fail(function (d, textStatus, error) {
@@ -316,16 +328,20 @@ function loadSms(viewModel, callback){
 }
 function SmsViewModel(){
 	var self = this;
-	
+
 	self.modeEnum = {
 		READ_THREAD : 0,
 		NEW_SMS : 1
 	};
 	self.currentMode = ko.observable(self.modeEnum.READ_THREAD);
-	self.setNewSmsMode = function(){
+	self.setNewSmsMode = function() {
 		self.currentMode(self.modeEnum.NEW_SMS);
 	};
-	
+    self.refreshSmsThread = function() {
+        if (self.selectedThread() !== undefined) {
+            self.selectThread(self.selectedThread());
+        }
+    };
 	self.contacts = ko.observableArray();
 	
 	self.selectedThread = ko.observable();
@@ -333,49 +349,47 @@ function SmsViewModel(){
 	self.addThread = function(obj){
 		self.threads.push(obj);
 	};
-	self.selectThread = function(thread){
+	self.selectThread = function(thread) {
 		self.selectedThread(thread);
-		$.getJSON(dataSource.sms, function(datas){
-			for(key in datas){
-				if(datas[key].threadId == thread.id){
-					console.log(datas[key]);
-					self.currentChat(datas[key]);
-				}
-			}
+		$.getJSON(dataSource.sms + "?threadId=" + thread.id + "&contactId=" + thread.contactId , function(datas){
+            datas[0]['addr']  = thread.addr;
+
+            datas[0]['messages'].sort(function(a,b) {
+                if (a.timest < b.timest)
+                    return -1;
+                if (a.timest > b.timest)
+                    return 1;
+                return 0;
+            });
+
+            self.currentChat(datas[0]);
 		});
 	};
-	self.sortThreads = function(){
-		self.threads.sort(function(a,b) {
-			if (a.date < b.date)
-				return -1;
-			if (a.date > b.date)
-				return 1;
-			return 0;
-		});
-	};
-	
+    self.sortThreads = function(){
+        self.threads.sort(function(a,b) {
+            if (a.date > b.date)
+                return -1;
+            if (a.date < b.date)
+                return 1;
+            return 0;
+        });
+    };
+
 	self.currentChat = ko.observable();
-	
-	self.selectedSms = ko.observable();
-	self.sms = ko.observableArray([]);
-	self.addSms = function(obj){
-		self.sms.push(obj);
-	};
-	self.selectSms = function(sms){
-		self.selectedSms(sms);
-	};
-	self.sortSms = function(){
-		self.sms.sort(function(a,b) {
-			if (a.date < b.date)
-				return -1;
-			if (a.date > b.date)
-				return 1;
+	self.sortSms = function() {
+		self.currentChat.messages.sort(function(a,b) {
+			if (a.timest > b.timest) {
+                return -1;
+            }
+			if (a.timest < b.timest) {
+                return 1;
+            }
 			return 0;
 		});
 	};
 	
 	self.submitSms = function(formElement){
-		var smsText = $('#smsText').val();
+		var smsText = $('#message').val();
 	 
 		if(smsText !== '') {
 			$.ajax({
@@ -384,9 +398,24 @@ function SmsViewModel(){
 				data: $(formElement).serialize(),
 				dataType: 'json', // JSON
 				success: function(json) {
-					if(json.success) {
+					if(json[0].success) {
 						console.log('message envoyé');
-					} else {
+                        $('#message').val("");
+                        $('#message').text("");
+                        $('#message').html("");
+
+                        self.currentChat().messages.push({
+                            "timest" : new Date().getTime(),
+                            "message" : smsText,
+                            "date" : "now",
+                            "number" : "",
+                            "sent" : true,
+                            "read" : 1
+                        });
+
+                        self.currentChat(self.currentChat());
+
+                    } else {
 						console.log('echec de l\'envoie : ');
 					}
 				},
@@ -559,42 +588,91 @@ function App(_name, _version, _installDate, _size, _icon, _location, _download){
 function AppsViewModel(){
 	var self = this;
 
-	self.apps = ko.observableArray([]);
-	
-	self.selectedApp = ko.observable();
-	self.addApp = function(obj){
-		self.apps.push(new App(obj.name, obj.version, obj.installDate, obj.size, obj.icon, obj.location, obj.download));
-	};
-	self.download = function(obj){
-		$.ajax({
-			url: obj.download,
-			success: function(json) {
-				if(json.success) {
-					console.log('application téléchargé');
-				} else {
-					console.log('echec du téléchargement');
-				}
-			},
-			error: function(jqXHR, textStatus, errorThrown) {
-				console.log('status : '+textStatus);
-				console.log('error : '+errorThrown);
-			}
-		});
-	};
-	self.selectApp = function(obj){
-		if(obj.selected())
-			obj.selected(false);
-		else
-			obj.selected(true);
-		self.selectedApp(obj);
-	};
-	self.sortApps = function(){
-		self.apps.sort(function(a,b) {
-			if (a.name < b.name)
-				return -1;
-			if (a.name > b.name)
-				return 1;
-			return 0;
-		});
-	};
+    self.apps = ko.observableArray([]);
+
+    self.selectedApp = ko.observable();
+    self.addApp = function(obj){
+        self.apps.push(new App(obj.name, obj.version, obj.installDate, obj.size, obj.icon, obj.location, obj.download));
+    };
+    self.download = function(obj){
+        $.ajax({
+            url: obj.download,
+            success: function(json) {
+                if(json.success) {
+                    console.log('application téléchargé');
+                } else {
+                    console.log('echec du téléchargement');
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log('status : '+textStatus);
+                console.log('error : '+errorThrown);
+            }
+        });
+    };
+    self.selectApp = function(obj){
+        if(obj.selected())
+            obj.selected(false);
+        else
+            obj.selected(true);
+        self.selectedApp(obj);
+    };
+    self.sortApps = function(){
+        self.apps.sort(function(a,b) {
+            if (a.name < b.name)
+                return -1;
+            if (a.name > b.name)
+                return 1;
+            return 0;
+        });
+    };
+};
+////////////////////////////////////////////////////////////
+//////////////////////////CALL LOG//////////////////////////
+////////////////////////////////////////////////////////////
+function initCallLogsView(){
+    var callLogsVM = new CallLogsViewModel();
+    ko.applyBindings(callLogsVM, document.getElementById('callLogsView'));
+
+    loadCallLogs(callLogsVM);
+}
+function loadCallLogs(viewModel, callback){
+    $.getJSON(dataSource.callLogs, function(datas) {
+        viewModel.callLogs.removeAll();
+        for(key in datas){
+            viewModel.addCallLogs(datas[key]);
+        }
+        viewModel.sortCallLogs(datas[key]);
+
+        if(typeof(callback) == "function")
+            callback();
+    });
+}
+function CallLogs(_number, _name, _date, _datetime, _duration, _type){
+    var self = this;
+    self.id;
+    self.number = _number;
+    self.name = _name;
+    self.date = _date;
+    self.dateTime = _datetime;
+    self.duration = _duration;
+    self.type = _type;
+}
+function CallLogsViewModel(){
+    var self = this;
+
+    self.callLogs = ko.observableArray([]);
+
+    self.addCallLogs = function(obj){
+        self.callLogs.push(new CallLogs(obj.number, obj.name, obj.date, obj.dateTime, obj.duration, obj.type));
+    };
+    self.sortCallLogs = function(){
+        self.callLogs.sort(function(a,b) {
+            if (a.dateTime < b.dateTime)
+                return -1;
+            if (a.dateTime > b.dateTime)
+                return 1;
+            return 0;
+        });
+    };
 };

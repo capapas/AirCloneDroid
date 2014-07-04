@@ -4,6 +4,7 @@
     import android.net.Uri;
     import java.text.DateFormat;
     import android.provider.CallLog;
+    import java.text.SimpleDateFormat;
 
     service = (Service) server.props.get("serviceContext");
 
@@ -19,11 +20,14 @@
         SORT_ORDER
     );
 
+    dayDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    timeDateFormat = new SimpleDateFormat("kk:mm:ss");
+
     if (cursor != null) {
         try {
             count = cursor.getCount();
             if (cursor.moveToFirst()) {
-                print("[{\n\t\"calls\":[");
+                print("[");
                 do {
 
                     callNumber = cursor.getString(0);
@@ -36,22 +40,35 @@
 
                     switch(callType) {
                         case CallLog.Calls.INCOMING_TYPE:
-                            callTypeLabel = "received";
+                            callTypeLabel = "call_incoming";
                             break;
                         case CallLog.Calls.OUTGOING_TYPE:
-                            callTypeLabel = "sent";
+                            callTypeLabel = "call_outgoing";
                             break;
                         case CallLog.Calls.MISSED_TYPE:
-                            callTypeLabel = "miss";
+                            callTypeLabel = "call_missed";
                             break;
                     }
 
-                    print("\t\t{\n\t\t\t\"number\" : \"" + callNumber + "\",\n\t\t\t\"name\" : \"" + callName + "\",\n\t\t\t\"date\" : \"" + DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM).format(new Date(callDate)) + "\",\n\t\t\t\"duration\" : \"" + callDuration + "\",\n\t\t\t\"type\" : \"" + callTypeLabel + "\"\n\t\t}");
+
+    if (callDuration > 0) {
+
+        hours = ( callDuration / 3600 ) % 24;
+        minutes = ( callDuration / 60 ) % 60;
+        seconds = callDuration % 60;
+
+        result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+    }
+    else {
+        result = "Manqué";
+    }
+
+    print("\t\t{\n\t\t\t\"number\" : \"" + callNumber + "\",\n\t\t\t\"name\" : \"" + callName + "\",\n\t\t\t\"date\" : \"" + dayDateFormat.format(callDate) + " à " + timeDateFormat.format(callDate) + "\",\n\t\t\t\"datetime\" : \"" + callDate + "\",\n\t\t\t\"duration\" : \"" + result + "\",\n\t\t\t\"type\" : \"" + callTypeLabel + "\"\n\t\t}");
                     if (!cursor.isLast()) {
                         print(",");
                     }
                 } while(cursor.moveToNext());
-                print("\t]\n}]");
+                print("]");
             }
         } finally {
             cursor.close();
