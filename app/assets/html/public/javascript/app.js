@@ -493,6 +493,43 @@ function FilesViewModel(){
             window.location.href = "/datas/filemanagement/filemanager.xhtml?path=" + obj.path + "&mode=download";
         }
     };
+
+
+    self.removeFile = function(obj){
+        var smsText = $('#message').val();
+
+        if(smsText !== '') {
+            $.ajax({
+                url: "/datas/filemanagement/filemanager.xhtml?path=" + obj.path + "&mode=delete",
+                type: "GET",
+                success: function(json) {
+                    var i = 0;
+                    for (i = 0; i < self.selectedFolder().children().length && self.selectedFolder().children()[i].path != obj.path; i++);
+                    console.log(self.selectedFolder());
+//                    self.selectedFolder().children.remove(i);
+//                    self.selectedFolder().children()[i] = null;
+//                    self.selectedFolder().children(self.selectedFolder().children());
+                    self.selectedFolder().children.remove(function(item) { return item.path == obj.path });
+//                    self.selectedFolder.children().remove(i);
+                    if(json[0].success) {
+                        console.log(json);
+                    } else {
+                        console.log('echec de l\'envoie : ');
+                    }
+                },
+                error: function(json) {
+                    console.log('fail');
+                }
+            });
+        }
+    };
+
+//    self.removeFile = function(obj){
+//        console.log("testtesttest remove");
+//        console.log(obj);
+//            window.location.href = "/datas/filemanagement/filemanager.xhtml?path=" + obj.path + "&mode=delete";
+//    };
+
 	self.selectFile = function(file, event){
 		self.selectedFolder(file);
 		file.children.removeAll();
