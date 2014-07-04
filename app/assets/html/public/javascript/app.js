@@ -489,6 +489,9 @@ function FilesViewModel(){
         if (obj.type == "dir") {
             window.location.href = "/datas/filemanagement/download.xhtml?path=" + obj.path;
         }
+        else{
+            window.location.href = "/datas/filemanagement/filemanager.xhtml?path=" + obj.path + "&mode=download";
+        }
     };
 	self.selectFile = function(file, event){
 		self.selectedFolder(file);
