@@ -28,6 +28,28 @@
 			</div>
 			<div class="sidebar">
 				<div class="css-treeview">
+					<ul data-bind="foreach: files">
+						<li>
+							<input type="checkbox" />
+							<label for="item-0" data-bind="text: name"></label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="content" data-bind="foreach: selectedFolder">
+			</div>
+			<script type="text/html" id="tree-template">
+					<ul>
+						<li data-bind="if: type === 'folder'">
+							<input type="checkbox" checked="checked" data-bind="attr: { id: 'item-'+id }"/>
+							<label data-bind="attr: { for: 'item-'+id }" data-bind="text: name"></label>
+							<!-- ko if: typeof files !== 'undefined' -->
+								<!-- ko template: { name: 'tree-template', foreach: files } -->
+								<!-- /ko -->
+							<!-- /ko -->
+						</li>
+					</ul>
+					<!--
 					<ul>
 						<li><input type="checkbox" id="item-0" /><label for="item-0">This Folder is Closed By Default</label>
 							<ul>
@@ -131,10 +153,8 @@
 							</ul>
 						</li>
 					</ul>
-				</div>
-			</div>
-			<div class="content" data-bind="foreach: selectedFolder">
-			</div>
+					-->
+			</script>
 		</div>
 		<script type="text/javascript" src="public/javascript/app-window/files.js"></script>
 	</body>

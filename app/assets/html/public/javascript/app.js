@@ -9,20 +9,27 @@ var dataSource = {
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
 	*/
-
-    //contacts : 'datas/testDataset/contacts.json',
-    //smsThreads : 'datas/testDataset/smsThreads.json',
+	
+    contacts : 'datas/testDataset/contacts.json',
+    smsThreads : 'datas/testDataset/smsThreads.json',
 	sms : 'datas/testDataset/sms.json',
-	/*files : 'datas/testDataset/files.json',
+	files : 'datas/testDataset/files.json',
 	apps : 'datas/testDataset/apps.json'
-    */
 
+	/*
     contacts : 'datas/addressBook/contacts.xhtml',
     smsThreads : 'datas/sms/threads.xhtml',
-    //sms : 'datas/sms/show_thread.xhtml',
+    sms : 'datas/sms/show_thread.xhtml',
     files : 'datas/filemanagement/filemanager.xhtml',
     apps : 'datas/application/applications_list.xhtml'
+	*/
 };
+function basename(path) {
+    return path.replace(/\\/g,'/').replace( /.*\//, '' );
+}
+function dirname(path) {
+    return path.replace(/\\/g,'/').replace(/\/[^\/]*$/, '');;
+}
 function getCharArray(){
 	var charArray = [];
 	for(var i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
@@ -405,7 +412,7 @@ function loadFiles(viewModel, callback){
 		for(key in datas){
 			viewModel.addFile(datas[key]);
 		}
-		viewModel.sortFiles(datas[key]);
+		viewModel.sortFiles(datas);
 		
 		if(typeof(callback) == "function")
 			callback();
@@ -414,21 +421,28 @@ function loadFiles(viewModel, callback){
 function File(_filetype, _path, _name, _ext, _size, _modificationDate){
 	var self = this;
 	self.id;
-	self.filetype = _filetype;
+	self.type = _filetype;
 	self.extension = _ext;
-	self.filename = _name;
+	self.name = _name;
 	self.path = _path;
 	self.size = _size;
-	self.modified = _modificationDate;
+	self.modificationDate = _modificationDate;
+	self.files = ko.observableArray([]);
 }
 function FilesViewModel(){
 	var self = this;
 
+	self.SORT_TYPE = {
+		DATE : 0,
+		NAME : 1
+	};
+	
 	self.files = ko.observableArray([]);
 	
 	self.selectedFolder = ko.observable();
 	self.addFile = function(obj){
-		self.files.push(new File(obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified));
+		var file = new File(obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified);
+		self.files.push(file);
 	};
 	self.selectFile = function(file){
 		self.selectedFolder(file);
@@ -441,15 +455,74 @@ function FilesViewModel(){
 			}
 		});
 	};
-	self.sortFileSystemItem = function(){
+	self.sortFiles = function(sortType){
 		self.files.sort(function(a,b) {
-			if (a.date < b.date)
-				return -1;
-			if (a.date > b.date)
-				return 1;
-			return 0;
+			if(self.SORT_TYPE.DATE === sortType){
+				if (a.modificationDate < b.modificationDate)
+					return -1;
+				if (a.modificationDate > b.modificationDate)
+					return 1;
+				return 0;
+			}
+			else{
+				return a.path.localeCompare(b.path);
+			}
 		});
 	};
+/*
+function explodeTree($array, $delimiter = '_', $baseval = false)
+{
+    if(!is_array($array)) return false;
+    $splitRE   = '/' . preg_quote($delimiter, '/') . '/';
+    $returnArr = array();
+    foreach ($array as $key => $val) {
+        // Get parent parts and the current leaf
+        $parts  = preg_split($splitRE, $key, -1, PREG_SPLIT_NO_EMPTY);
+        $leafPart = array_pop($parts);
+
+        // Build parent structure
+        // Might be slow for really deep and large structures
+        $parentArr = &$returnArr;
+        foreach ($parts as $part) {
+            if (!isset($parentArr[$part])) {
+                $parentArr[$part] = array();
+            } elseif (!is_array($parentArr[$part])) {
+                if ($baseval) {
+                    $parentArr[$part] = array('__base_val' => $parentArr[$part]);
+                } else {
+                    $parentArr[$part] = array();
+                }
+            }
+            $parentArr = &$parentArr[$part];
+        }
+
+        // Add the final part to the structure
+        if (empty($parentArr[$leafPart])) {
+            $parentArr[$leafPart] = $val;
+        } elseif ($baseval && is_array($parentArr[$leafPart])) {
+            $parentArr[$leafPart]['__base_val'] = $val;
+        }
+    }
+    return $returnArr;
+}
+*/
+	self.fileTree = ko.computed(function(){
+		self.sortFiles();
+		var result = {};
+		var done = [];
+		for(k1 in self.files()){
+			done.push(k1);
+			for(k2 in self.files()){
+				if(done.indexOf(k2) != -1){
+					if(self.files()[k1].path === self.files()[k2].path.substring(0, str.lastIndexOf("/"))){
+						self.files()[k1].files.push(self.files()[k2]);
+					}
+				}
+			}
+		}
+		console.log(self.files());
+		return self.files();
+	});
 };
 ////////////////////////////////////////////////////////////
 /////////////////////////////APP////////////////////////////
