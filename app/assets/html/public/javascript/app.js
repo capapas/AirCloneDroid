@@ -9,33 +9,22 @@ var dataSource = {
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
 	*/
-<<<<<<< HEAD
 	
     contacts : 'datas/testDataset/contacts.json',
     smsThreads : 'datas/testDataset/smsThreads.json',
 	sms : 'datas/testDataset/sms.json',
 	files : 'datas/testDataset/files.json',
-=======
-
-    //contacts : 'datas/testDataset/contacts.json',
-    //smsThreads : 'datas/testDataset/smsThreads.json',
-	//sms : 'datas/testDataset/sms.json',
-	/*files : 'datas/testDataset/files.json',
->>>>>>> b31cd00c33b0022d63054efc3c7684def80688b3
-	apps : 'datas/testDataset/apps.json'
+	apps : 'datas/testDataset/apps.json',
+    callLogs : 'datas/testDataset/call_log.json'
 
 	/*
     contacts : 'datas/addressBook/contacts.xhtml',
     smsThreads : 'datas/sms/threads.xhtml',
     sms : 'datas/sms/show_thread.xhtml',
     files : 'datas/filemanagement/filemanager.xhtml',
-<<<<<<< HEAD
-    apps : 'datas/application/applications_list.xhtml'
-	*/
-=======
     apps : 'datas/application/applications_list.xhtml',
     callLogs : 'datas/call/call_log.xhtml'
->>>>>>> b31cd00c33b0022d63054efc3c7684def80688b3
+	*/
 };
 function basename(path) {
     return path.replace(/\\/g,'/').replace( /.*\//, '' );
