@@ -6,6 +6,11 @@ Un clone de AirDroid, qui utilise [PAW Server](http://paw-android.fun2code.de/).
 
 Voir le fichier [SPECS.md](https://github.com/capapas/AirCloneDroid/blob/master/SPECS.md)
 
+## Installation:
+
+Voir le fichier [INSTALL.md](https://github.com/capapas/AirCloneDroid/blob/master/INSTALL.md)
+
+
 ## Equipe:
 
 - [Maxime Horcholle](https://github.com/mhor)
