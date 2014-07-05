@@ -32,7 +32,13 @@
 					</ul>
 				</div>
 			</div>
-			<div class="content" data-bind="width: selectedFolder">
+			<div class="main" data-bind="width: selectedFolder">
+				<ul class="sortable-grid" data-bind="foreach: children">
+					<li>
+						<img data-bind="attr: { src: Preview }" width="74" height="74" />
+						<p data-bind="text: name"></p>
+					</li>
+				</ul>
 			</div>
 			<script type="text/html" id="tree-template">
 				<li data-bind="if: type === 'dir'">

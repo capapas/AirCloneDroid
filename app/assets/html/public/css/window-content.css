@@ -349,6 +349,21 @@ blockquote:last-child::before {
 	border-left-color: #1D62F0;
 }
 /************************************FILE************************************/
+.sortable-grid{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 450px;
+}
+.sortable-grid li {
+	margin: 3px 3px 3px 0;
+	padding: 1px;
+	float: left;
+	width: 100px;
+	height: 90px;
+	font-size: 4em;
+	text-align: center;
+}
 .css-treeview ul,
 .css-treeview li {
     padding: 0;
@@ -435,23 +450,19 @@ blockquote:last-child::before {
 	height: 140px;
 	float: left;
 }
-
 /************************************CALL LOGS*******************************/
-
 .call_table {
     margin-bottom: 2px;
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 }
-
 .call_table thead tr td {
     background: url("/public/img/desktop/repeat_x.png") repeat-x scroll 0 -42px rgba(0, 0, 0, 0);
     border-right: 1px solid #ccc;
     height: 23px;
     line-height: 20px;
 }
-
 .call_table tr td {
     padding: 0 5px;
 }
