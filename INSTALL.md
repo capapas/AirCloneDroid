@@ -9,7 +9,7 @@ $ git clone  https://github.com/capapas/AirCloneDroid.git
 
 * 2) Lancer Eclipse on pars du principe que Eclipse est configurer pour lancer des projets Android
 
-*3) Cliquer sur File -> Import...
+* 3) Cliquer sur File -> Import...
 
 * 4) Selectionner le repository cloner précédément, puis le sous dossier apps, qui contient les sources du projet
 
