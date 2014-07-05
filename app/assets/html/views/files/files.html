@@ -20,14 +20,14 @@
 		<div id="filesView">
 			<div class="toolbar">
 				<form class="search-wrapper cf">
-					<input type="text" required="required">
+					<input type="text" required="required" />
 					<button type="submit" class="btn">Recherche</button>
 				</form>
 				<button class="btn del">Supprimer</button>
 				<button class="btn">Actualiser</button>
 			</div>
 			<div class="sidebar">
-				<div class="css-treeview"">
+				<div class="css-treeview">
 					<ul data-bind="template: { name: 'tree-template', foreach: rootFiles }">
 					</ul>
 				</div>
@@ -36,9 +36,9 @@
 			</div>
 			<script type="text/html" id="tree-template">
 				<li data-bind="if: type === 'dir'">
-					<input type="checkbox" data-bind="attr: { id: 'item-'+id }, click: $root.selectFile"/>
+					<input type="checkbox" data-bind="attr: { id: 'item-'+id }, click: $root.selectFile" />
 					<label data-bind="text: name, attr: { for: 'item-'+id }"></label>
-					<!-- ko if: typeof children !== 'undefined' -->
+					<!-- ko if: typeof children !== 'undefined' && children().length > 0 -->
 						<ul data-bind="template: { name: 'tree-template', foreach: children }">
 						</ul>
 					<!-- /ko -->

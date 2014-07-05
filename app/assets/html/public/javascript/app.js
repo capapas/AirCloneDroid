@@ -8,7 +8,7 @@ var dataSource = {
 	sms : '../../datas/testDataset/sms.json',
 	files : '../../datas/testDataset/files.json',
 	apps : ''../../datas/testDataset/apps.json'
-	*
+	*/
     contacts : 'datas/testDataset/contacts.json',
     smsThreads : 'datas/testDataset/smsThreads.json',
 	sms : 'datas/testDataset/sms.json',
@@ -481,17 +481,17 @@ function FilesViewModel(){
 		var file = new File(self.rootFiles().length, obj.Filetype, obj.Path, obj.Filename, obj.Extension, obj.Size, obj.Modified);
 		self.rootFiles.push(file);
 	};
-	self.selectFile = function(file){
+	self.selectFile = function(file, event){
 		self.selectedFolder(file);
+		file.children.removeAll();
 		$.getJSON(dataSource.fileTree+'?dir='+file.path, function(datas){
 			for(key in datas){
-				//file.children().push(datas[key]);
 				file.children.push(new File(self.rootFiles().length, datas[key].Filetype, datas[key].Path, datas[key].Filename, datas[key].Extension, datas[key].Size, datas[key].Modified));
 			}
-			console.log(self.rootFiles());
 		}).fail(function (d, textStatus, error) {
 			console.error("getJSON file failed, status :" + textStatus + ", error : " + error);
 		});
+		return true;
 	};
 	self.sortFiles = function(sortType){
 		self.rootFiles.sort(function(a,b) {
