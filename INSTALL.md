@@ -13,7 +13,7 @@ $ git clone  https://github.com/capapas/AirCloneDroid.git
 
 * 4) Choisir un projet android déjà existant
 
-* 5) Selectionner le repository cloner précédément, >>#puis le sous dossier apps#<<, qui contient les sources du projet
+* 5) Selectionner le repository cloner précédément, >>""puis le sous dossier apps""<<, qui contient les sources du projet
 
 * 6) Rajouter les bibliothèques du projet (contenues dans le répertoire "lib") dans le build path avec add external jar, si nécéssaire
 
