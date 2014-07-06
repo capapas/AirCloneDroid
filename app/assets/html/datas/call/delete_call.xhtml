@@ -1,0 +1,19 @@
+<bsh>
+import android.app.Service;
+import android.database.Cursor;
+import android.net.Uri;
+import java.text.DateFormat;
+import android.provider.CallLog;
+import java.text.SimpleDateFormat;
+
+callId = parameters.get("callId");
+deleteAll = parameters.get("deleteAll");
+
+service = (Service) server.props.get("serviceContext");
+
+if (deleteAll != null && deleteAll.equals("true")) {
+    service.getContentResolver().delete(CallLog.Calls.CONTENT_URI, null, null);
+}
+
+print("[{\"success\" : true}]");
+</bsh>
