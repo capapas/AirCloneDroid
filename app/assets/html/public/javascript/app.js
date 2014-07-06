@@ -683,3 +683,53 @@ function CallLogsViewModel(){
         });
     };
 };
+
+////////////////////////////////////////////////////////////
+///////////////////////////PHOTOS///////////////////////////
+////////////////////////////////////////////////////////////
+function initPhotosView(){
+    var photosVM = new PhotosViewModel();
+    ko.applyBindings(photosVM, document.getElementById('photosView'));
+
+//    loadPhotos(photosVM);
+}
+function loadPhotos(viewModel, callback){
+    $.getJSON(dataSource.callLogs, function(datas) {
+        viewModel.callLogs.removeAll();
+        for(key in datas){
+            viewModel.addCallLogs(datas[key]);
+        }
+        viewModel.sortCallLogs(datas[key]);
+
+        if(typeof(callback) == "function")
+            callback();
+    });
+}
+function CallLogs(_number, _name, _date, _datetime, _duration, _type){
+    var self = this;
+    self.id;
+    self.number = _number;
+    self.name = _name;
+    self.date = _date;
+    self.dateTime = _datetime;
+    self.duration = _duration;
+    self.type = _type;
+}
+function CallLogsViewModel(){
+    var self = this;
+
+    self.callLogs = ko.observableArray([]);
+
+    self.addCallLogs = function(obj){
+        self.callLogs.push(new CallLogs(obj.number, obj.name, obj.date, obj.dateTime, obj.duration, obj.type));
+    };
+    self.sortCallLogs = function(){
+        self.callLogs.sort(function(a,b) {
+            if (a.dateTime < b.dateTime)
+                return -1;
+            if (a.dateTime > b.dateTime)
+                return 1;
+            return 0;
+        });
+    };
+};

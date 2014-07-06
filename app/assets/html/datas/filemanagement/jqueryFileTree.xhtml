@@ -64,7 +64,11 @@ if(dir !=null) {
                 dirTreeSb2.append("\"Extension\": \"" + ext + "\",");
                 dirTreeSb2.append("\"Modified\": \"" + dateFormat.format(realFile.lastModified()) + "\",");
                 dirTreeSb2.append("\"Size\": \"" + realFile.length() + "\",");
-                dirTreeSb2.append("\"Preview\": \"/public/img/filemanagement/fileicons/" + ext + ".png\",");
+                if (ext == null || ext.isEmpty()) {
+                    dirTreeSb2.append("\"Preview\": \"/public/img/filemanagement/fileicons/default.png\",");
+                } else {
+                    dirTreeSb2.append("\"Preview\": \"/public/img/filemanagement/fileicons/" + ext + ".png\",");
+                }
                 dirTreeSb2.append("\"Filename\": \"" + file + "\",");
                 dirTreeSb2.append("\"Path\": \"" + dir + file + "\"");
                 dirTreeSb2.append("}");
