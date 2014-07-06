@@ -12,9 +12,14 @@
 
     cursor = service.getContentResolver().query(
         CallLog.Calls.CONTENT_URI,
-        new String[] { CallLog.Calls.NUMBER, CallLog.Calls.CACHED_NAME,
-        CallLog.Calls.DATE,
-        CallLog.Calls.DURATION, CallLog.Calls.TYPE },
+        new String[] {
+            CallLog.Calls.NUMBER,
+            CallLog.Calls.CACHED_NAME,
+            CallLog.Calls.DATE,
+            CallLog.Calls.DURATION,
+            CallLog.Calls.TYPE,
+            CallLog.Calls._ID,
+        },
         null,
         null,
         SORT_ORDER
@@ -35,6 +40,7 @@
                     callDate = cursor.getLong(2);
                     callDuration = cursor.getLong(3);
                     callType = cursor.getLong(4);
+                    callId = cursor.getInt(5);
 
                     callTypeLabel = "";
 
@@ -63,7 +69,7 @@
         result = "Manqué";
     }
 
-    print("\t\t{\n\t\t\t\"number\" : \"" + callNumber + "\",\n\t\t\t\"name\" : \"" + callName + "\",\n\t\t\t\"date\" : \"" + dayDateFormat.format(callDate) + " à " + timeDateFormat.format(callDate) + "\",\n\t\t\t\"datetime\" : \"" + callDate + "\",\n\t\t\t\"duration\" : \"" + result + "\",\n\t\t\t\"type\" : \"" + callTypeLabel + "\"\n\t\t}");
+    print("\t\t{\n\t\t\t\"callId\" : " + callId + ",\n\t\t\t\"number\" : \"" + callNumber + "\",\n\t\t\t\"name\" : \"" + callName + "\",\n\t\t\t\"date\" : \"" + dayDateFormat.format(callDate) + " à " + timeDateFormat.format(callDate) + "\",\n\t\t\t\"datetime\" : \"" + callDate + "\",\n\t\t\t\"duration\" : \"" + result + "\",\n\t\t\t\"type\" : \"" + callTypeLabel + "\"\n\t\t}");
                     if (!cursor.isLast()) {
                         print(",");
                     }

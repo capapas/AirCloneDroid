@@ -15,5 +15,13 @@ if (deleteAll != null && deleteAll.equals("true")) {
     service.getContentResolver().delete(CallLog.Calls.CONTENT_URI, null, null);
 }
 
+if (callId != null) {
+    service.getContentResolver().delete(
+        CallLog.Calls.CONTENT_URI,
+        "_ID = " + callId,
+        null
+    );
+}
+
 print("[{\"success\" : true}]");
 </bsh>
