@@ -1,0 +1,20 @@
+[
+    {
+        "callId": 0,
+        "name": "ad",
+        "datetime" : 55521,
+        "number": "+3360101001",
+        "date": "06/02/2014 04:29:29:595",
+        "type": "call_outgoing",
+        "duration": 1000
+    },
+    {
+        "callId": 1,
+        "name": "ad",
+        "number": "+1513",
+        "datetime" : 111455454,
+        "date": "06/02/2014 04:29:29:595",
+        "type": "call_missed",
+        "duration": 1000
+    }
+]
