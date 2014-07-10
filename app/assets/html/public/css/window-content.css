@@ -306,6 +306,15 @@ a {
 	position: relative;
 	box-shadow: 0 15px 1px -12px rgba(0,0,0,0.05);
 }
+
+.date-message-me {
+    color: #88ee93;
+}
+
+.date-message-them {
+    color: #424146;
+}
+
 .chat .them, .chat .me { margin-bottom: 1ex; }
 .chat .them { text-align: left; }
 .chat .me { text-align: right; }

@@ -32,6 +32,7 @@
                             <!-- ko if: name != "null" -->
                                 <span data-bind="text: name"></span>
                             <!-- /ko -->
+                            <span>(<!--ko text: count-->)<!--/ko-->)</span>
 						</p>
 					</li>
 				</ul>
@@ -59,7 +60,10 @@
 				<div></div>
 				<ol class="chat" data-bind="foreach: messages">
 					<li data-bind="attr: { class: sent ? 'me' : 'them'}">
-						<blockquote data-bind="text: message"></blockquote>
+						<blockquote>
+                            <div data-bind="text: message"></div>
+                            <div data-bind="attr: { class: sent ? 'date-message-me' : 'date-message-them'}, text: date"></div>
+						</blockquote>
 					</li>
 				</ol>
 				<form action="datas/sms/send_sms.xhtml"  method="POST" data-bind="submit: $parent.submitSms">
