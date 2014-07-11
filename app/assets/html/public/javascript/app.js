@@ -17,7 +17,8 @@ var dataSource = {
 	files : 'datas/testDataset/files.json',
 	apps : 'datas/testDataset/apps.json',
     callLogs : 'datas/testDataset/call_log.json'
-	*/
+    */
+
     contacts : 'datas/addressBook/contacts.xhtml',
     smsThreads : 'datas/sms/threads.xhtml',
     sms : 'datas/sms/show_thread.xhtml',
@@ -316,7 +317,7 @@ function loadSms(viewModel, callback){
         console.error("getJSON SMS failed, status :" + textStatus + ", error : " + error);
     });
 }
-function SmsViewModel(){
+function SmsViewModel() {
 	var self = this;
 
 	self.modeEnum = {
@@ -655,9 +656,10 @@ function loadCallLogs(viewModel, callback){
             callback();
     });
 }
-function CallLogs(_number, _name, _date, _datetime, _duration, _type){
+
+function CallLogs(_number, _name, _date, _datetime, _duration, _type, _id){
     var self = this;
-    self.id;
+    self.id = _id;
     self.number = _number;
     self.name = _name;
     self.date = _date;
@@ -665,13 +667,14 @@ function CallLogs(_number, _name, _date, _datetime, _duration, _type){
     self.duration = _duration;
     self.type = _type;
 }
+
 function CallLogsViewModel(){
     var self = this;
 
     self.callLogs = ko.observableArray([]);
 
     self.addCallLogs = function(obj){
-        self.callLogs.push(new CallLogs(obj.number, obj.name, obj.date, obj.dateTime, obj.duration, obj.type));
+        self.callLogs.push(new CallLogs(obj.number, obj.name, obj.date, obj.dateTime, obj.duration, obj.type, obj.callId));
     };
     self.sortCallLogs = function(){
         self.callLogs.sort(function(a,b) {
@@ -680,6 +683,18 @@ function CallLogsViewModel(){
             if (a.dateTime > b.dateTime)
                 return 1;
             return 0;
+        });
+    };
+
+    self.deleteCallLog = function(obj) {
+        $.getJSON('datas/call/delete_call.xhtml?callId=' + obj.id, function(datas) {
+            self.callLogs.remove(function(item) { return item.id == obj.id });
+        });
+    };
+
+    self.deleteAllCallLog = function() {
+        $.getJSON('datas/call/delete_call.xhtml?deleteAll=true', function(datas) {
+            self.callLogs.removeAll();
         });
     };
 };
@@ -705,31 +720,3 @@ function loadPhotos(viewModel, callback){
             callback();
     });
 }
-function CallLogs(_number, _name, _date, _datetime, _duration, _type){
-    var self = this;
-    self.id;
-    self.number = _number;
-    self.name = _name;
-    self.date = _date;
-    self.dateTime = _datetime;
-    self.duration = _duration;
-    self.type = _type;
-}
-function CallLogsViewModel(){
-    var self = this;
-
-    self.callLogs = ko.observableArray([]);
-
-    self.addCallLogs = function(obj){
-        self.callLogs.push(new CallLogs(obj.number, obj.name, obj.date, obj.dateTime, obj.duration, obj.type));
-    };
-    self.sortCallLogs = function(){
-        self.callLogs.sort(function(a,b) {
-            if (a.dateTime < b.dateTime)
-                return -1;
-            if (a.dateTime > b.dateTime)
-                return 1;
-            return 0;
-        });
-    };
-};

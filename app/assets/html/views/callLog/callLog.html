@@ -18,59 +18,44 @@
 </head>
 <body>
 <div id="callLogsView">
-    <div>
-        <table class="call_table">
+    <div class="toolbar">
 
-            <thead> <!-- En-tête du tableau -->
+        <button class="btn del" data-bind="click: deleteAllCallLog">Tous supprimer</button>
+    </div>
+    <div class="main-without-sidebar">
+        <table class="call_table">
+            <thead>
             <tr>
-                <td style="width: 8%">Appel</td>
-                <td style="width: 25%">Nom</td>
+                <td style="width: 10%">Appel</td>
+                <td style="width: 20%">Nom</td>
                 <td style="width: 25%">Numéro</td>
                 <td style="width: 30%">Date</td>
-                <td style="width: 12%">Durée</td>
+                <td style="width: 10%">Durée</td>
+                <td style="width: 5%">Supprimer</td>
             </tr>
             </thead>
         </table>
 
         <table class="call_table">
-            <tbody data-bind="foreach: callLogs"> <!-- Corps du tableau -->
+            <tbody data-bind="foreach: callLogs">
             <tr>
                 <td style="text-align: center"><img
                         data-bind="attr: { src: '/public/img/'.concat(type).concat('.png') }"
                         height="25px"/></td>
                 <!-- ko if: name == "null" -->
-                <td data-bind="text: number"></td>
+                    <td data-bind="text: number"></td>
                 <!-- /ko -->
                 <!-- ko if: name != "null" -->
-                <td data-bind="text: name"></td>
+                    <td data-bind="text: name"></td>
                 <!-- /ko -->
                 <td data-bind="text: number"></td>
                 <td data-bind="text: date"></td>
                 <td data-bind="text: duration"></td>
+                <td><a href="#" class="icon-delete" data-bind="click: $root.deleteCallLog" title="Supprimer"></a></td>
             </tr>
             </tbody>
         </table>
     </div>
-
-    <!--<div data-bind="foreach: callLogs">-->
-    <!--<p data-bind="text: type"></p>-->
-    <!--<table class="main-without-sidebar" style="border-collapse: collapse">-->
-    <!--<tr>-->
-    <!--<th>Appel</th>-->
-    <!--<th>Nom</th>-->
-    <!--<th>Numéro</th>-->
-    <!--<th>Date</th>-->
-    <!--<th>Durée</th>-->
-    <!--</tr>-->
-    <!--<tr>-->
-    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
-    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
-    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
-    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
-    <!--<td style="border: 1px solid silver" data-bind="attr: text: $type"></td>-->
-    <!--</tr>-->
-    <!--</table>-->
-    <!--</div>-->
 </div>
 <script type="text/javascript" src="public/javascript/app-window/callLog.js"></script>
 </body>
