@@ -22,6 +22,3 @@ Voir le fichier [INSTALL.md](https://github.com/capapas/AirCloneDroid/blob/maste
 - [Florim Kelmeni](https://github.com/Daybay)
 - [Jean-Ernsso Pierre](https://github.com/ernsso)
 
-## Planification:
-
-Voir le [tableau de board Trello](https://trello.com/b/0kn3jeW8/airclonedroid)
