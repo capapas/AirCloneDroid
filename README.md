@@ -1,22 +1,22 @@
 # AirCloneDroid
 
-Un clone de AirDroid, qui utilise [PAW Server](http://paw-android.fun2code.de/).
+A AirDroid clone who use [PAW Server](http://paw-android.fun2code.de/).
 
-## Prérequis
+## Requiered
 
-- Un téléphone en 4+ (pas de support des anciennes API)
-- Un IDE configuré pour le développement Android (Eclipse ou Android Studio)
+- Android 4+ phone (olds API are not supported)
+- configured IDE for Android  development (Eclipse ou Android Studio)
 
-## Spécifications:
+## Specifications:
 
-Voir le fichier [SPECS.md](https://github.com/capapas/AirCloneDroid/blob/master/SPECS.md)
+See [SPECS.md](https://github.com/capapas/AirCloneDroid/blob/master/SPECS.md)
 
-## Installation:
+## Install:
 
-Voir le fichier [INSTALL.md](https://github.com/capapas/AirCloneDroid/blob/master/INSTALL.md)
+See [INSTALL.md](https://github.com/capapas/AirCloneDroid/blob/master/INSTALL.md)
 
 
-## Equipe:
+## Team:
 
 - [Maxime Horcholle](https://github.com/mhor)
 - [Florim Kelmeni](https://github.com/Daybay)
